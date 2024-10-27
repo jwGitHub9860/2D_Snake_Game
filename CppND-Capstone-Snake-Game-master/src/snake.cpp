@@ -19,7 +19,7 @@ void Snake::Update() {
   }
 }
 
-void Snake::UpdateHead() {
+void Snake::UpdateHead() {  // holds direction of Snake
   switch (direction) {
     case Direction::kUp:
       head_y -= speed;
@@ -43,7 +43,7 @@ void Snake::UpdateHead() {
   head_y = fmod(head_y + grid_height, grid_height);
 }
 
-void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) {
+void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) { // body follows previous head position
   // Add previous head location to vector
   body.push_back(prev_head_cell);
 
@@ -66,7 +66,7 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
 void Snake::GrowBody() { growing = true; }
 
 // Inefficient method to check if cell is occupied by snake.
-bool Snake::SnakeCell(int x, int y) {
+bool Snake::SnakeCell(int x, int y) { // checks if food is in same cell as Snake head or body
   if (x == static_cast<int>(head_x) && y == static_cast<int>(head_y)) {
     return true;
   }

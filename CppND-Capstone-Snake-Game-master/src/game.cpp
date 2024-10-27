@@ -5,9 +5,9 @@
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
       engine(dev()),
-      random_w(0, static_cast<int>(grid_width - 1)),
-      random_h(0, static_cast<int>(grid_height - 1)) {
-  PlaceFood();
+      random_w(0, static_cast<int>(grid_width - 1)),  // limits random numbers to 0 - 'grid max'
+      random_h(0, static_cast<int>(grid_height - 1)) {  // limits random numbers to 0 - 'grid max'
+  PlaceFood();  // places food on screen
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -20,14 +20,14 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   bool running = true;
 
   while (running) {
-    frame_start = SDL_GetTicks();
+    frame_start = SDL_GetTicks(); // records start of frame (timestamp)
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
     renderer.Render(snake, food);
 
-    frame_end = SDL_GetTicks();
+    frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 
     // Keep track of how long each loop through the input/update/render cycle
     // takes.
@@ -37,7 +37,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // After every second, update the window title.
     if (frame_end - title_timestamp >= 1000) {
       renderer.UpdateWindowTitle(score, frame_count);
-      frame_count = 0;
+      frame_count = 0;  // reset to 0
       title_timestamp = frame_end;
     }
 
@@ -57,7 +57,7 @@ void Game::PlaceFood() {
     y = random_h(engine);
     // Check that the location is not occupied by a snake item before placing
     // food.
-    if (!snake.SnakeCell(x, y)) {
+    if (!snake.SnakeCell(x, y)) { // checks if random numbers are in Snake location
       food.x = x;
       food.y = y;
       return;
