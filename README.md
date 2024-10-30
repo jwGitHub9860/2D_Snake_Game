@@ -8,7 +8,7 @@
 
 
 ## New Features paragraph:
-
+* Allow player to change Snake color
 
 ## Rubric Submission Explaination:
 
@@ -20,7 +20,7 @@
 * Add different types of food to the game.
 * Allow players to select the initial speed of the game.
 * Add another snake to the game that is controlled by the computer using the A* search algorithm.
-* Allow player to change Snake color
+
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
