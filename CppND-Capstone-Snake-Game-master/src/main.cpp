@@ -29,7 +29,7 @@ int main() {
     {
       cout << "Choose the Body Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink and Dark Violet): ";
       getline(cin, Snake::snakeBodyColor); // includes MORE THAN 1 word
-      transform(Snake::snakeBodyColor.begin(), Snake::snakeBodyColor.end(), Snake::snakeBodyColor.begin(), [](unsigned char c){ return tolower(c); });  // sets "snakeBodyColor" to lowercase, makes "snakeBodyColor" case insensitive
+      Snake::snakeBodyColor = transform(Snake::snakeBodyColor.begin(), Snake::snakeBodyColor.end(), Snake::snakeBodyColor.begin(), [](unsigned char c){ return tolower(c); });  // sets "snakeBodyColor" to lowercase, makes "snakeBodyColor" case insensitive
       Snake::snakeBodyColorHex = Snake::ColorWordToHex(Snake::snakeBodyColor);  // obtains chosen Body color
       if (choice == "body")
       {
@@ -44,7 +44,7 @@ int main() {
     {
       cout << "Choose the Head Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink and Dark Violet): ";
       getline(cin, Snake::snakeHeadColor); // includes MORE THAN 1 word
-      transform(Snake::snakeHeadColor.begin(), Snake::snakeHeadColor.end(), Snake::snakeHeadColor.begin(), [](unsigned char c){ return tolower(c); });  // sets "snakeHeadColor" to lowercase, makes "snakeHeadColor" case insensitive
+      Snake::snakeHeadColor = transform(Snake::snakeHeadColor.begin(), Snake::snakeHeadColor.end(), Snake::snakeHeadColor.begin(), [](unsigned char c){ return tolower(c); });  // sets "snakeHeadColor" to lowercase, makes "snakeHeadColor" case insensitive
       Snake::snakeHeadColorHex = Snake::ColorWordToHex(Snake::snakeHeadColor);  // obtains chosen Head color
       if (choice != "all")
 			{
@@ -59,6 +59,7 @@ int main() {
     {
       cout << "Choose the Food Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink and Dark Violet): ";
       getline(cin, Snake::foodColor); // includes MORE THAN 1 word
+      Snake::foodColor = transform(Snake::foodColor.begin(), Snake::foodColor.end(), Snake::foodColor.begin(), [](unsigned char c){ return tolower(c); });  // sets "foodColor" to lowercase, makes "foodColor" case insensitive
       Snake::foodHexColor = Snake::ColorWordToHex(Snake::foodColor);  // obtains chosen Food color
       cout << endl;
       break;
