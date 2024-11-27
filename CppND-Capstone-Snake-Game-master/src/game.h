@@ -11,9 +11,13 @@ class Game {
  public:
   Game(std::size_t grid_width, std::size_t grid_height);
   void Run(Controller const &controller, Renderer &renderer,  // calls game loop to start
-           std::size_t target_frame_duration);
+           std::size_t target_frame_duration, string colorPartChoice);  // ADDED "colorPartChoice" AS MY OWN CODE (delete comment later?)
   int GetScore() const;
   int GetSize() const;
+
+
+  string colorPartChoice = ""; // initializes Snake Color Change choice; "game.cpp" & "main.cpp" USE IT
+
 
  private:
   Snake snake;  // stores Snake object

@@ -2,6 +2,8 @@
 #include <iostream>
 #include "SDL.h"
 
+using namespace std;
+
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
       engine(dev()),
@@ -11,7 +13,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
-               std::size_t target_frame_duration) {
+               std::size_t target_frame_duration, string colorPartChoice) { // USES "using namespace std" ADDED "colorPartChoice" AS MY OWN CODE (delete comment later?)
   Uint32 title_timestamp = SDL_GetTicks();
   Uint32 frame_start;
   Uint32 frame_end;
@@ -22,10 +24,17 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   while (running) {
     frame_start = SDL_GetTicks(); // records start of frame (timestamp)
 
+    
+    if (colorPartChoice != "none")  // calls function 
+    {
+      renderer.ColorChoice(colorPartChoice);
+    }
+    
+
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food);
+    renderer.Render(snake, food, snakeBodyColorHex[4], snakeHeadColorHex[4], foodHexColor[4]);  // ADDED IN MY OWN (delete comment later?)
 
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 
