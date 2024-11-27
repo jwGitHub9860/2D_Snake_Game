@@ -49,13 +49,13 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, unsigned char sn
   SDL_RenderClear(sdl_renderer);
 
   // Render food
-  SDL_SetRenderDrawColor(sdl_renderer, foodHexColor); // sets screen color to yellow
+  SDL_SetRenderDrawColor(sdl_renderer, foodHexColor[4]); // sets screen color to yellow
   block.x = food.x * block.w;
   block.y = food.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
 
   // Render snake's body
-  SDL_SetRenderDrawColor(sdl_renderer, snakeBodyColorHex); // sets screen color to white
+  SDL_SetRenderDrawColor(sdl_renderer, snakeBodyColorHex[4]); // sets screen color to white
   for (SDL_Point const &point : snake.body) {
     block.x = point.x * block.w;
     block.y = point.y * block.h;
@@ -66,7 +66,7 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, unsigned char sn
   block.x = static_cast<int>(snake.head_x) * block.w;
   block.y = static_cast<int>(snake.head_y) * block.h;
   if (snake.alive) {
-    SDL_SetRenderDrawColor(sdl_renderer, snakeHeadColorHex); // render Snake 1 color
+    SDL_SetRenderDrawColor(sdl_renderer, snakeHeadColorHex[4]); // render Snake 1 color
   } else {
     SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF); // render Snake different color
   }
