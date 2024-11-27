@@ -183,8 +183,8 @@ void Renderer::ColorChoice(string colorPartChoice)   // allows user to change "B
 		cout << colorChoice;
 		getline(cin, colorHolder[j]); // includes MORE THAN 1 word
 		transform(colorHolder[j].begin(), colorHolder[j].end(), colorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColor", "snakeHeadColor", and/or "foodColor" to lowercase, makes case insensitive
-    snakeBodyColorHex[4] = ColorWordToHex(snakeBodyColor);  // obtains chosen Body color
-    snakeHeadColorHex[4] = ColorWordToHex(snakeHeadColor);  // obtains chosen Head color
-    foodHexColor[4] = ColorWordToHex(foodColor);  // obtains chosen Food color
 	}
+  snakeBodyColorHex[4] = ColorWordToHex(snakeBodyColor);  // obtains chosen Body color
+  snakeHeadColorHex[4] = ColorWordToHex(snakeHeadColor);  // obtains chosen Head color
+  foodHexColor[4] = ColorWordToHex(foodColor);  // obtains chosen Food color
 }
