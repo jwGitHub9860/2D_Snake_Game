@@ -178,9 +178,9 @@ void Renderer::ColorChoice(string colorPartChoice)   // allows user to change "B
 			j = 2;
 		}
 		
-    string colorChoice("Choose the Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink, Dark Violet, White, and Default Blue): ");
-		colorChoice.insert(11, colorType[j]);
-		cout << colorChoice;
+    string choosingColor("Choose the Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink, Dark Violet, White, and Default Blue): ");
+		choosingColor.insert(11, colorType[j]);
+		cout << choosingColor;
 		getline(cin, colorHolder[j]); // includes MORE THAN 1 word
 		transform(colorHolder[j].begin(), colorHolder[j].end(), colorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColor", "snakeHeadColor", and/or "foodColor" to lowercase, makes case insensitive
 	}
