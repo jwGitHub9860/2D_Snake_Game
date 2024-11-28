@@ -19,7 +19,7 @@ int main() {
 
   string choice = ""; // initializes Snake Color Change choice; limits to ONLY "main.cpp"
 
-  cout << "Please choose whether you want to specify the snake's body, head, and/or food colors? (Body, Head, Food, Whole Snake, All, or None)" << endl;
+  cout << "Please choose whether you want to specify the snake's body, head, and/or food colors? (Body, Head, Food, Whole Snake, All, or None)\n";
   getline(cin, choice); // includes MORE THAN 1 word
   transform(choice.begin(), choice.end(), choice.begin(), [](unsigned char c){ return tolower(c); });  // sets "choice" to lowercase, makes "choice" case insensitive
   

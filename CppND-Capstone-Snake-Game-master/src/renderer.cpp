@@ -1,7 +1,10 @@
 #include "renderer.h"
 #include "snake.h"  // allows access to "Color" result
+#include <fstream>
 #include <iostream>
 #include <string>
+
+using namespace std;
 
 Renderer::Renderer(const std::size_t screen_width,
                    const std::size_t screen_height,
@@ -178,9 +181,20 @@ void Renderer::ColorChoice(string colorPartChoice)   // allows user to change "B
 			j = 2;
 		}
 		
-    string choosingColor("Choose the Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink, Dark Violet, White, and Default Blue): ");
-		choosingColor.insert(11, colorType[j]);
-		cout << choosingColor;
+    ifstream stream("choosing_color_string.txt"); // accesses "choosing_color_string.txt" file
+    if (stream.open())
+    {
+      while (getline(stream, line))  // accesses text inside "choosing_color_string.txt" file & stores in "line"
+      {
+        line.insert(11, colorType[j]);
+        cout << line;
+      }
+      stream.close();
+    }
+    else
+    {
+      cout << "Text file failed to open.\n";
+    }
 		getline(cin, colorHolder[j]); // includes MORE THAN 1 word
 		transform(colorHolder[j].begin(), colorHolder[j].end(), colorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColor", "snakeHeadColor", and/or "foodColor" to lowercase, makes case insensitive
 	}

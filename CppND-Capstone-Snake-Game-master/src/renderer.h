@@ -42,6 +42,7 @@ class Renderer {
   const std::size_t grid_height;
 
 
+  string line;  // used to access text in "choosing_color_string.txt" file
   string ChoosenColor = ""; // initializes Choosen Color
   unsigned char ChoosenHexColor[4] = {}; // initializes Choosen Hex Color
 
