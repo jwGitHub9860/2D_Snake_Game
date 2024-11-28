@@ -178,7 +178,7 @@ void Renderer::ColorChoice(string colorPartChoice)   // allows user to change "B
 			j = 2;
 		}
 		
-    string colorChoice("Choose the Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink and Dark Violet): ");
+    string colorChoice("Choose the Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink, Dark Violet, White, and Default Blue): ");
 		colorChoice.insert(11, colorType[j]);
 		cout << colorChoice;
 		getline(cin, colorHolder[j]); // includes MORE THAN 1 word
