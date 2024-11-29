@@ -34,7 +34,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food, snakeBodyColorHex[4], snakeHeadColorHex[4], foodHexColor[4]);  // ADDED IN MY OWN (delete comment later?)
+    renderer.Render(snake, food, renderer.snakeBodyColorHex[4], renderer.snakeHeadColorHex[4], renderer.foodHexColor[4]);  // ADDED IN MY OWN (delete comment later?)
 
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 
