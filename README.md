@@ -11,7 +11,12 @@
 * Give player choice to change Snake and/or Food color(s)
 
 ## Rubric Submission Explaination:
-
+The player choice to change Snake and/or Food color(s)
+- reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
+- accepts user's answers as input uses it to answer the given questions
+- uses vector called "colorHolder" as data structure to hold the strings of the food, snake body and head colors
+- STILL NEDDS CONSTANT VARIABLES
+- 
 
 ## New Features added:
 # Options [delete later]
