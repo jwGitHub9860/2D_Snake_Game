@@ -2,10 +2,13 @@
 #define GAME_H
 
 #include <random>
+#include <memory> // defines "unique_ptr"
 #include "SDL.h"
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
+
+using namespace std;
 
 class Game {
  public:
@@ -17,6 +20,9 @@ class Game {
 
 
   string colorPartChoice = ""; // initializes Snake Color Change choice; "game.cpp" & "main.cpp" USE IT
+  unique_ptr<unsigned char[]> bodyHexPtr(snakeBodyColorHex[]);   // Game "unique_ptr" (1st)
+  unique_ptr<unsigned char[]> headHexPtr(snakeHeadColorHex[]);   // Game "unique_ptr" (1st)
+  unique_ptr<unsigned char[]> foodHexPtr(foodHexColor[]);        // Game "unique_ptr" (1st)
 
 
  private:
