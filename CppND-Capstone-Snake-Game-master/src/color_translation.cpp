@@ -48,7 +48,7 @@ color_translation::color_translation(color_translation &&source)  // 5. move ass
     return *this;   // returns reference to current object
 }
 
-unsigned char color_translation::ColorWordToHex(string ChoosenColor) // translates Word color into Hex color
+unsigned char color_translation::ColorWordToHex(string ChoosenColor, unsigned char ChoosenHexColor[4]) // translates Word color into Hex color USING MOVE SEMANTICS ---> MUST Move (or copy) Values Into Array or ERROR WILL OCCUR
 {
   if (ChoosenColor == "red")
   {
@@ -159,10 +159,10 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
     {
       cout << "Text file failed to open.\n";
     }
-		getline(cin, colorHolder[j]); // includes MORE THAN 1 word
-		transform(colorHolder[j].begin(), colorHolder[j].end(), colorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColor", "snakeHeadColor", and/or "foodColor" to lowercase, makes case insensitive
+		getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
+		transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", and/or "foodColorWord" to lowercase, makes case insensitive
 	}
-  snakeBodyColorHex[4] = ColorWordToHex(colorHolder[0]);  // obtains chosen Body color
-  snakeHeadColorHex[4] = ColorWordToHex(colorHolder[1]);  // obtains chosen Head color
-  foodHexColor[4] = ColorWordToHex(colorHolder[2]);  // obtains chosen Food color
+  snakeBodyColorHex[4] = ColorWordToHex(wordColorHolder[0], snakeBodyColorHex[4]);  // obtains chosen Body color
+  snakeHeadColorHex[4] = ColorWordToHex(wordColorHolder[1], snakeHeadColorHex[4]);  // obtains chosen Head color
+  foodHexColor[4] = ColorWordToHex(wordColorHolder[2], foodHexColor[4]);  // obtains chosen Food color
 }
