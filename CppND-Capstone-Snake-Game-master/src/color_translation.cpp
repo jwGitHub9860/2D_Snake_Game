@@ -48,151 +48,73 @@ color_translation::color_translation(color_translation &&source)  // 5. move ass
     return *this;   // returns reference to current object
 }
 
-unsigned char color_translation::ColorWordToHex(string ChoosenColor, unsigned char ChoosenHexColor[4]) // translates Word color into Hex color USING MOVE SEMANTICS ---> MUST Move (or copy) Values Into Array or ERROR WILL OCCUR
+unsigned char color_translation::ColorWordToHex(string ChoosenColor) // translates Word color into Hex color USING MOVE SEMANTICS ---> MUST Move (or copy) Values Into Array or ERROR WILL OCCUR
 {
   if (ChoosenColor == "red")
   {
-    HexColor[4] = { 0xFF, 0x0, 0x0, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[i] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
+    ChoosenHexColor[4] = { 0xFF, 0x0, 0x0, 0xFF };
     return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "orange")
   {
-    HexColor[4] = { 0xFF, 0xA5, 0x0, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[i] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
+    ChoosenHexColor[4] = { 0xFF, 0xA5, 0x0, 0xFF };
     return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "yellow")
   {
-    HexColor[4] = { 0xFF, 0xCC, 0x00, 0xFF }; // Default Food color
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xFF, 0xCC, 0x00, 0xFF }; // Default Food color
   }
   else if (ChoosenColor == "green")
   {
-    HexColor[4] = { 0x00, 0x80, 0x00, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0x00, 0x80, 0x00, 0xFF };
   }
   else if (ChoosenColor == "blue")
   {
-    HexColor[4] = { 0x00, 0x00, 0xFF, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0x00, 0x00, 0xFF, 0xFF };
   }
   else if (ChoosenColor == "indigo")
   {
-    HexColor[4] = { 0x4B, 0x00, 0x82, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0x4B, 0x00, 0x82, 0xFF };
   }
   else if (ChoosenColor == "violet")
   {
-    HexColor[4] = { 0xEE, 0x82, 0xEE, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xEE, 0x82, 0xEE, 0xFF };
   }
   else if (ChoosenColor == "dark red")
   {
-    HexColor[4] = { 0x8B, 0x00, 0x00, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0x8B, 0x00, 0x00, 0xFF };
   }
   else if (ChoosenColor == "dark orange")
   {
-    HexColor[4] = { 0xFF, 0x8C, 0x00, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xFF, 0x8C, 0x00, 0xFF };
   }
   else if (ChoosenColor == "goldenrod")
   {
-    HexColor[4] = { 0xDA, 0xA5, 0x20, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xDA, 0xA5, 0x20, 0xFF };
   }
   else if (ChoosenColor == "light green")
   {
-    HexColor[4] = { 0x90, 0xEE, 0x90, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0x90, 0xEE, 0x90, 0xFF };
   }
   else if (ChoosenColor == "light blue")
   {
-    HexColor[4] = { 0xAD, 0xD8, 0xE6, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xAD, 0xD8, 0xE6, 0xFF };
   }
   else if (ChoosenColor == "pink")
   {
-    HexColor[4] = { 0xFF, 0xC0, 0xCB, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xFF, 0xC0, 0xCB, 0xFF };
   }
   else if (ChoosenColor == "dark violet")
   {
-    HexColor[4] = { 0x94, 0x00, 0xD3, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0x94, 0x00, 0xD3, 0xFF };
   }
   else if (ChoosenColor == "white") // Default snake Body color
   {
-    HexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };
   }
   else if (ChoosenColor == "default blue")  // Default snake Head color
   {
-    HexColor[4] = { 0x00, 0x7A, 0xCC, 0xFF };
-    for (int i = 0; i < 4; i++)
-    {
-        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
-    }
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0x00, 0x7A, 0xCC, 0xFF };
   }
 }
 
@@ -240,7 +162,7 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 		getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
 		transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", and/or "foodColorWord" to lowercase, makes case insensitive
 	}
-  snakeBodyColorHex[4] = ColorWordToHex(wordColorHolder[0], snakeBodyColorHex[4]);  // obtains chosen Body color
-  snakeHeadColorHex[4] = ColorWordToHex(wordColorHolder[1], snakeHeadColorHex[4]);  // obtains chosen Head color
-  foodHexColor[4] = ColorWordToHex(wordColorHolder[2], foodHexColor[4]);  // obtains chosen Food color
+  snakeBodyColorHex[4] = ColorWordToHex(wordColorHolder[0]);  // obtains chosen Body color
+  snakeHeadColorHex[4] = ColorWordToHex(wordColorHolder[1]);  // obtains chosen Head color
+  foodHexColor[4] = ColorWordToHex(wordColorHolder[2]);  // obtains chosen Food color
 }

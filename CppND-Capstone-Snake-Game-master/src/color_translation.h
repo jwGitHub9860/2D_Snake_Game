@@ -30,11 +30,11 @@ public:
     unsigned char snakeHeadColorHex[4] = { 0x00, 0x7A, 0xCC, 0xFF }; // initializes Snake Head Color Hex to default color (default blue)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     unsigned char foodHexColor[4] = { 0xFF, 0xCC, 0x00, 0xFF }; // initializes Food Color Hex to default color (yellow)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     
-    unique_ptr<unsigned char[]> color_translationBodyHexPtr = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeBodyColorHex[4]) ---> error will occur
-    unique_ptr<unsigned char[]> color_translationHeadHexPtr = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeHeadColorHex[4]) ---> error will occur
-    unique_ptr<unsigned char[]> color_translationFoodHexPtr = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (foodHexColor[4]) ---> error will occur
+    //unique_ptr<unsigned char[]> color_translationBodyHexPtr = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeBodyColorHex[4]) ---> error will occur
+    //unique_ptr<unsigned char[]> color_translationHeadHexPtr = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeHeadColorHex[4]) ---> error will occur
+    //unique_ptr<unsigned char[]> color_translationFoodHexPtr = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (foodHexColor[4]) ---> error will occur
 
-    unsigned char ColorWordToHex(string ChoosenColor, unsigned char ChoosenHexColor[4]); // translates Word color into Hex color
+    unsigned char ColorWordToHex(string ChoosenColor); // translates Word color into Hex color
     void ColorChoice(string colorPartChoice);  // allows user to change "Body", "Head", and/or "Food"
 
 private:
@@ -47,7 +47,7 @@ private:
     vector<string> wordColorHolder{ snakeBodyColorWord, snakeHeadColorWord, foodColorWord };
     
     string ChoosenColor = ""; // initializes Choosen Color
-    unsigned char HexColor[4];
+    //unsigned char HexColor[4];
     unsigned char ChoosenHexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF }; // initializes Choosen Hex Color     NEED CHANGING? [] to [4] (neccesary?)    Default values (white)
 
     vector<string> colorType{ "Body ", "Head ", "Food " };

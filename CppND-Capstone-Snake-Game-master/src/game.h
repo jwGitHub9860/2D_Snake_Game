@@ -21,9 +21,9 @@ class Game {
 
 
   string colorPartChoice = ""; // initializes Snake Color Change choice; "game.cpp" & "main.cpp" USE IT
-  unique_ptr<unsigned char[]> gameBodyHexPtr = move(color_translationBodyHexPtr);   // Game "unique_ptr" (1st)
-  unique_ptr<unsigned char[]> gameHeadHexPtr = move(color_translationHeadHexPtr);   // Game "unique_ptr" (1st)
-  unique_ptr<unsigned char[]> gameFoodHexPtr = move(color_translationFoodHexPtr);        // Game "unique_ptr" (1st)
+  unique_ptr<unsigned char[]> gameBodyHexPtr = make_unique<unsigned char[]>(4);   // Game "unique_ptr" (1st)
+  unique_ptr<unsigned char[]> gameHeadHexPtr = make_unique<unsigned char[]>(4);   // Game "unique_ptr" (1st)
+  unique_ptr<unsigned char[]> gameFoodHexPtr = make_unique<unsigned char[]>(4);        // Game "unique_ptr" (1st)
 
 
  private:

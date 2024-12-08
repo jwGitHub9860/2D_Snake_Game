@@ -29,6 +29,11 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     {
       renderer.ColorChoice(colorPartChoice);
     }
+    for (int i = 0; i < 4; i++) // Moves array into dynamically allocated array
+    {
+      /* code */
+    }
+    
     
 
     // Input, Update, Render - the main game loop.
