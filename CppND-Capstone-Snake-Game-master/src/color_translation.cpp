@@ -52,69 +52,69 @@ unsigned char color_translation::ColorWordToHex(string ChoosenColor) // translat
 {
   if (ChoosenColor == "red")
   {
-    ChoosenHexColor[] = { 0xFF, 0x0, 0x0, 0xFF };
-    return ChoosenHexColor[];
+    ChoosenHexColor[4] = { 0xFF, 0x0, 0x0, 0xFF };
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "orange")
   {
-    ChoosenHexColor[] = { 0xFF, 0xA5, 0x0, 0xFF };
-    return ChoosenHexColor[];
+    ChoosenHexColor[4] = { 0xFF, 0xA5, 0x0, 0xFF };
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "yellow")
   {
-    return ChoosenHexColor[] = { 0xFF, 0xCC, 0x00, 0xFF }; // Default Food color
+    return ChoosenHexColor[4] = { 0xFF, 0xCC, 0x00, 0xFF }; // Default Food color
   }
   else if (ChoosenColor == "green")
   {
-    return ChoosenHexColor[] = { 0x00, 0x80, 0x00, 0xFF };
+    return ChoosenHexColor[4] = { 0x00, 0x80, 0x00, 0xFF };
   }
   else if (ChoosenColor == "blue")
   {
-    return ChoosenHexColor[] = { 0x00, 0x00, 0xFF, 0xFF };
+    return ChoosenHexColor[4] = { 0x00, 0x00, 0xFF, 0xFF };
   }
   else if (ChoosenColor == "indigo")
   {
-    return ChoosenHexColor[] = { 0x4B, 0x00, 0x82, 0xFF };
+    return ChoosenHexColor[4] = { 0x4B, 0x00, 0x82, 0xFF };
   }
   else if (ChoosenColor == "violet")
   {
-    return ChoosenHexColor[] = { 0xEE, 0x82, 0xEE, 0xFF };
+    return ChoosenHexColor[4] = { 0xEE, 0x82, 0xEE, 0xFF };
   }
   else if (ChoosenColor == "dark red")
   {
-    return ChoosenHexColor[] = { 0x8B, 0x00, 0x00, 0xFF };
+    return ChoosenHexColor[4] = { 0x8B, 0x00, 0x00, 0xFF };
   }
   else if (ChoosenColor == "dark orange")
   {
-    return ChoosenHexColor[] = { 0xFF, 0x8C, 0x00, 0xFF };
+    return ChoosenHexColor[4] = { 0xFF, 0x8C, 0x00, 0xFF };
   }
   else if (ChoosenColor == "goldenrod")
   {
-    return ChoosenHexColor[] = { 0xDA, 0xA5, 0x20, 0xFF };
+    return ChoosenHexColor[4] = { 0xDA, 0xA5, 0x20, 0xFF };
   }
   else if (ChoosenColor == "light green")
   {
-    return ChoosenHexColor[] = { 0x90, 0xEE, 0x90, 0xFF };
+    return ChoosenHexColor[4] = { 0x90, 0xEE, 0x90, 0xFF };
   }
   else if (ChoosenColor == "light blue")
   {
-    return ChoosenHexColor[] = { 0xAD, 0xD8, 0xE6, 0xFF };
+    return ChoosenHexColor[4] = { 0xAD, 0xD8, 0xE6, 0xFF };
   }
   else if (ChoosenColor == "pink")
   {
-    return ChoosenHexColor[] = { 0xFF, 0xC0, 0xCB, 0xFF };
+    return ChoosenHexColor[4] = { 0xFF, 0xC0, 0xCB, 0xFF };
   }
   else if (ChoosenColor == "dark violet")
   {
-    return ChoosenHexColor[] = { 0x94, 0x00, 0xD3, 0xFF };
+    return ChoosenHexColor[4] = { 0x94, 0x00, 0xD3, 0xFF };
   }
   else if (ChoosenColor == "white") // Default snake Body color
   {
-    return ChoosenHexColor[] = { 0xFF, 0xFF, 0xFF, 0xFF };
+    return ChoosenHexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };
   }
   else if (ChoosenColor == "default blue")  // Default snake Head color
   {
-    return ChoosenHexColor[] = { 0x00, 0x7A, 0xCC, 0xFF };
+    return ChoosenHexColor[4] = { 0x00, 0x7A, 0xCC, 0xFF };
   }
 }
 
@@ -162,7 +162,7 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 		getline(cin, colorHolder[j]); // includes MORE THAN 1 word
 		transform(colorHolder[j].begin(), colorHolder[j].end(), colorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColor", "snakeHeadColor", and/or "foodColor" to lowercase, makes case insensitive
 	}
-  snakeBodyColorHex[] = ColorWordToHex(colorHolder[0]);  // obtains chosen Body color
-  snakeHeadColorHex[] = ColorWordToHex(colorHolder[1]);  // obtains chosen Head color
-  foodHexColor[] = ColorWordToHex(colorHolder[2]);  // obtains chosen Food color
+  snakeBodyColorHex[4] = ColorWordToHex(colorHolder[0]);  // obtains chosen Body color
+  snakeHeadColorHex[4] = ColorWordToHex(colorHolder[1]);  // obtains chosen Head color
+  foodHexColor[4] = ColorWordToHex(colorHolder[2]);  // obtains chosen Food color
 }
