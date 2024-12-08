@@ -52,69 +52,147 @@ unsigned char color_translation::ColorWordToHex(string ChoosenColor, unsigned ch
 {
   if (ChoosenColor == "red")
   {
-    ChoosenHexColor[4] = { 0xFF, 0x0, 0x0, 0xFF };
+    HexColor[4] = { 0xFF, 0x0, 0x0, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[i] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
     return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "orange")
   {
-    ChoosenHexColor[4] = { 0xFF, 0xA5, 0x0, 0xFF };
+    HexColor[4] = { 0xFF, 0xA5, 0x0, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[i] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
     return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "yellow")
   {
-    return ChoosenHexColor[4] = { 0xFF, 0xCC, 0x00, 0xFF }; // Default Food color
+    HexColor[4] = { 0xFF, 0xCC, 0x00, 0xFF }; // Default Food color
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "green")
   {
-    return ChoosenHexColor[4] = { 0x00, 0x80, 0x00, 0xFF };
+    HexColor[4] = { 0x00, 0x80, 0x00, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "blue")
   {
-    return ChoosenHexColor[4] = { 0x00, 0x00, 0xFF, 0xFF };
+    HexColor[4] = { 0x00, 0x00, 0xFF, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "indigo")
   {
-    return ChoosenHexColor[4] = { 0x4B, 0x00, 0x82, 0xFF };
+    HexColor[4] = { 0x4B, 0x00, 0x82, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "violet")
   {
-    return ChoosenHexColor[4] = { 0xEE, 0x82, 0xEE, 0xFF };
+    HexColor[4] = { 0xEE, 0x82, 0xEE, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "dark red")
   {
-    return ChoosenHexColor[4] = { 0x8B, 0x00, 0x00, 0xFF };
+    HexColor[4] = { 0x8B, 0x00, 0x00, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "dark orange")
   {
-    return ChoosenHexColor[4] = { 0xFF, 0x8C, 0x00, 0xFF };
+    HexColor[4] = { 0xFF, 0x8C, 0x00, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "goldenrod")
   {
-    return ChoosenHexColor[4] = { 0xDA, 0xA5, 0x20, 0xFF };
+    HexColor[4] = { 0xDA, 0xA5, 0x20, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "light green")
   {
-    return ChoosenHexColor[4] = { 0x90, 0xEE, 0x90, 0xFF };
+    HexColor[4] = { 0x90, 0xEE, 0x90, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "light blue")
   {
-    return ChoosenHexColor[4] = { 0xAD, 0xD8, 0xE6, 0xFF };
+    HexColor[4] = { 0xAD, 0xD8, 0xE6, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "pink")
   {
-    return ChoosenHexColor[4] = { 0xFF, 0xC0, 0xCB, 0xFF };
+    HexColor[4] = { 0xFF, 0xC0, 0xCB, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "dark violet")
   {
-    return ChoosenHexColor[4] = { 0x94, 0x00, 0xD3, 0xFF };
+    HexColor[4] = { 0x94, 0x00, 0xD3, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "white") // Default snake Body color
   {
-    return ChoosenHexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };
+    HexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
   else if (ChoosenColor == "default blue")  // Default snake Head color
   {
-    return ChoosenHexColor[4] = { 0x00, 0x7A, 0xCC, 0xFF };
+    HexColor[4] = { 0x00, 0x7A, 0xCC, 0xFF };
+    for (int i = 0; i < 4; i++)
+    {
+        ChoosenHexColor[4] = move(HexColor[i]); // Moves array into dynamically allocated array
+    }
+    return ChoosenHexColor[4];
   }
 }
 
