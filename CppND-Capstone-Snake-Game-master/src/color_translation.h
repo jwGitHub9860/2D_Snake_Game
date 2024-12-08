@@ -34,7 +34,7 @@ public:
     unique_ptr<unsigned char[]> color_translationHeadHexPtr = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeHeadColorHex[4]) ---> error will occur
     unique_ptr<unsigned char[]> color_translationFoodHexPtr = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (foodHexColor[4]) ---> error will occur
 
-    unsigned char ColorWordToHex(string ChoosenColor, unsigned char[] ChoosenHexColor); // translates Word color into Hex color
+    unsigned char ColorWordToHex(string ChoosenColor, unsigned char ChoosenHexColor[4]); // translates Word color into Hex color
     void ColorChoice(string colorPartChoice);  // allows user to change "Body", "Head", and/or "Food"
 
 private:
