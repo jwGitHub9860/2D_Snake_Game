@@ -10,12 +10,42 @@ using namespace std;
 
 color_translation::color_translation()  // Constructor
 {
-
+    color_ = nullptr;    // invalid data handles (initializes "color_")
 }
 
 color_translation::~color_translation() // 1 : destructor
 {
+    if (ChoosenHexColor[] != nullptr)   // deallocates heap memory      
+    {
+        delete[] ChoosenHexColor[];
+    }
+}
 
+color_translation::color_translation(const color_translation &source)   // 2. copy constructor
+{
+    color_ = source.color_;     // creates copy of "color_" from source
+}
+
+color_translation::color_translation(const color_translation &source)   // 3. copy assignment operator
+{
+    color_ = source.color_;     // creates copy of "color_" from source
+}
+
+color_translation::color_translation(color_translation &&source)  // 4. move constructor
+{
+    color_ = source.color_;     // creates copy of "color_" from source
+    source.color_ = nullptr;    // prevents "color_" from being used again
+}
+
+color_translation::color_translation(color_translation &&source)  // 5. move assignment operator
+{
+    if (this != &source) // protects against self-assignment    
+    {
+        delete[] data;
+        color_ = source.color_; // creates copy of "color_" from source
+        source.color_ = nullptr;    // prevents "color_" from being used again
+    }
+    return *this;   // returns reference to current object
 }
 
 unsigned char color_translation::ColorWordToHex(string ChoosenColor) // translates Word color into Hex color

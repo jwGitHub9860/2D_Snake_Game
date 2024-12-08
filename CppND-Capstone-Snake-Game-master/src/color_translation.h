@@ -16,6 +16,11 @@ public:
     color_translation();    // Constructor
     ~color_translation();   // 1 : destructor
 
+    color_translation(const color_translation &source); // 2. copy constructor
+    color_translation& operator=(const color_translation &source);  // 3. copy assignment operator
+    color_translation(color_translation &&source);    // 4. move constructor
+    color_translation& operator=(color_translation &&source); // 5. move assignment operator
+
     string snakeBodyColor = "white"; // initializes Snake Body Color choice
     string snakeHeadColor = "default blue"; // initializes Snake Head Color choice
     string foodColor = "yellow";  // initializes Food Color choice
@@ -36,6 +41,8 @@ private:
 
     vector<string> colorType{ "Body ", "Head ", "Food " };
     int num_loops = 1;
+
+    unique_ptr<unsigned char[]> color_;
 };
 
 #endif
