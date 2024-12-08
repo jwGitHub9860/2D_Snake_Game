@@ -7,6 +7,11 @@
 #include <memory>   // defines "unique_ptr"
 #include <string>
 #include <vector>
+#include "SDL.h"
+//#include "controller.h"   // (DO I NEED IT?)
+//#include "game.h"         // (DO I NEED IT?)
+//#include "renderer.h"     // (DO I NEED IT?)
+//#include "snake.h"        // (DO I NEED IT?)
 
 using namespace std;
 
@@ -28,6 +33,10 @@ public:
     unsigned char snakeBodyColorHex[] = { 0xFF, 0xFF, 0xFF, 0xFF }; // initializes Snake Body Color Hex to default color (white)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     unsigned char snakeHeadColorHex[] = { 0x00, 0x7A, 0xCC, 0xFF }; // initializes Snake Head Color Hex to default color (default blue)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     unsigned char foodHexColor[] = { 0xFF, 0xCC, 0x00, 0xFF }; // initializes Food Color Hex to default color (yellow)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    
+    unique_ptr<unsigned char[]> color_translationBodyHexPtr(snakeBodyColorHex);   // color_translation "unique_ptr" (MAIN)
+    unique_ptr<unsigned char[]> color_translationHeadHexPtr(snakeHeadColorHex[]);   // color_translation "unique_ptr" (MAIN)
+    unique_ptr<unsigned char[]> color_translationFoodHexPtr(foodHexColor[]);        // color_translation "unique_ptr" (MAIN)
 
     unsigned char ColorWordToHex(string ChoosenColor); // translates Word color into Hex color
     void ColorChoice(string colorPartChoice);  // allows user to change "Body", "Head", and/or "Food"

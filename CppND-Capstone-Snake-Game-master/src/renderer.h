@@ -5,6 +5,7 @@
 #include <string>
 #include <vector>
 #include "SDL.h"
+#include "color_translation.h"  // allows access to MAIN "unique_ptr" & "color_translation" move constructor
 #include "snake.h"
 
 using namespace std;
@@ -19,7 +20,9 @@ class Renderer {
   void UpdateWindowTitle(int score, int fps); // updates bar at top of game window with score & frames per second
 
 
-  
+  unique_ptr<unsigned char[]> rendererBodyHexPtr = move(color_translationBodyHexPtr);  // Renderer "unique_ptr" (2nd)
+  unique_ptr<unsigned char[]> rendererHeadHexPtr = move(color_translationHeadHexPtr);  // Renderer "unique_ptr" (2nd)
+  unique_ptr<unsigned char[]> rendererFoodHexPtr = move(color_translationFoodHexPtr);       // Renderer "unique_ptr" (2nd)
 	
 
  private:

@@ -4,6 +4,7 @@
 #include <random>
 #include <memory> // defines "unique_ptr"
 #include "SDL.h"
+#include "color_translation.h"  // allows access to MAIN "unique_ptr" & "color_translation" move constructor
 #include "controller.h"
 #include "renderer.h"
 #include "snake.h"
@@ -20,9 +21,9 @@ class Game {
 
 
   string colorPartChoice = ""; // initializes Snake Color Change choice; "game.cpp" & "main.cpp" USE IT
-  unique_ptr<unsigned char[]> bodyHexPtr(snakeBodyColorHex[]);   // Game "unique_ptr" (1st)
-  unique_ptr<unsigned char[]> headHexPtr(snakeHeadColorHex[]);   // Game "unique_ptr" (1st)
-  unique_ptr<unsigned char[]> foodHexPtr(foodHexColor[]);        // Game "unique_ptr" (1st)
+  unique_ptr<unsigned char[]> gameBodyHexPtr = move(color_translationBodyHexPtr);   // Game "unique_ptr" (1st)
+  unique_ptr<unsigned char[]> gameHeadHexPtr = move(color_translationHeadHexPtr);   // Game "unique_ptr" (1st)
+  unique_ptr<unsigned char[]> gameFoodHexPtr = move(color_translationFoodHexPtr);        // Game "unique_ptr" (1st)
 
 
  private:
