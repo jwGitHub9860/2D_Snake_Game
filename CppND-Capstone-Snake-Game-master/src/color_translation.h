@@ -18,7 +18,7 @@ using namespace std;
 class color_translation
 {
 public:
-    color_translation();    // Constructor
+    //color_translation();    // Constructor
     ~color_translation();   // 1 : destructor
 
     color_translation(const color_translation &source); // 2. copy constructor
