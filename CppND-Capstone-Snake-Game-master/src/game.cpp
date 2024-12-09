@@ -27,7 +27,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     
     if (colorPartChoice != "none")  // calls function 
     {
-      renderer.ColorChoice(colorPartChoice);
+      colorTranslation.ColorChoice(colorPartChoice);
     }
     for (int i = 0; i < 4; i++) // Moves array into dynamically allocated array
     {
