@@ -29,9 +29,11 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     {
       colorTranslation.ColorChoice(colorPartChoice);
     }
-    for (int i = 0; i < 4; i++) // Moves array into dynamically allocated array
+    for (int i = 0; i < 4; i++) // Moves arrays into dynamically allocated arrays
     {
-      /* code */
+      colorTranslation.snakeBodyColorHex[i] = gameBodyHexPtr[i];
+      colorTranslation.snakeHeadColorHex[i] = gameHeadHexPtr[i];
+      colorTranslation.foodHexColor[i] = gameFoodHexPtr[i];
     }
     
     
