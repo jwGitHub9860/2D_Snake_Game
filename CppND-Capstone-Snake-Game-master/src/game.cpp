@@ -31,9 +31,9 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     }
     for (int i = 0; i < 4; i++) // Moves arrays into dynamically allocated arrays
     {
-      colorTranslation.snakeBodyColorHex[i] = gameBodyHexPtr[i];
-      colorTranslation.snakeHeadColorHex[i] = gameHeadHexPtr[i];
-      colorTranslation.foodHexColor[i] = gameFoodHexPtr[i];
+      gameBodyHexPtr[i] = colorTranslation.snakeBodyColorHex[i];
+      gameHeadHexPtr[i] = colorTranslation.snakeHeadColorHex[i];
+      gameFoodHexPtr[i] = colorTranslation.foodHexColor[i];
     }
     
     
@@ -41,7 +41,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food, gameBodyHexPtr, gameHeadHexPtr, gameFoodHexPtr);  // ADDED IN MY OWN (delete comment later?)
+    renderer.Render(snake, food, colorTranslation.snakeBodyColorHex, colorTranslation.snakeHeadColorHex, colorTranslation.foodHexColor);  // ADDED IN MY OWN (delete comment later?)
 
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 

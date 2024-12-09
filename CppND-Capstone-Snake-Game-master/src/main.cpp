@@ -33,7 +33,7 @@ int main() {
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);  // creates Renderer object
   Controller controller;  // creates Controller object
   Game game(kGridWidth, kGridHeight); // creates Game object
-  color_translation colorTranslation;  // creates Color_Translation object
+  color_translation colorTranslation();  // creates Color_Translation object
   game.Run(controller, renderer, kMsPerFrame, colorTranslation, choice);  // starts game loop   ADDED "choice" AS MY OWN CODE (delete comment later?)
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";

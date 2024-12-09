@@ -10,7 +10,8 @@ using namespace std;
 
 color_translation::color_translation()  // Constructor
 {
-    color_ = nullptr;    // invalid data handles (initializes "color_")
+    color_ = new unsigned char[];   // initializes "color_"
+    //color_ = nullptr;    // invalid data handles
 }
 
 color_translation::~color_translation() // 1 : destructor
