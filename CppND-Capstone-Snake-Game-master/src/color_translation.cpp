@@ -8,10 +8,11 @@
 
 using namespace std;
 
-color_translation::color_translation()  // Constructor
+color_translation::color_translation() : colorPtr_()  // Constructor
 {
-    color_ = new unsigned char[];   // initializes "color_"
-    //color_ = nullptr;    // invalid data handles
+    colorPtr_ = new unsigned char[];   // initializes "colorPtr_"
+    //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
+    colorStr_ = ""; // initializes "colorStr_"
 }
 
 color_translation::~color_translation() // 1 : destructor
@@ -24,27 +25,27 @@ color_translation::~color_translation() // 1 : destructor
 
 color_translation::color_translation(const color_translation &source)   // 2. copy constructor
 {
-    color_ = source.color_;     // creates copy of "color_" from source
+    colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
 color_translation::color_translation(const color_translation &source)   // 3. copy assignment operator
 {
-    color_ = source.color_;     // creates copy of "color_" from source
+    colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
 color_translation::color_translation(color_translation &&source)  // 4. move constructor
 {
-    color_ = source.color_;     // creates copy of "color_" from source
-    source.color_ = nullptr;    // prevents "color_" from being used again
+    colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
+    source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
 }
 
 color_translation::color_translation(color_translation &&source)  // 5. move assignment operator
 {
     if (this != &source) // protects against self-assignment    
     {
-        delete[] data;
-        color_ = source.color_; // creates copy of "color_" from source
-        source.color_ = nullptr;    // prevents "color_" from being used again
+        delete[] colorPtr_;
+        colorPtr_ = source.colorPtr_; // creates copy of "colorPtr_" from source
+        source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
     }
     return *this;   // returns reference to current object
 }
@@ -53,13 +54,11 @@ unsigned char color_translation::ColorWordToHex(string ChoosenColor) // translat
 {
   if (ChoosenColor == "red")
   {
-    ChoosenHexColor[4] = { 0xFF, 0x0, 0x0, 0xFF };
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xFF, 0x0, 0x0, 0xFF };
   }
   else if (ChoosenColor == "orange")
   {
-    ChoosenHexColor[4] = { 0xFF, 0xA5, 0x0, 0xFF };
-    return ChoosenHexColor[4];
+    return ChoosenHexColor[4] = { 0xFF, 0xA5, 0x0, 0xFF };
   }
   else if (ChoosenColor == "yellow")
   {

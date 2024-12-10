@@ -53,7 +53,8 @@ private:
     vector<string> colorType{ "Body ", "Head ", "Food " };
     int num_loops = 1;
 
-    unique_ptr<unsigned char[]> color_;
+    unique_ptr<unsigned char[]> colorPtr_;
+    string colorStr_;
 };
 
 #endif
