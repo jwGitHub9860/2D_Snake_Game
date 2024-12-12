@@ -8,11 +8,10 @@
 
 using namespace std;
 
-color_translation::color_translation() : colorPtr_()  // Constructor
+color_translation::color_translation(ifstream stream_)// : stream_()  // Constructor WITH memory allocation
 {
     colorPtr_ = new unsigned char[];   // initializes "colorPtr_"
     //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
-    colorStr_ = ""; // initializes "colorStr_"
 }
 
 color_translation::~color_translation() // 1 : destructor
@@ -145,7 +144,7 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 			j = 2;
 		}
 		
-    ifstream stream("choosing_color_string.txt"); // accesses "choosing_color_string.txt" file
+    //ifstream stream("choosing_color_string.txt"); // accesses "choosing_color_string.txt" file
     if (stream.open())
     {
       while (getline(stream, line))  // accesses text inside "choosing_color_string.txt" file & stores in "line"

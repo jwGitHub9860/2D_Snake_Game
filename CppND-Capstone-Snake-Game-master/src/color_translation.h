@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <fstream>
 #include <iostream>
 #include <memory>   // defines "unique_ptr"
 #include <string>
@@ -18,7 +19,8 @@ using namespace std;
 class color_translation
 {
 public:
-    color_translation();    // Constructor
+    //color_translation();    // Constructor WITHOUT memory allocation
+    color_translation(ifstream stream_);    // Constructor WITH memory allocation
     ~color_translation();   // 1 : destructor
 
     color_translation(const color_translation &source); // 2. copy constructor
@@ -54,7 +56,8 @@ private:
     int num_loops = 1;
 
     unique_ptr<unsigned char[]> colorPtr_;
-    string colorStr_;
+
+    ifstream stream("choosing_color_string.txt"); // accesses "choosing_color_string.txt" file
 };
 
 #endif
