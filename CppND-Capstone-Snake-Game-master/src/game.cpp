@@ -14,7 +14,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height)
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
-               std::size_t target_frame_duration, /*color_translation &colorTranslation,*/ string colorPartChoice) { // USES "using namespace std" ADDED "colorPartChoice" & "&colorTranslation" AS MY OWN CODE (delete comment later?)
+               std::size_t target_frame_duration, color_translation &colorTranslation, string colorPartChoice) { // USES "using namespace std" ADDED "colorPartChoice" & "&colorTranslation" AS MY OWN CODE (delete comment later?)
   Uint32 title_timestamp = SDL_GetTicks();
   Uint32 frame_start;
   Uint32 frame_end;

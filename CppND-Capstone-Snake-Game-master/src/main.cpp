@@ -17,7 +17,7 @@ int main() {
   constexpr std::size_t kScreenHeight{640};
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
-  const ifstream kColorStream{"choosing_color_string.txt"}; // accesses "choosing_color_string.txt" file      DO I NEED THIS?
+  //const ifstream kColorStream{"choosing_color_string.txt"}; // accesses "choosing_color_string.txt" file      DO I NEED THIS?   NOT ALLOWED
 
   string choice = ""; // initializes Snake Color Change choice; limits to ONLY "main.cpp"
 
@@ -35,8 +35,8 @@ int main() {
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);  // creates Renderer object
   Controller controller;  // creates Controller object
   Game game(kGridWidth, kGridHeight); // creates Game object
-  //color_translation colorTranslation();  // creates Color_Translation object
-  game.Run(controller, renderer, kMsPerFrame, /*colorTranslation,*/ choice);  // starts game loop   ADDED "choice" AS MY OWN CODE (delete comment later?)
+  color_translation colorTranslation();  // creates Color_Translation object
+  game.Run(controller, renderer, kMsPerFrame, colorTranslation, choice);  // starts game loop   ADDED "choice" AS MY OWN CODE (delete comment later?)
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";
   std::cout << "Size: " << game.GetSize() << "\n";

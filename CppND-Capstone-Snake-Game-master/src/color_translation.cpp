@@ -10,11 +10,17 @@ using namespace std;
 
 color_translation::color_translation() : stream_(stream) {}   // Constructor WITHOUT memory allocation (does NOT use "new")     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
 
-color_translation::color_translation(const &ifstream stream) : stream_(stream)  // Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
+color_translation::color_translation()  // TEST 1 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
 {
   colorPtr_ = new unsigned char[];   // initializes "colorPtr_"
   //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
 }
+
+/*color_translation::color_translation(const &ifstream stream) : stream_(stream)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
+{
+  colorPtr_ = new unsigned char[];   // initializes "colorPtr_"
+  //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
+}*/
 
 color_translation::~color_translation() // 1 : destructor
 {
