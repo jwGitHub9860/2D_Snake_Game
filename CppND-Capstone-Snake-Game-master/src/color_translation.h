@@ -20,7 +20,7 @@ class color_translation
 {
 public:
     color_translation();    // Constructor WITHOUT memory allocation
-    color_translation(const ifstream stream);    // Constructor WITH memory allocation
+    color_translation(const &ifstream stream);    // Constructor WITH memory allocation
     ~color_translation();   // 1 : destructor
 
     color_translation(const color_translation &source); // 2. copy constructor
