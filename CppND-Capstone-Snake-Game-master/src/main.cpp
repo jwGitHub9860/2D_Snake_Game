@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string> // defines "string choice"
 #include <algorithm>  // defines "transform"
+#include <fstream>  // defines "ifstream"
 #include "controller.h"
 #include "game.h"
 #include "renderer.h"
@@ -16,6 +17,7 @@ int main() {
   constexpr std::size_t kScreenHeight{640};
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
+  const ifstream kColorStream{"choosing_color_string.txt"}; // accesses "choosing_color_string.txt" file      DO I NEED THIS?
 
   string choice = ""; // initializes Snake Color Change choice; limits to ONLY "main.cpp"
 

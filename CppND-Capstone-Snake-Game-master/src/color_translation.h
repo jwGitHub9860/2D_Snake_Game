@@ -19,8 +19,8 @@ using namespace std;
 class color_translation
 {
 public:
-    //color_translation();    // Constructor WITHOUT memory allocation
-    color_translation(ifstream stream_);    // Constructor WITH memory allocation
+    color_translation();    // Constructor WITHOUT memory allocation
+    color_translation(const ifstream stream);    // Constructor WITH memory allocation
     ~color_translation();   // 1 : destructor
 
     color_translation(const color_translation &source); // 2. copy constructor
@@ -57,7 +57,7 @@ private:
 
     unique_ptr<unsigned char[]> colorPtr_;
 
-    ifstream stream("choosing_color_string.txt"); // accesses "choosing_color_string.txt" file
+    ifstream stream_;
 };
 
 #endif

@@ -8,45 +8,47 @@
 
 using namespace std;
 
-color_translation::color_translation(ifstream stream_)// : stream_()  // Constructor WITH memory allocation
+color_translation::color_translation() : stream_(stream) {}   // Constructor WITHOUT memory allocation (does NOT use "new")     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
+
+color_translation::color_translation(const &ifstream stream) : stream_(stream)  // Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
 {
-    colorPtr_ = new unsigned char[];   // initializes "colorPtr_"
-    //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
+  colorPtr_ = new unsigned char[];   // initializes "colorPtr_"
+  //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
 }
 
 color_translation::~color_translation() // 1 : destructor
 {
-    if (ChoosenHexColor[] != nullptr)   // deallocates heap memory      
-    {
-        delete[] ChoosenHexColor[];
-    }
+  if (ChoosenHexColor[] != nullptr)
+  {
+    delete[] ChoosenHexColor[];   // deallocates heap memory
+  }
 }
 
 color_translation::color_translation(const color_translation &source)   // 2. copy constructor
 {
-    colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
+  colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
 color_translation::color_translation(const color_translation &source)   // 3. copy assignment operator
 {
-    colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
+  colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
 color_translation::color_translation(color_translation &&source)  // 4. move constructor
 {
-    colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
-    source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
+  colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
+  source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
 }
 
 color_translation::color_translation(color_translation &&source)  // 5. move assignment operator
 {
-    if (this != &source) // protects against self-assignment    
-    {
-        delete[] colorPtr_;
-        colorPtr_ = source.colorPtr_; // creates copy of "colorPtr_" from source
-        source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
-    }
-    return *this;   // returns reference to current object
+  if (this != &source) // protects against self-assignment    
+  {
+    delete[] colorPtr_;
+    colorPtr_ = source.colorPtr_; // creates copy of "colorPtr_" from source
+    source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
+  }
+  return *this;   // returns reference to current object
 }
 
 unsigned char color_translation::ColorWordToHex(string ChoosenColor) // translates Word color into Hex color USING MOVE SEMANTICS ---> MUST Move (or copy) Values Into Array or ERROR WILL OCCUR
