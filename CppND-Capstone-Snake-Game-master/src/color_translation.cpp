@@ -8,7 +8,7 @@
 
 using namespace std;
 
-color_translation::color_translation() : stream_(stream) {}   // Constructor WITHOUT memory allocation (does NOT use "new")     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
+//color_translation::color_translation() : stream_(stream) {}   // Constructor WITHOUT memory allocation (does NOT use "new")     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
 
 color_translation::color_translation()  // TEST 1 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
 {
