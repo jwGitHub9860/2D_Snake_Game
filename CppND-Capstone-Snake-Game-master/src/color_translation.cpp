@@ -188,7 +188,7 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 			j = 2;
 		}
 		
-    if (stream_.open()) // "stream_" initialized in constructor
+    if (stream_.open()) // "stream_" initialized in constructor   WANT "stream_" TO BE OPENED & CLOSED AT THIS SPECIFIC TIME
     {
       while (getline(stream_, line))  // accesses text inside "choosing_color_string.txt" file & stores in "line"
       {
