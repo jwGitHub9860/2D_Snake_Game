@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string> // defines "string choice"
+#include <string> // defines "string choice" & "string filename"
 #include <algorithm>  // defines "transform"
 #include <fstream>  // defines "ifstream"
 #include "color_translation.h"  // allows "colorTranslation()" object to be created
@@ -21,7 +21,7 @@ int main() {
 
   // TEST VARIABLES FOR CONSTRUCTOR INPUT
   //const size_t kHexHolderSize{4}; // size of Hex array holders
-  const ifstream stream("choosing_color_string.txt"); // accesses "choosing_color_string.txt" file
+  const string filename = "choosing_color_string.txt"; // accesses "choosing_color_string.txt" file
   unsigned char kDefaultHexBodyColor[4]{ 0xFF, 0xFF, 0xFF, 0xFF }; // default size of "snakeBodyColorHex"
   unsigned char kDefaultHexHeadColor[4]{ 0x00, 0x7A, 0xCC, 0xFF }; // default size of "snakeHeadColorHex"
   unsigned char kDefaultHexFoodColor[4]{ 0xFF, 0xCC, 0x00, 0xFF }; // default size of "foodHexColor"
@@ -49,7 +49,7 @@ int main() {
   Game game(kGridWidth, kGridHeight); // creates Game object
   //color_translation colorTranslation();  // creates Color_Translation object
   //color_translation colorTranslation(kHexHolderSize);  // creates Color_Translation object
-  color_translation colorTranslation(kDefaultHexBodyColor, kDefaultHexHeadColor, kDefaultHexFoodColor, stream);  // creates Color_Translation object
+  color_translation colorTranslation(kDefaultHexBodyColor, kDefaultHexHeadColor, kDefaultHexFoodColor, filename);  // creates Color_Translation object
   //color_translation colorTranslation(kDefaultHexBodyColor[4], kDefaultHexHeadColor[4], kDefaultHexFoodColor[4]);  // creates Color_Translation object
   //color_translation colorTranslation(testkDefaultBodyPtr, testkDefaultHexHeadColor, testkDefaultHexFoodColor);  // creates Color_Translation object
   game.Run(controller, renderer, kMsPerFrame, colorTranslation, choice);  // starts game loop   ADDED "choice" AS MY OWN CODE (delete comment later?)

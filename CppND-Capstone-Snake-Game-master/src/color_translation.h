@@ -24,7 +24,7 @@ public:
     //color_translation(const int HexSize);    // TEST 1 Constructor WITH memory allocation
     //color_translation(unsigned char defaultHexBodyColor[4], unsigned char defaultHexHeadColor[4], unsigned char defaultHexFoodColor[4]);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
     //color_translation(unsigned char* defaultHexBodyColor, unsigned char* defaultHexHeadColor, unsigned char* defaultHexFoodColor);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
-    color_translation(const unsigned char* defaultHexBodyColor, const unsigned char* defaultHexHeadColor, const unsigned char* defaultHexFoodColor, const ifstream stream);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
+    color_translation(const unsigned char* defaultHexBodyColor, const unsigned char* defaultHexHeadColor, const unsigned char* defaultHexFoodColor, const string filename);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
     ~color_translation();   // 1 : destructor
 
     color_translation(const color_translation &source); // 2. copy constructor
