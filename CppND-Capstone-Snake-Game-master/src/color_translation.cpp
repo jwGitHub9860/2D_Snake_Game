@@ -60,9 +60,9 @@ color_translation::color_translation(const unsigned char* defaultHexBodyColor, c
 
 color_translation::~color_translation() // 1 : destructor
 {
-  if (color_translationBodyHexPtr != nullptr && color_translationHeadHexPtr != nullptr && color_translationFoodHexPtr != nullptr)
+  if (stream_ != NULL/*color_translationBodyHexPtr != nullptr && color_translationHeadHexPtr != nullptr && color_translationFoodHexPtr != nullptr*/)
   {
-    delete[] color_translationBodyHexPtr[];   // deallocates heap memory
+    delete[] stream_;//color_translationBodyHexPtr[];   // deallocates heap memory
   }
 }
 
