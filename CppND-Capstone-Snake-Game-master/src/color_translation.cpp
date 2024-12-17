@@ -44,9 +44,9 @@ using namespace std;
 
 color_translation::color_translation(const unsigned char* defaultHexBodyColor, const unsigned char* defaultHexHeadColor, const unsigned char* defaultHexFoodColor, const string filename)// : stream_(stream)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
 {
-  snakeBodyColorHex = move(defaultHexBodyColor);  // initializes Snake Body Color Hex to default color (white)
-  snakeHeadColorHex = move(defaultHexHeadColor);  // initializes Snake Head Color Hex to default color (default blue)
-  foodHexColor = move(defaultHexFoodColor);  // initializes Food Color Hex to default color (yellow)
+  move(begin(defaultHexBodyColor), end(defaultHexBodyColor), begin(snakeBodyColorHex));  // initializes Snake Body Color Hex to default color (white)
+  move(begin(defaultHexHeadColor), end(defaultHexHeadColor), begin(snakeHeadColorHex));  // initializes Snake Head Color Hex to default color (default blue)
+  move(begin(defaultHexFoodColor), end(defaultHexFoodColor), begin(foodHexColor));  // initializes Food Color Hex to default color (yellow)
   /*for (int i = 0; i < 4; i++)
   {
     unsigned char snakeBodyColorHex[i] = defaultHexBodyColor[i];  // initializes Snake Body Color Hex to default color (white)
