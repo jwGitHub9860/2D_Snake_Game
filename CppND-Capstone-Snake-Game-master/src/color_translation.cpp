@@ -44,12 +44,15 @@ using namespace std;
 
 color_translation::color_translation(const unsigned char* defaultHexBodyColor, const unsigned char* defaultHexHeadColor, const unsigned char* defaultHexFoodColor, const ifstream stream) : stream_(stream)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream_(stream)" - initializes "stream_" with "stream" NOT SAME AS "stream_ = stream"
 {
-  for (int i = 0; i < 4; i++)
+  snakeBodyColorHex = move(defaultHexBodyColor);  // initializes Snake Body Color Hex to default color (white)
+  snakeHeadColorHex = move(defaultHexHeadColor);  // initializes Snake Head Color Hex to default color (default blue)
+  foodHexColor = move(defaultHexFoodColor);  // initializes Food Color Hex to default color (yellow)
+  /*for (int i = 0; i < 4; i++)
   {
     unsigned char snakeBodyColorHex[i] = defaultHexBodyColor[i];  // initializes Snake Body Color Hex to default color (white)
     unsigned char snakeHeadColorHex[i] = defaultHexHeadColor[i];  // initializes Snake Head Color Hex to default color (default blue)
     unsigned char foodHexColor[i] = defaultHexFoodColor[i];  // initializes Food Color Hex to default color (yellow)
-  }
+  }*/
   
   unique_ptr<unsigned char[]> color_translationBodyHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationBodyHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
   unique_ptr<unsigned char[]> color_translationHeadHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationHeadHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
@@ -178,7 +181,7 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 
 	for (int i = 0; i < num_loops; i++)
 	{
-		const int j = i;
+		int j = i;
 		if (colorPartChoice == "head")
 		{
 			j = 1;
