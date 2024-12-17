@@ -178,7 +178,7 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 
 	for (int i = 0; i < num_loops; i++)
 	{
-		int j = i;
+		const int j = i;
 		if (colorPartChoice == "head")
 		{
 			j = 1;
