@@ -188,15 +188,14 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 			j = 2;
 		}
 		
-    //ifstream stream("choosing_color_string.txt"); // accesses "choosing_color_string.txt" file
-    if (stream.open())
+    if (stream_.open()) // "stream_" initialized in constructor
     {
-      while (getline(stream, line))  // accesses text inside "choosing_color_string.txt" file & stores in "line"
+      while (getline(stream_, line))  // accesses text inside "choosing_color_string.txt" file & stores in "line"
       {
         line.insert(11, colorType[j]);
         cout << line;
       }
-      stream.close();
+      stream_.close();
     }
     else
     {
