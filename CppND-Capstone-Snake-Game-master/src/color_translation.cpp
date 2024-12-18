@@ -64,7 +64,7 @@ using namespace std;
   //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
 }*/
 
-color_translation::color_translation(const string &filename) : filename_(filename)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream(stream)" - initializes "stream" with "stream" NOT SAME AS "stream = stream"
+color_translation::color_translation(const string &filename) : filename_(filename)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "filename_(filename)" - initializes "filename_" with "filename" NOT SAME AS "filename_ = filename"
 {
   ifstream stream(filename); // accesses "choosing_color_string.txt" file
   stream.open();
