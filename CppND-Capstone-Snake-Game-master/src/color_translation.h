@@ -24,7 +24,8 @@ public:
     //color_translation(const int HexSize);    // TEST 1 Constructor WITH memory allocation
     //color_translation(unsigned char defaultHexBodyColor[4], unsigned char defaultHexHeadColor[4], unsigned char defaultHexFoodColor[4]);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
     //color_translation(unsigned char* defaultHexBodyColor, unsigned char* defaultHexHeadColor, unsigned char* defaultHexFoodColor);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
-    color_translation(const unsigned char* defaultHexBodyColor, const unsigned char* defaultHexHeadColor, const unsigned char* defaultHexFoodColor, const string filename);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
+    //color_translation(const unsigned char* defaultHexBodyColor, const unsigned char* defaultHexHeadColor, const unsigned char* defaultHexFoodColor, const string filename);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
+    color_translation(const string &filename);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
     ~color_translation();   // 1 : destructor
 
     color_translation(const color_translation &source); // 2. copy constructor
@@ -32,9 +33,9 @@ public:
     color_translation(color_translation &&source);    // 4. move constructor
     color_translation& operator=(color_translation &&source); // 5. move assignment operator
     
-    unsigned char snakeBodyColorHex[4]; // initializes Snake Body Color Hex to default color (white)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
-    unsigned char snakeHeadColorHex[4]; // initializes Snake Head Color Hex to default color (default blue)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
-    unsigned char foodHexColor[4]; // initializes Food Color Hex to default color (yellow)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    unsigned char snakeBodyColorHex[4] = { 0xFF, 0xFF, 0xFF, 0xFF }; // initializes Snake Body Color Hex to default color (white)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    unsigned char snakeHeadColorHex[4] = { 0x00, 0x7A, 0xCC, 0xFF }; // initializes Snake Head Color Hex to default color (default blue)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    unsigned char foodHexColor[4] = { 0xFF, 0xCC, 0x00, 0xFF }; // initializes Food Color Hex to default color (yellow)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     
     unique_ptr<unsigned char[]> color_translationBodyHexPtr;// = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeBodyColorHex[4]) ---> error will occur
     unique_ptr<unsigned char[]> color_translationHeadHexPtr;// = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeHeadColorHex[4]) ---> error will occur
@@ -61,7 +62,7 @@ private:
 
     unique_ptr<unsigned char[]> colorPtr_;
 
-    ifstream stream_;
+    ifstream stream;
 };
 
 #endif
