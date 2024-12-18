@@ -46,6 +46,7 @@ public:
 
 private:
     string line;  // used to access text in "choosing_color_string.txt" file
+    
 
     string snakeBodyColorWord = "white"; // initializes Snake Body Color choice
     string snakeHeadColorWord = "default blue"; // initializes Snake Head Color choice
