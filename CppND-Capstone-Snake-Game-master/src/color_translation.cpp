@@ -80,7 +80,7 @@ color_translation::color_translation(const string &filename) : filename_(filenam
 
 color_translation::~color_translation() // 1 : destructor
 {
-  if (stream.open())
+  if (stream.is_open())
   {
     stream.close();  // closes "choosing_color_string.txt" file AFTER using it
   }
