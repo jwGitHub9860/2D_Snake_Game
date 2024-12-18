@@ -66,8 +66,8 @@ using namespace std;
 
 color_translation::color_translation(const string &filename) : filename_(filename)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "filename_(filename)" - initializes "filename_" with "filename" NOT SAME AS "filename_ = filename"
 {
-  ifstream stream(filename); // accesses "choosing_color_string.txt" file
-  stream.open();
+  ifstream stream(filename_); // accesses "choosing_color_string.txt" file
+  stream.open(filename_);
   if (!stream.is_open()) // CHECKS if "stream" OPENED
   {
     cout << "Text file failed to open.\n";
