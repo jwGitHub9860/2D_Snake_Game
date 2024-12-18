@@ -45,7 +45,7 @@ public:
     void ColorChoice(string colorPartChoice);  // allows user to change "Body", "Head", and/or "Food"
 
 private:
-    string line;  // used to access text in "choosing_color_string.txt" file
+    string line;  // used to access TEXT in "choosing_color_string.txt" file
     string filename_;   // used to hold file name: "choosing_color_string.txt"
 
     string snakeBodyColorWord = "white"; // initializes Snake Body Color choice
@@ -63,7 +63,7 @@ private:
 
     unique_ptr<unsigned char[]> colorPtr_;
 
-    ifstream stream;
+    ifstream stream;    // used to access "choosing_color_string.txt" FILE
 };
 
 #endif
