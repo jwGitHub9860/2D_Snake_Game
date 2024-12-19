@@ -46,7 +46,7 @@ public:
 
 private:
     string line;  // used to access TEXT in "choosing_color_string.txt" file
-    string filename_;   // used to hold file name: "choosing_color_string.txt"
+    string filename;   // used to hold file name: "choosing_color_string.txt"
 
     string snakeBodyColorWord = "white"; // initializes Snake Body Color choice
     string snakeHeadColorWord = "default blue"; // initializes Snake Head Color choice
@@ -64,7 +64,6 @@ private:
     //unique_ptr<unsigned char[]> colorPtr_;
 
     ifstream stream;    // used to access "choosing_color_string.txt" FILE
-    ifstream stream_;    // used as NEW file for Move Constructor
 };
 
 #endif

@@ -64,10 +64,10 @@ using namespace std;
   //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
 }*/
 
-color_translation::color_translation(const string &filename) : filename_(filename)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "filename_(filename)" - initializes "filename_" with "filename" NOT SAME AS "filename_ = filename"
+color_translation::color_translation(const string &filename) : filename(filename)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "filename(filename)" - initializes "filename" with "filename" NOT SAME AS "filename = filename"
 {
-  ifstream stream(filename_); // accesses "choosing_color_string.txt" file
-  stream.open(filename_);
+  ifstream stream(filename); // accesses "choosing_color_string.txt" file
+  stream.open(filename);
   if (!stream.is_open()) // CHECKS if "stream" OPENED
   {
     cout << "Text file failed to open.\n";
@@ -90,51 +90,51 @@ color_translation::~color_translation() // 1 : destructor
   }*/
 }
 
-color_translation::color_translation(const color_translation &source) : filename_(source.filename)   // 2. copy constructor
+color_translation::color_translation(const color_translation &source) : filename(source.filename)   // 2. copy constructor
 {
   if (source.stream.is_open())  // Checks if COPIED stream opened
   {
-    source.stream.open();
+    stream.open(filename);
   }
   
   //colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
-color_translation::color_translation &operator=(const color_translation &source)   // 3. copy assignment operator
+color_translation &color_translation::operator=(const color_translation &source)   // 3. copy assignment operator
 {
   if (this != &source)  // protects against self-assignment
   {
-    if (stream.is_open())
+    if (stream.is_open()) // opens ORIGINAL Stream
     {
-      stream.close();
+      stream.close(); // closes ORIGINAL Stream
     }
     
-    ifstream source.stream.open();  // opens COPIED Stream
-    if (source.stream.is_open())  // checks COPIED Stream
+    filename = source.filename; // creates copy of "filename" from source
+    if (source.stream.is_open())  // Checks COPIED Stream
     {
-      source.stream.close();
+      stream.close(); // closes COPIED Stream
     }
   }
   return *this;   // returns reference to current object
   //colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
-color_translation::color_translation(color_translation &&source) : filename_(move(source.filename)), stream_(move(source.stream))  // 4. move constructor
+color_translation::color_translation(color_translation &&source) : filename(move(source.filename)), stream(move(source.stream))  // 4. move constructor
 {
   /*colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
   source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again*/
 }
 
-color_translation::color_translation &operator=(color_translation &&source)  // 5. move assignment operator
+color_translation &color_translation::operator=(color_translation &&source)  // 5. move assignment operator
 {
   if (this != &source)  // protects against self-assignment
   {
-    if (stream.open())  // Must Open ORIGINAL file FIRST before access elements inside file
+    if (stream.is_open())  // Checks ORIGINAL file is Opened FIRST before access elements inside file
     {
       stream.close();
     }
-    filename_ = move(source.filename); // moves SOURCE "filename" into "filename"
-    stream_ = move(source.stream); // moves "stream" into "stream_"
+    filename = move(source.filename); // moves SOURCE "filename" into "filename"
+    stream = move(source.stream); // moves "stream" into "stream_"
   }
   /*if (this != &source) // protects against self-assignment    
   {
