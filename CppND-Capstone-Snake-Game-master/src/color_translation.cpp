@@ -119,7 +119,7 @@ color_translation::color_translation &operator=(const color_translation &source)
   //colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
-color_translation::color_translation(color_translation &&source) : filename_(source.filename), stream_(source.stream)  // 4. move constructor
+color_translation::color_translation(color_translation &&source) : filename_(source.filename), stream_(source.stream)  // 4. move constructor    ONLY NEED TO INITIALIZE "filename_"
 {
   /*colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
   source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again*/
