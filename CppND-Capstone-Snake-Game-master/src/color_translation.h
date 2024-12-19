@@ -61,9 +61,10 @@ private:
     vector<string> colorType{ "Body ", "Head ", "Food " };
     int num_loops = 1;
 
-    unique_ptr<unsigned char[]> colorPtr_;
+    //unique_ptr<unsigned char[]> colorPtr_;
 
     ifstream stream;    // used to access "choosing_color_string.txt" FILE
+    ifstream stream_;    // used as NEW file for Move Constructor
 };
 
 #endif

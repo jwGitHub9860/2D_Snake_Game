@@ -90,30 +90,58 @@ color_translation::~color_translation() // 1 : destructor
   }*/
 }
 
-color_translation::color_translation(const color_translation &source)   // 2. copy constructor
+color_translation::color_translation(const color_translation &source) : filename_(source.filename)   // 2. copy constructor
 {
-  colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
+  if (source.stream.is_open())  // Checks if COPIED stream opened
+  {
+    source.stream.open();
+  }
+  
+  //colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
-color_translation::color_translation(const color_translation &source)   // 3. copy assignment operator
+color_translation::color_translation &operator=(const color_translation &source)   // 3. copy assignment operator
 {
-  colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
+  if (this != &source)  // protects against self-assignment
+  {
+    if (stream.is_open())
+    {
+      stream.close();
+    }
+    
+    ifstream source.stream.open();  // opens COPIED Stream
+    if (source.stream.is_open())  // checks COPIED Stream
+    {
+      source.stream.close();
+    }
+  }
+  return *this;   // returns reference to current object
+  //colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
-color_translation::color_translation(color_translation &&source)  // 4. move constructor
+color_translation::color_translation(color_translation &&source) : filename_(source.filename), stream_(source.stream)  // 4. move constructor
 {
-  colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
-  source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
+  /*colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
+  source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again*/
 }
 
-color_translation::color_translation(color_translation &&source)  // 5. move assignment operator
+color_translation::color_translation &operator=(color_translation &&source)  // 5. move assignment operator
 {
-  if (this != &source) // protects against self-assignment    
+  if (this != &source)  // protects against self-assignment
+  {
+    if (stream.open())  // Must Open ORIGINAL file FIRST before access elements inside file
+    {
+      stream.close();
+    }
+    filename_ = move(source.filename); // moves SOURCE "filename" into "filename"
+    stream_ = move(source.stream); // moves "stream" into "stream_"
+  }
+  /*if (this != &source) // protects against self-assignment    
   {
     delete[] colorPtr_;
     colorPtr_ = source.colorPtr_; // creates copy of "colorPtr_" from source
     source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
-  }
+  }*/
   return *this;   // returns reference to current object
 }
 
@@ -214,7 +242,7 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 		
     if (stream.is_open()) // "stream" INITIALIZED, OPENED, and CHECKED IF OPENED in constructor, CLOSED in destructor
     {
-      getline(stream, line)  // accesses text inside "choosing_color_string.txt" file & stores in "line"    do NOT need "while loop" ---> 1 LINE ONLY
+      getline(stream, line);  // accesses text inside "choosing_color_string.txt" file & stores in "line"    do NOT need "while loop" ---> 1 LINE ONLY
       line.insert(11, colorType[j]);
       cout << line;
     }
