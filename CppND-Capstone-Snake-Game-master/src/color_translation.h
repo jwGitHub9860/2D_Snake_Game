@@ -41,7 +41,7 @@ public:
     unique_ptr<unsigned char[]> color_translationHeadHexPtr;// = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeHeadColorHex[4]) ---> error will occur
     unique_ptr<unsigned char[]> color_translationFoodHexPtr;// = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (foodHexColor[4]) ---> error will occur
 
-    unsigned char ColorWordToHex(string ChoosenColor); // translates Word color into Hex color
+    void ColorWordToHex(string ChoosenColor, unsigned char HexColorHolder[4]); // translates Word color into Hex color
     void ColorChoice(string colorPartChoice);  // allows user to change "Body", "Head", and/or "Food"
 
 private:
@@ -54,8 +54,8 @@ private:
     
     vector<string> wordColorHolder{ snakeBodyColorWord, snakeHeadColorWord, foodColorWord };
     
-    string ChoosenColor = ""; // initializes Choosen Color
-    //unsigned char HexColor[4];
+    //string ChoosenColor = ""; // initializes Choosen Color
+    //unsigned char HexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };  // initializes Hex Color Holder (white)
     unsigned char ChoosenHexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF }; // initializes Choosen Hex Color     NEED CHANGING? [] to [4] (neccesary?)    Default values (white)
 
     vector<string> colorType{ "Body ", "Head ", "Food " };
