@@ -18,7 +18,7 @@ int main() {
   constexpr std::size_t kScreenHeight{640};
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
-  const string filename = "choosing_color_string.txt"; // accesses "choosing_color_string.txt" file
+  const string filename = "../src/choosing_color_string.txt"; // accesses "choosing_color_string.txt" file
 
   string choice = ""; // initializes Snake Color Change choice; limits to ONLY "main.cpp"
 
