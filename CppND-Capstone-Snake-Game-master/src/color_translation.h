@@ -19,13 +19,7 @@ using namespace std;
 class color_translation
 {
 public:
-    //color_translation();    // Constructor WITHOUT memory allocation
-    //color_translation();    // TEST 1 Constructor WITH memory allocation
-    //color_translation(const int HexSize);    // TEST 1 Constructor WITH memory allocation
-    //color_translation(unsigned char defaultHexBodyColor[4], unsigned char defaultHexHeadColor[4], unsigned char defaultHexFoodColor[4]);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
-    //color_translation(unsigned char* defaultHexBodyColor, unsigned char* defaultHexHeadColor, unsigned char* defaultHexFoodColor);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
-    //color_translation(const unsigned char* defaultHexBodyColor, const unsigned char* defaultHexHeadColor, const unsigned char* defaultHexFoodColor, const string filename);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
-    color_translation(const string &filename);    // TEST 2 Constructor WITH memory allocation  NOT ALLOWED
+    color_translation(const string &filename);    // Constructor WITH memory allocation
     ~color_translation();   // 1 : destructor
 
     color_translation(const color_translation &source); // 2. copy constructor
@@ -53,14 +47,9 @@ private:
     string foodColorWord = "yellow";  // initializes Food Color choice
     
     vector<string> wordColorHolder{ snakeBodyColorWord, snakeHeadColorWord, foodColorWord };
-    
-    //string ChoosenColor = ""; // initializes Choosen Color
-    //unsigned char HexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };  // initializes Hex Color Holder (white)
 
     vector<string> colorType{ "Body ", "Head ", "Food " };
     int num_loops = 1;
-
-    //unique_ptr<unsigned char[]> colorPtr_;
 
     ifstream stream;    // used to access "choosing_color_string.txt" FILE
 };

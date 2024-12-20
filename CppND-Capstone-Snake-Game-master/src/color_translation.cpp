@@ -9,61 +9,6 @@
 
 using namespace std;
 
-//color_translation::color_translation() : stream(stream) {}   // Constructor WITHOUT memory allocation (does NOT use "new")     "stream(stream)" - initializes "stream" with "stream" NOT SAME AS "stream = stream"
-
-/*color_translation::color_translation()  // TEST 1 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream(stream)" - initializes "stream" with "stream" NOT SAME AS "stream = stream"
-{
-  colorPtr_ = new unsigned char[];   // initializes "colorPtr_"
-  //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
-}*/
-
-/*color_translation::color_translation(const int HexSize) : HexSize(HexSize)  // TEST 1 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream(stream)" - initializes "stream" with "stream" NOT SAME AS "stream = stream"
-{
-  cout << "Success" << endl;
-  colorPtr_ = new unsigned char[];   // initializes "colorPtr_"
-  //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
-}*/
-
-// CONSTRUCTOR input in "color_translation" class MUST BE "unsigned char*" NOT "unsigned char[]" ----> ERROR WILL OCCUR; CONSTRUCTOR Can NOT Be ()
-
-/*color_translation::color_translation(unsigned char* defaultHexBodyColor, unsigned char* defaultHexHeadColor, unsigned char* defaultHexFoodColor)// : stream(stream)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream(stream)" - initializes "stream" with "stream" NOT SAME AS "stream = stream"
-{
-  for (int i = 0; i < 4; i++)
-  {
-    unsigned char snakeBodyColorHex[i] = defaultHexBodyColor[i];  // initializes Snake Body Color Hex to default color (white)
-    unsigned char snakeHeadColorHex[i] = defaultHexHeadColor[i];  // initializes Snake Head Color Hex to default color (default blue)
-    unsigned char foodHexColor[i] = defaultHexFoodColor[i];  // initializes Food Color Hex to default color (yellow)
-  }
-  
-  unique_ptr<unsigned char[]> color_translationBodyHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationBodyHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> color_translationHeadHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationHeadHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> color_translationFoodHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationFoodHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  //colorPtr_(new unsigned char[4]);   // initializes "colorPtr_"
-  //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
-}*/
-
-/*color_translation::color_translation(const unsigned char* defaultHexBodyColor, const unsigned char* defaultHexHeadColor, const unsigned char* defaultHexFoodColor, const string filename)// : stream(stream)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "stream(stream)" - initializes "stream" with "stream" NOT SAME AS "stream = stream"
-{
-  // MOVE POINTER DATA INTO DIFFERENT ARRAY
-  move(defaultHexBodyColor.begin(), defaultHexBodyColor.end(), snakeBodyColorHex.begin());  // initializes Snake Body Color Hex to default color (white)
-  move(defaultHexHeadColor.begin(), defaultHexHeadColor.end(), snakeHeadColorHex.begin());  // initializes Snake Head Color Hex to default color (default blue)
-  move(defaultHexFoodColor.begin(), defaultHexFoodColor.end(), foodHexColor.begin());  // initializes Food Color Hex to default color (yellow)
-  for (int i = 0; i < 4; i++)
-  {
-    unsigned char snakeBodyColorHex[i] = defaultHexBodyColor[i];  // initializes Snake Body Color Hex to default color (white)
-    unsigned char snakeHeadColorHex[i] = defaultHexHeadColor[i];  // initializes Snake Head Color Hex to default color (default blue)
-    unsigned char foodHexColor[i] = defaultHexFoodColor[i];  // initializes Food Color Hex to default color (yellow)
-  }
-
-  ifstream stream(filename); // accesses "choosing_color_string.txt" file
-
-  unique_ptr<unsigned char[]> color_translationBodyHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationBodyHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> color_translationHeadHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationHeadHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> color_translationFoodHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationFoodHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  //colorPtr_(new unsigned char[4]);   // initializes "colorPtr_"
-  //colorPtr_ = nullptr;    // invalid data handles (initializes "colorPtr_")
-}*/
-
 color_translation::color_translation(const string &filename) : filename(filename)  // NOT ALLOWED TEST 2 Constructor WITH memory allocation (uses "new")    MUST USE & (reference to) ---> can NOT directly content in "choosing_color_string.txt"     "filename(filename)" - initializes "filename" with "filename" NOT SAME AS "filename = filename"
 {
   ifstream stream(filename); // accesses "choosing_color_string.txt" file
@@ -84,10 +29,6 @@ color_translation::~color_translation() // 1 : destructor
   {
     stream.close();  // closes "choosing_color_string.txt" file AFTER using it
   }
-  /*if (color_translationBodyHexPtr != nullptr && color_translationHeadHexPtr != nullptr && color_translationFoodHexPtr != nullptr)   // can NOT deallocate "ifstream" ---> "stream != NULL"
-  {
-    delete[] stream;//color_translationBodyHexPtr[];   // deallocates heap memory
-  }*/
 }
 
 color_translation::color_translation(const color_translation &source) : filename(source.filename)   // 2. copy constructor
@@ -96,8 +37,6 @@ color_translation::color_translation(const color_translation &source) : filename
   {
     stream.open(filename);
   }
-  
-  //colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
 color_translation &color_translation::operator=(const color_translation &source)   // 3. copy assignment operator
@@ -116,14 +55,9 @@ color_translation &color_translation::operator=(const color_translation &source)
     }
   }
   return *this;   // returns reference to current object
-  //colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
 }
 
-color_translation::color_translation(color_translation &&source) : filename(move(source.filename)), stream(move(source.stream))  // 4. move constructor
-{
-  /*colorPtr_ = source.colorPtr_;     // creates copy of "colorPtr_" from source
-  source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again*/
-}
+color_translation::color_translation(color_translation &&source) : filename(move(source.filename)), stream(move(source.stream)) {}  // 4. move constructor
 
 color_translation &color_translation::operator=(color_translation &&source)  // 5. move assignment operator
 {
@@ -136,12 +70,6 @@ color_translation &color_translation::operator=(color_translation &&source)  // 
     filename = move(source.filename); // moves SOURCE "filename" into "filename"
     stream = move(source.stream); // moves "stream" into "stream_"
   }
-  /*if (this != &source) // protects against self-assignment    
-  {
-    delete[] colorPtr_;
-    colorPtr_ = source.colorPtr_; // creates copy of "colorPtr_" from source
-    source.colorPtr_ = nullptr;    // prevents "colorPtr_" from being used again
-  }*/
   return *this;   // returns reference to current object
 }
 
