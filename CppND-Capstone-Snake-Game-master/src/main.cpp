@@ -37,7 +37,7 @@ int main() {
   getline(cin, choice); // includes MORE THAN 1 word
   transform(choice.begin(), choice.end(), choice.begin(), [](unsigned char c){ return tolower(c); });  // sets "choice" to lowercase, makes "choice" case insensitive
   
-  while (choice != "none")
+  while (choice != "body" && choice != "head" && choice != "food" && choice != "whole snake" && choice != "all" && choice != "none")
   {
     cout << "Please choose one of the following options (Body, Head, Food, Whole Snake, All, or None): ";
     getline(cin, choice); // includes MORE THAN 1 word
