@@ -56,7 +56,6 @@ private:
     
     //string ChoosenColor = ""; // initializes Choosen Color
     //unsigned char HexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };  // initializes Hex Color Holder (white)
-    unsigned char ChoosenHexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF }; // initializes Choosen Hex Color     NEED CHANGING? [] to [4] (neccesary?)    Default values (white)
 
     vector<string> colorType{ "Body ", "Head ", "Food " };
     int num_loops = 1;
