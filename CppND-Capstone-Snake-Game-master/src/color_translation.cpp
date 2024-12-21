@@ -192,7 +192,18 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 		getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
 		transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", and/or "foodColorWord" to lowercase, makes case insensitive
 	}
-  ColorWordToHex(wordColorHolder[0], snakeBodyColorHex);  // obtains chosen Body color
-  ColorWordToHex(wordColorHolder[1], snakeHeadColorHex);  // obtains chosen Head color
-  ColorWordToHex(wordColorHolder[2], foodHexColor);  // obtains chosen Food color
+  
+  if (colorPartChoice == "body" || colorPartChoice == "whole snake" || colorPartChoice == "all")
+  {
+    ColorWordToHex(wordColorHolder[0], snakeBodyColorHex);  // obtains chosen Body color
+  }
+  if (colorPartChoice == "head" || colorPartChoice == "whole snake" || colorPartChoice == "all")
+  {
+    ColorWordToHex(wordColorHolder[1], snakeHeadColorHex);  // obtains chosen Head color
+  }
+  if (colorPartChoice == "food" || colorPartChoice == "all")
+  {
+    ColorWordToHex(wordColorHolder[2], foodHexColor);  // obtains chosen Food color
+  }
+  stream.close(); // MUST CLOSE "stream" HERE ---> "stream" Text will INFINITLY LOOP & SHOW TEXT AFTER "ColorChoice()" ENDS
 }
