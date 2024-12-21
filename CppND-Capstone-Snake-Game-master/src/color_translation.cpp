@@ -24,7 +24,7 @@ color_translation::color_translation(const string &filename) : filename(filename
 
 color_translation::~color_translation() // 1 : destructor
 {
-  if (stream.is_open())
+  if (stream.is_open()) // CHECKS if "stream" is open     (in case "stream" was NOT closed in "ColorChoice()" function)
   {
     stream.close();  // closes "choosing_color_string.txt" file AFTER using it
   }
