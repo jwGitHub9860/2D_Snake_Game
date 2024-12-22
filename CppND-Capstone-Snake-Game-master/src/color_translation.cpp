@@ -72,7 +72,7 @@ color_translation &color_translation::operator=(color_translation &&source)  // 
   return *this;   // returns reference to current object
 }
 
-void color_translation::ColorWordToHex(string ChoosenColor, unsigned char HexColorHolder[4]) // translates Word color into Hex color USING MOVE SEMANTICS ---> MUST Move (or copy) Values Into Array or ERROR WILL OCCUR
+void color_translation::ColorWordToHex(string &ChoosenColor, unsigned char (&HexColorHolder)[4]) // translates Word color into Hex color USING MOVE SEMANTICS ---> MUST Move (or copy) Values Into Array or ERROR WILL OCCUR    "HexColorHolder" MUST BE A POINTER
 {
   if (ChoosenColor == "red")
   {
@@ -185,25 +185,32 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 		
     if (stream.is_open()) // "stream" INITIALIZED, OPENED, and CHECKED IF OPENED in constructor, CLOSED in destructor
     {
-      getline(stream, line);  // accesses text inside "choosing_color_string.txt" file & stores in "line"    do NOT need "while loop" ---> 1 LINE ONLY
-      line.insert(11, colorType[j]);
-      cout << line;
+      while (getline(stream, line))   // accesses text inside "choosing_color_string.txt" file & stores in "line"
+      {
+        if (line[0] == 'C')   // checks if 1st letter in "line" matches "C" (1st line)
+        {
+          line.insert(11, colorType[j]);
+          cout << line;
+        }
+      }
     }
 		getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
-		transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", and/or "foodColorWord" to lowercase, makes case insensitive
+		transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
+    while (wordColorHolder[j] != "red" && wordColorHolder[j] != "orange" && wordColorHolder[j] != "yellow" && wordColorHolder[j] != "green" && wordColorHolder[j] != "blue" && wordColorHolder[j] != "indigo" && wordColorHolder[j] != "violet" && wordColorHolder[j] != "dark red" && wordColorHolder[j] != "dark orange" && wordColorHolder[j] != "goldenrod" && wordColorHolder[j] != "light green" && wordColorHolder[j] != "light blue" && wordColorHolder[j] != "pink" && wordColorHolder[j] != "dark violet" && wordColorHolder[j] != "white" && wordColorHolder[j] != "default blue")
+    {
+      while (getline(cin, line))   // accesses text inside "choosing_color_string.txt" file & stores in "line"
+      {
+        if (line[0] == 'P')   // checks if 1st letter in "line" matches "P" (2nd line)
+        {
+          cout << line;
+          getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
+          transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
+        }
+      }
+    }
 	}
-  
-  if (colorPartChoice == "body" || colorPartChoice == "whole snake" || colorPartChoice == "all")
-  {
-    ColorWordToHex(wordColorHolder[0], snakeBodyColorHex);  // obtains chosen Body color
-  }
-  if (colorPartChoice == "head" || colorPartChoice == "whole snake" || colorPartChoice == "all")
-  {
-    ColorWordToHex(wordColorHolder[1], snakeHeadColorHex);  // obtains chosen Head color
-  }
-  if (colorPartChoice == "food" || colorPartChoice == "all")
-  {
-    ColorWordToHex(wordColorHolder[2], foodHexColor);  // obtains chosen Food color
-  }
+  ColorWordToHex(wordColorHolder[0], snakeBodyColorHex);  // obtains chosen Body color
+  ColorWordToHex(wordColorHolder[1], snakeHeadColorHex);  // obtains chosen Head color
+  ColorWordToHex(wordColorHolder[2], foodHexColor);  // obtains chosen Food color
   stream.close(); // MUST CLOSE "stream" HERE ---> "stream" Text will INFINITLY LOOP & SHOW TEXT AFTER "ColorChoice()" ENDS
 }

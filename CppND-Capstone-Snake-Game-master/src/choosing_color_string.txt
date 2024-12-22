@@ -1,1 +1,2 @@
 Choose the Color (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink, Dark Violet, White, and Default Blue): 
+Please choose one of the following colors (Red, Orange, Yellow, Green, Blue, Indigo, Violet, Dark Red, Dark Orange, Goldenrod, Light Green, Light Blue, Pink, Dark Violet, White, and Default Blue): 
