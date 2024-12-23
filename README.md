@@ -10,12 +10,28 @@
 ## New Features paragraph:
 * Give player choice to change Snake and/or Food color(s)
 
-## Rubric Submission Explaination:
+## Rubric Submission Explanation:
 The player choice to change Snake and/or Food color(s)
+
+Loops, Functions, I/O:
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
+  - text file is accessed using a constant string variable 
 - accepts user's answers as input uses it to answer the given questions
 - uses vector called "colorHolder" as data structure to hold the strings of the food, snake body and head colors
-- STILL NEEDS CONSTANT VARIABLES
+
+Object Oriented Programming:
+- involved adding 1 new class to project called "color_translation"
+- 
+- 
+
+Memory Management:
+- 
+- 
+- uses 3 unique pointers called "snakeBodyColorHex", "snakeHeadColorHex", and "foodHexColor"
+
+Concurrency:
+- 
+- 
 - 
 
 ## New Features added:
