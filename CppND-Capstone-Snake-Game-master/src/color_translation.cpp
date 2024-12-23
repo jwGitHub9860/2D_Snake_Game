@@ -22,14 +22,14 @@ color_translation::color_translation(const string &filename) : filename(filename
   //unique_ptr<unsigned char[]> color_translationFoodHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationFoodHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
 
   unique_ptr<unsigned char[]> snakeBodyColorHex[4] = make_unique<unsigned char[]>(4); // Snake Body Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
-  for (int i = 0; i < 4; i++) // initializes Snake Body Color Hex to default color (white)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> ERROR WILL OCCUR
+  for (int i = 0; i < 4; i++) // initializes Snake Body Color Hex to default color (white)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> "ColorWordToHex()" WILL NOT BE ABLE TO CHANGE HEX VALUES
   {
     snakeBodyColorHex[i] = 0xFF;
   }
   
   unique_ptr<unsigned char[]> snakeHeadColorHex[4] = make_unique<unsigned char[]>(4); // Snake Head Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
   
-  // initializes Snake Head Color Hex to default color (default blue)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> ERROR WILL OCCUR
+  // initializes Snake Head Color Hex to default color (default blue)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> "ColorWordToHex()" WILL NOT BE ABLE TO CHANGE HEX VALUES
   snakeHeadColorHex[0] = 0x00;
   snakeHeadColorHex[1] = 0x7A;
   snakeHeadColorHex[2] = 0xCC;
@@ -37,7 +37,7 @@ color_translation::color_translation(const string &filename) : filename(filename
   
   unique_ptr<unsigned char[]> foodHexColor[4] = make_unique<unsigned char[]>(4); // Food Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
   
-  // initializes Food Color Hex to default color (yellow)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> ERROR WILL OCCUR
+  // initializes Food Color Hex to default color (yellow)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> "ColorWordToHex()" WILL NOT BE ABLE TO CHANGE HEX VALUES
   foodHexColor[0] = 0xFF;
   foodHexColor[1] = 0xCC;
   foodHexColor[2] = 0x00;
