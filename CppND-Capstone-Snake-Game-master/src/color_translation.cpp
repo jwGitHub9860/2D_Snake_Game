@@ -94,87 +94,119 @@ color_translation &color_translation::operator=(color_translation &&source)  // 
   return *this;   // returns reference to current object
 }
 
-void color_translation::ColorWordToHex(string &ChoosenColor, unsigned char (&HexColorHolder)[4]) // translates Word color into Hex color USING MOVE SEMANTICS ---> MUST Move (or copy) Values Into Array or ERROR WILL OCCUR    "HexColorHolder" MUST BE A POINTER
+void color_translation::ColorWordToHex(string &ChoosenColor, unique_ptr<unsigned char[]> &HexColorHolder) // translates Word color into Hex color    "HexColorHolder" MUST BE A POINTER to CHANGE HEX VALUES ---> CANNOT USE MOVE SEMANTICS or ERROR WILL OCCUR    MUST CHANGE "HexColorHolder" VALUES INDIVIDUALITY
 {
   if (ChoosenColor == "red")
   {
-    unsigned char ChoosenHexColor[4] = { 0xFF, 0x0, 0x0, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0xFF;
+    HexColorHolder[1] = 0x0;
+    HexColorHolder[2] = 0x0;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "orange")
   {
-    unsigned char ChoosenHexColor[4] = { 0xFF, 0xA5, 0x0, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0xFF;
+    HexColorHolder[1] = 0xA5;
+    HexColorHolder[2] = 0x0;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "yellow")  // Default Food color
   {
-    unsigned char ChoosenHexColor[4] = { 0xFF, 0xCC, 0x00, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0xFF;
+    HexColorHolder[1] = 0xCC;
+    HexColorHolder[2] = 0x00;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "green")
   {
-    unsigned char ChoosenHexColor[4] = { 0x00, 0x80, 0x00, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0x00;
+    HexColorHolder[1] = 0x80;
+    HexColorHolder[2] = 0x00;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "blue")
   {
-    unsigned char ChoosenHexColor[4] = { 0x00, 0x00, 0xFF, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0x00;
+    HexColorHolder[1] = 0x00;
+    HexColorHolder[2] = 0xFF;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "indigo")
   {
-    unsigned char ChoosenHexColor[4] = { 0x4B, 0x00, 0x82, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0x4B;
+    HexColorHolder[1] = 0x00;
+    HexColorHolder[2] = 0x82;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "violet")
   {
-    unsigned char ChoosenHexColor[4] = { 0xEE, 0x82, 0xEE, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0xEE;
+    HexColorHolder[1] = 0x82;
+    HexColorHolder[2] = 0xEE;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "dark red")
   {
-    unsigned char ChoosenHexColor[4] = { 0x8B, 0x00, 0x00, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0x8B;
+    HexColorHolder[1] = 0x00;
+    HexColorHolder[2] = 0x00;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "dark orange")
   {
-    unsigned char ChoosenHexColor[4] = { 0xFF, 0x8C, 0x00, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0xFF;
+    HexColorHolder[1] = 0x8C;
+    HexColorHolder[2] = 0x00;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "goldenrod")
   {
-    unsigned char ChoosenHexColor[4] = { 0xDA, 0xA5, 0x20, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0xDA;
+    HexColorHolder[1] = 0xA5;
+    HexColorHolder[2] = 0x20;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "light green")
   {
-    unsigned char ChoosenHexColor[4] = { 0x90, 0xEE, 0x90, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0x90;
+    HexColorHolder[1] = 0xEE;
+    HexColorHolder[2] = 0x90;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "light blue")
   {
-    unsigned char ChoosenHexColor[4] = { 0xAD, 0xD8, 0xE6, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0xAD;
+    HexColorHolder[1] = 0xD8;
+    HexColorHolder[2] = 0xE6;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "pink")
   {
-    unsigned char ChoosenHexColor[4] = { 0xFF, 0xC0, 0xCB, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0xFF;
+    HexColorHolder[1] = 0xC0;
+    HexColorHolder[2] = 0xCB;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "dark violet")
   {
-    unsigned char ChoosenHexColor[4] = { 0x94, 0x00, 0xD3, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0x94;
+    HexColorHolder[1] = 0x00;
+    HexColorHolder[2] = 0xD3;
+    HexColorHolder[3] = 0xFF;
   }
   else if (ChoosenColor == "white") // Default snake Body color
   {
-    unsigned char ChoosenHexColor[4] = { 0xFF, 0xFF, 0xFF, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    for (int i = 0; i < 4; i++)
+    {
+      HexColorHolder[i] = 0xFF;
+    }
   }
   else if (ChoosenColor == "default blue")  // Default snake Head color
   {
-    unsigned char ChoosenHexColor[4] = { 0x00, 0x7A, 0xCC, 0xFF };  // MUST DEFINE "ChoosenHexColor" with "unsigned char" & "[4]" HERE Not in Header File or ERROR WILL OCCUR
-    HexColorHolder = move(ChoosenHexColor); // moves hex values into "HexColor" USING MOVE SEMANTICS
+    HexColorHolder[0] = 0x00;
+    HexColorHolder[1] = 0x7A;
+    HexColorHolder[2] = 0xCC;
+    HexColorHolder[3] = 0xFF;
   }
 }
 
