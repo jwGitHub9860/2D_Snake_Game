@@ -1,6 +1,6 @@
 #include "game.h"
-#include "color_translation.h"  // allows access to "snakeBodyColorHex", "snakeHeadColorHex", "foodHexColor", and "ColorChoice()" function
 #include <iostream>
+#include <memory> // defines "unique_ptr"
 #include "SDL.h"
 
 using namespace std;
@@ -54,7 +54,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food, colorTranslation.snakeBodyColorHex, colorTranslation.snakeHeadColorHex, colorTranslation.foodHexColor);  // ADDED IN MY OWN (delete comment later?)
+    renderer.Render(snake, food, colorTranslation.snakeBodyHexPtr_1, colorTranslation.snakeBodyHexPtr_2, colorTranslation.snakeBodyHexPtr_3, colorTranslation.snakeBodyHexPtr_4, colorTranslation.snakeHeadHexPtr_1, colorTranslation.snakeHeadHexPtr_2, colorTranslation.snakeHeadHexPtr_3, colorTranslation.snakeHeadHexPtr_4, colorTranslation.foodHexPtr_1, colorTranslation.foodHexPtr_2, colorTranslation.foodHexPtr_3, colorTranslation.foodHexPtr_4);  // ADDED IN MY OWN (delete comment later?)
 
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 

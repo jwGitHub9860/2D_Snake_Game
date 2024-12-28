@@ -2,10 +2,9 @@
 #define RENDERER_H
 
 #include <memory>   // defines "unique_ptr"
-#include <string>
 #include <vector>
+#include "color_translation.h"  // allows access to "unique_ptr" for INDIVIDUAL Snake Body, Snake Head, and Food Hex Values & "color_translation" move constructor
 #include "SDL.h"
-#include "color_translation.h"  // allows access to MAIN "unique_ptr" & "color_translation" move constructor
 #include "snake.h"
 
 using namespace std;
@@ -16,7 +15,7 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();    // 1 : destructor
 
-  void Render(Snake const snake, SDL_Point const &food, unsigned char snakeBodyColorHex[4], unsigned char snakeHeadColorHex[4], unsigned char foodHexColor[4]);  // used to render Snake object & food to screen
+  void Render(Snake const snake, SDL_Point const &food, unique_ptr<unsigned char[]> snakeBodyHexPtr_1, unique_ptr<unsigned char[]> snakeBodyHexPtr_2, unique_ptr<unsigned char[]> snakeBodyHexPtr_3, unique_ptr<unsigned char[]> snakeBodyHexPtr_4, unique_ptr<unsigned char[]> snakeHeadHexPtr_1, unique_ptr<unsigned char[]> snakeHeadHexPtr_2, unique_ptr<unsigned char[]> snakeHeadHexPtr_3, unique_ptr<unsigned char[]> snakeHeadHexPtr_4, unique_ptr<unsigned char[]> foodHexPtr_1, unique_ptr<unsigned char[]> foodHexPtr_2, unique_ptr<unsigned char[]> foodHexPtr_3, unique_ptr<unsigned char[]> foodHexPtr_4);  // used to render Snake object & food to screen
   void UpdateWindowTitle(int score, int fps); // updates bar at top of game window with score & frames per second
 
 
