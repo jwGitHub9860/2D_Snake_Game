@@ -27,9 +27,9 @@ public:
     color_translation(color_translation &&source);    // 4. move constructor
     color_translation& operator=(color_translation &&source); // 5. move assignment operator
     
-    unsigned char snakeBodyColorHex[4]; // Snake Body Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
-    unsigned char snakeHeadColorHex[4]; // Snake Head Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
-    unsigned char foodHexColor[4]; // Food Color Hex "unique_ptr" (MAIN)                   "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    unsigned char snakeBodyColorHex[4]; // holds Snake Body Hex Color        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    unsigned char snakeHeadColorHex[4]; // holds Snake Head Hex Color        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    unsigned char foodHexColor[4]; // holds Food Hex Color                   "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     
     // unique pointers for INDIVIDUAL Snake Body Hex Values
     unique_ptr<unsigned char[]> snakeBodyHexPtr_1;
@@ -53,7 +53,7 @@ public:
     void ColorChoice(string &colorPartChoice);  // allows user to change "Body", "Head", and/or "Food"       MUST USE "&colorPartChoice" NOT "colorPartChoice" TO CHANGE "snakeBodyColorHex", "snakeHeadColorHex", and "foodHexColor" HEX VALUES (even though "colorPartChoice" will NOT be Changed or Returned)
 
 private:
-    string line = "";  // used to access TEXT in "choosing_color_string.txt" file
+    string line;  // used to access TEXT in "choosing_color_string.txt" file
     string filename;   // used to hold file name: "choosing_color_string.txt"
 
     string snakeBodyColorWord = "white"; // initializes Snake Body Color choice
