@@ -31,23 +31,23 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       colorTranslation.ColorChoice(colorPartChoice);
     }
     
-    // moves INDIVIDUAL Snake Body Hex Values into Snake Body unique pointers USING MOVE SEMANTICS
-    colorTranslation.snakeBodyHexPtr_1 = move(colorTranslation.snakeBodyColorHex[0]);
-    colorTranslation.snakeBodyHexPtr_2 = move(colorTranslation.snakeBodyColorHex[1]);
-    colorTranslation.snakeBodyHexPtr_3 = move(colorTranslation.snakeBodyColorHex[2]);
-    colorTranslation.snakeBodyHexPtr_4 = move(colorTranslation.snakeBodyColorHex[3]);
+    // moves INDIVIDUAL Snake Body Hex Values into Snake Body unique pointers USING MOVE SEMANTICS      MUST INCLUDE "[0]" with "unique_ptr" ---> Error will occur
+    colorTranslation.snakeBodyHexPtr_1[0] = move(colorTranslation.snakeBodyColorHex[0]);
+    colorTranslation.snakeBodyHexPtr_2[0] = move(colorTranslation.snakeBodyColorHex[1]);
+    colorTranslation.snakeBodyHexPtr_3[0] = move(colorTranslation.snakeBodyColorHex[2]);
+    colorTranslation.snakeBodyHexPtr_4[0] = move(colorTranslation.snakeBodyColorHex[3]);
       
-    // moves INDIVIDUAL Snake Head Hex Values into Snake Head unique pointers USING MOVE SEMANTICS
-    colorTranslation.snakeHeadHexPtr_1 = move(colorTranslation.snakeHeadColorHex[0]);
-    colorTranslation.snakeHeadHexPtr_2 = move(colorTranslation.snakeHeadColorHex[1]);
-    colorTranslation.snakeHeadHexPtr_3 = move(colorTranslation.snakeHeadColorHex[2]);
-    colorTranslation.snakeHeadHexPtr_4 = move(colorTranslation.snakeHeadColorHex[3]);
+    // moves INDIVIDUAL Snake Head Hex Values into Snake Head unique pointers USING MOVE SEMANTICS      MUST INCLUDE "[0]" with "unique_ptr" ---> Error will occur
+    colorTranslation.snakeHeadHexPtr_1[0] = move(colorTranslation.snakeHeadColorHex[0]);
+    colorTranslation.snakeHeadHexPtr_2[0] = move(colorTranslation.snakeHeadColorHex[1]);
+    colorTranslation.snakeHeadHexPtr_3[0] = move(colorTranslation.snakeHeadColorHex[2]);
+    colorTranslation.snakeHeadHexPtr_4[0] = move(colorTranslation.snakeHeadColorHex[3]);
 
-    // moves INDIVIDUAL Food Hex Values into Food unique pointers USING MOVE SEMANTICS
-    colorTranslation.foodHexPtr_1 = move(colorTranslation.foodHexColor[0]);
-    colorTranslation.foodHexPtr_2 = move(colorTranslation.foodHexColor[1]);
-    colorTranslation.foodHexPtr_3 = move(colorTranslation.foodHexColor[2]);
-    colorTranslation.foodHexPtr_4 = move(colorTranslation.foodHexColor[3]);
+    // moves INDIVIDUAL Food Hex Values into Food unique pointers USING MOVE SEMANTICS                  MUST INCLUDE "[0]" with "unique_ptr" ---> Error will occur
+    colorTranslation.foodHexPtr_1[0] = move(colorTranslation.foodHexColor[0]);
+    colorTranslation.foodHexPtr_2[0] = move(colorTranslation.foodHexColor[1]);
+    colorTranslation.foodHexPtr_3[0] = move(colorTranslation.foodHexColor[2]);
+    colorTranslation.foodHexPtr_4[0] = move(colorTranslation.foodHexColor[3]);
     
     
 
