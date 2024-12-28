@@ -31,9 +31,23 @@ public:
     unsigned char snakeHeadColorHex[4]; // Snake Head Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     unsigned char foodHexColor[4]; // Food Color Hex "unique_ptr" (MAIN)                   "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     
-    //unique_ptr<unsigned char[]> color_translationBodyHexPtr;// = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeBodyColorHex[4]) ---> error will occur
-    //unique_ptr<unsigned char[]> color_translationHeadHexPtr;// = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (snakeHeadColorHex[4]) ---> error will occur
-    //unique_ptr<unsigned char[]> color_translationFoodHexPtr;// = make_unique<unsigned char[]>(4);   // color_translation "unique_ptr" (MAIN)        MUST SPECIFY ARRAY SIZE ---> [4] NOT []        MUST USE (new unsigned char[4]) NOT (foodHexColor[4]) ---> error will occur
+    // unique pointers for INDIVIDUAL Snake Body Hex Values
+    unique_ptr<unsigned char[]> snakeBodyHexPtr_1;
+    unique_ptr<unsigned char[]> snakeBodyHexPtr_2;
+    unique_ptr<unsigned char[]> snakeBodyHexPtr_3;
+    unique_ptr<unsigned char[]> snakeBodyHexPtr_4;
+    
+    // unique pointers for INDIVIDUAL Snake Head Hex Values
+    unique_ptr<unsigned char[]> snakeHeadHexPtr_1;
+    unique_ptr<unsigned char[]> snakeHeadHexPtr_2;
+    unique_ptr<unsigned char[]> snakeHeadHexPtr_3;
+    unique_ptr<unsigned char[]> snakeHeadHexPtr_4;
+
+    // unique pointers for INDIVIDUAL Food Hex Values
+    unique_ptr<unsigned char[]> foodHexPtr_1;
+    unique_ptr<unsigned char[]> foodHexPtr_2;
+    unique_ptr<unsigned char[]> foodHexPtr_3;
+    unique_ptr<unsigned char[]> foodHexPtr_4;
 
     void ColorWordToHex(string &ChoosenColor, unsigned char[] (&HexColorHolder)[4]); // translates Word color into Hex color
     void ColorChoice(string &colorPartChoice);  // allows user to change "Body", "Head", and/or "Food"       MUST USE "&colorPartChoice" NOT "colorPartChoice" TO CHANGE "snakeBodyColorHex", "snakeHeadColorHex", and "foodHexColor" HEX VALUES (even though "colorPartChoice" will NOT be Changed or Returned)

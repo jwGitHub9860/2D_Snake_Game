@@ -17,9 +17,41 @@ color_translation::color_translation(const string &filename) : filename(filename
     cout << "Text file failed to open.\n";
   }
 
-  unique_ptr<unsigned char[]> color_translationBodyHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationBodyHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> color_translationHeadHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationHeadHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> color_translationFoodHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationFoodHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  // unique pointers for INDIVIDUAL Snake Body Hex Values
+  unique_ptr<unsigned char[]> snakeBodyHexPtr_1(new unsigned char[4]);  // allocates heap memory (initializes "snakeBodyHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> snakeBodyHexPtr_2(new unsigned char[4]);  // allocates heap memory (initializes "snakeBodyHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> snakeBodyHexPtr_3(new unsigned char[4]);  // allocates heap memory (initializes "snakeBodyHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> snakeBodyHexPtr_4(new unsigned char[4]);  // allocates heap memory (initializes "snakeBodyHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+    
+  // unique pointers for INDIVIDUAL Snake Head Hex Values
+  unique_ptr<unsigned char[]> snakeHeadHexPtr_1(new unsigned char[4]);  // allocates heap memory (initializes "snakeHeadHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> snakeHeadHexPtr_2(new unsigned char[4]);  // allocates heap memory (initializes "snakeHeadHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> snakeHeadHexPtr_3(new unsigned char[4]);  // allocates heap memory (initializes "snakeHeadHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> snakeHeadHexPtr_4(new unsigned char[4]);  // allocates heap memory (initializes "snakeHeadHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+
+  // unique pointers for INDIVIDUAL Food Hex Values
+  unique_ptr<unsigned char[]> foodHexPtr_1(new unsigned char[4]);  // allocates heap memory (initializes "foodHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> foodHexPtr_2(new unsigned char[4]);  // allocates heap memory (initializes "foodHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> foodHexPtr_3(new unsigned char[4]);  // allocates heap memory (initializes "foodHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> foodHexPtr_4(new unsigned char[4]);  // allocates heap memory (initializes "foodHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+
+  // moves INDIVIDUAL Snake Body Hex Values into Snake Body unique pointers
+  snakeBodyHexPtr_1 = move(snakeBodyColorHex[0]);  // allocates heap memory (initializes "snakeBodyHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  snakeBodyHexPtr_2 = move(snakeBodyColorHex[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  snakeBodyHexPtr_3 = move(snakeBodyColorHex[2]);  // allocates heap memory (initializes "snakeBodyHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  snakeBodyHexPtr_4 = move(snakeBodyColorHex[3]);  // allocates heap memory (initializes "snakeBodyHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+    
+  // moves INDIVIDUAL Snake Head Hex Values into Snake Head unique pointers
+  snakeHeadHexPtr_1 = move(snakeHeadColorHex[0]);  // allocates heap memory (initializes "snakeHeadHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  snakeHeadHexPtr_2 = move(snakeHeadColorHex[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  snakeHeadHexPtr_3 = move(snakeHeadColorHex[2]);  // allocates heap memory (initializes "snakeHeadHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  snakeHeadHexPtr_4 = move(snakeHeadColorHex[3]);  // allocates heap memory (initializes "snakeHeadHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+
+  // moves INDIVIDUAL Food Hex Values into Food unique pointers
+  foodHexPtr_1 = move(foodHexColor[0]);  // allocates heap memory (initializes "foodHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  foodHexPtr_2 = move(foodHexColor[1]);  // allocates heap memory (initializes "foodHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  foodHexPtr_3 = move(foodHexColor[2]);  // allocates heap memory (initializes "foodHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  foodHexPtr_4 = move(foodHexColor[3]);  // allocates heap memory (initializes "foodHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
   
   for (int i = 0; i < 4; i++) // initializes Snake Body Color Hex to default color (white)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> "ColorWordToHex()" WILL NOT BE ABLE TO CHANGE HEX VALUES
   {
