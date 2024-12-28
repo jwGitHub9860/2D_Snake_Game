@@ -17,25 +17,20 @@ color_translation::color_translation(const string &filename) : filename(filename
     cout << "Text file failed to open.\n";
   }
 
-  //unique_ptr<unsigned char[]> color_translationBodyHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationBodyHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  //unique_ptr<unsigned char[]> color_translationHeadHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationHeadHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  //unique_ptr<unsigned char[]> color_translationFoodHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationFoodHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-
-  unique_ptr<unsigned char[]> snakeBodyColorHex[4] = make_unique<unsigned char[]>(4); // Snake Body Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+  unique_ptr<unsigned char[]> color_translationBodyHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationBodyHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> color_translationHeadHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationHeadHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<unsigned char[]> color_translationFoodHexPtr(new unsigned char[4]);  // allocates heap memory (initializes "color_translationFoodHexPtr")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  
   for (int i = 0; i < 4; i++) // initializes Snake Body Color Hex to default color (white)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> "ColorWordToHex()" WILL NOT BE ABLE TO CHANGE HEX VALUES
   {
     snakeBodyColorHex[i] = 0xFF;
   }
-  
-  unique_ptr<unsigned char[]> snakeHeadColorHex[4] = make_unique<unsigned char[]>(4); // Snake Head Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
   
   // initializes Snake Head Color Hex to default color (default blue)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> "ColorWordToHex()" WILL NOT BE ABLE TO CHANGE HEX VALUES
   snakeHeadColorHex[0] = 0x00;
   snakeHeadColorHex[1] = 0x7A;
   snakeHeadColorHex[2] = 0xCC;
   snakeHeadColorHex[3] = 0xFF;
-  
-  unique_ptr<unsigned char[]> foodHexColor[4] = make_unique<unsigned char[]>(4); // Food Color Hex "unique_ptr" (MAIN)        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
   
   // initializes Food Color Hex to default color (yellow)    MUST INITIALIZE "snakeBodyColorHex" THIS WAY ---> "ColorWordToHex()" WILL NOT BE ABLE TO CHANGE HEX VALUES
   foodHexColor[0] = 0xFF;
@@ -94,7 +89,7 @@ color_translation &color_translation::operator=(color_translation &&source)  // 
   return *this;   // returns reference to current object
 }
 
-void color_translation::ColorWordToHex(string &ChoosenColor, unique_ptr<unsigned char[]> &HexColorHolder) // translates Word color into Hex color    "HexColorHolder" MUST BE A POINTER to CHANGE HEX VALUES ---> CANNOT USE MOVE SEMANTICS or ERROR WILL OCCUR    MUST CHANGE "HexColorHolder" VALUES INDIVIDUALITY
+void color_translation::ColorWordToHex(string &ChoosenColor, unsigned char[] (&HexColorHolder)[4]) // translates Word color into Hex color    "HexColorHolder" MUST BE A PASS-BY-REFERENCE to CHANGE HEX VALUES ---> CANNOT USE MOVE SEMANTICS or ERROR WILL OCCUR    MUST CHANGE "HexColorHolder" VALUES INDIVIDUALITY
 {
   if (ChoosenColor == "red")
   {
@@ -210,7 +205,7 @@ void color_translation::ColorWordToHex(string &ChoosenColor, unique_ptr<unsigned
   }
 }
 
-void color_translation::ColorChoice(string colorPartChoice)   // allows user to change "Body", "Head", and/or "Food"
+void color_translation::ColorChoice(string &colorPartChoice)   // allows user to change "Body", "Head", and/or "Food"       MUST USE "&colorPartChoice" NOT "colorPartChoice" TO CHANGE "snakeBodyColorHex", "snakeHeadColorHex", and "foodHexColor" HEX VALUES (even though "colorPartChoice" will NOT be Changed or Returned)
 {	
 	if (colorPartChoice == "body" || colorPartChoice == "head" || colorPartChoice == "food")
 	{
@@ -239,28 +234,28 @@ void color_translation::ColorChoice(string colorPartChoice)   // allows user to 
 		
     if (stream.is_open()) // "stream" INITIALIZED, OPENED, and CHECKED IF OPENED in constructor, CLOSED in destructor
     {
-      while (getline(stream, line))   // accesses text inside "choosing_color_string.txt" file & stores in "line"
+      while (line[0] != 'C')   // checks if 1st letter in "line" matches "C" (1st line)
       {
-        if (line[0] == 'C')   // checks if 1st letter in "line" matches "C" (1st line)
-        {
-          line.insert(11, colorType[j]);
-          cout << line;
-        }
+        getline(stream, line);   // accesses text inside "choosing_color_string.txt" file & stores in "line"
       }
+      line.insert(11, colorType[j]);  // INSERTS "colorType" text
+      cout << line;
+      line.erase(11, 5);   // REMOVES "colorType" text
+      getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
+		  transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
     }
-		getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
-		transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
+		
     while (wordColorHolder[j] != "red" && wordColorHolder[j] != "orange" && wordColorHolder[j] != "yellow" && wordColorHolder[j] != "green" && wordColorHolder[j] != "blue" && wordColorHolder[j] != "indigo" && wordColorHolder[j] != "violet" && wordColorHolder[j] != "dark red" && wordColorHolder[j] != "dark orange" && wordColorHolder[j] != "goldenrod" && wordColorHolder[j] != "light green" && wordColorHolder[j] != "light blue" && wordColorHolder[j] != "pink" && wordColorHolder[j] != "dark violet" && wordColorHolder[j] != "white" && wordColorHolder[j] != "default blue")
     {
-      while (getline(cin, line))   // accesses text inside "choosing_color_string.txt" file & stores in "line"
+      while (line[0] != 'P')   // checks if 1st letter in "line" matches "P" (2nd line)
       {
-        if (line[0] == 'P')   // checks if 1st letter in "line" matches "P" (2nd line)
-        {
-          cout << line;
-          getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
-          transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
-        }
+        getline(stream, line);   // accesses text inside "choosing_color_string.txt" file & stores in "line"
       }
+      cout << line;
+      getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
+      transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
+      stream.close(); // MUST CLOSE "stream" THEN
+      stream.open(filename);  // REOPEN "stream" ---> "getline()" Will START At 1ST LINE to PREVENT program STOPPING Then Goinghrough INIFINITE WHILE LOOP
     }
 	}
   ColorWordToHex(wordColorHolder[0], snakeBodyColorHex);  // obtains chosen Body color
