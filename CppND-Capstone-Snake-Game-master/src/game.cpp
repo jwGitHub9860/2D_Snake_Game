@@ -32,7 +32,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     }
     
     // moves INDIVIDUAL Snake Body Hex Values into Snake Body unique pointers USING MOVE SEMANTICS      MUST INCLUDE "[0]" with "unique_ptr" ---> Error will occur
-    colorTranslation.snakeBodyHexPtr_1[0] = move(colorTranslation.snakeBodyColorHex[0]);
+    /*colorTranslation.snakeBodyHexPtr_1[0] = move(colorTranslation.snakeBodyColorHex[0]);
     colorTranslation.snakeBodyHexPtr_2[0] = move(colorTranslation.snakeBodyColorHex[1]);
     colorTranslation.snakeBodyHexPtr_3[0] = move(colorTranslation.snakeBodyColorHex[2]);
     colorTranslation.snakeBodyHexPtr_4[0] = move(colorTranslation.snakeBodyColorHex[3]);
@@ -47,14 +47,14 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     colorTranslation.foodHexPtr_1[0] = move(colorTranslation.foodHexColor[0]);
     colorTranslation.foodHexPtr_2[0] = move(colorTranslation.foodHexColor[1]);
     colorTranslation.foodHexPtr_3[0] = move(colorTranslation.foodHexColor[2]);
-    colorTranslation.foodHexPtr_4[0] = move(colorTranslation.foodHexColor[3]);
+    colorTranslation.foodHexPtr_4[0] = move(colorTranslation.foodHexColor[3]);*/
     
     
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food, colorTranslation.snakeBodyHexPtr_1, colorTranslation.snakeBodyHexPtr_2, colorTranslation.snakeBodyHexPtr_3, colorTranslation.snakeBodyHexPtr_4, colorTranslation.snakeHeadHexPtr_1, colorTranslation.snakeHeadHexPtr_2, colorTranslation.snakeHeadHexPtr_3, colorTranslation.snakeHeadHexPtr_4, colorTranslation.foodHexPtr_1, colorTranslation.foodHexPtr_2, colorTranslation.foodHexPtr_3, colorTranslation.foodHexPtr_4);  // ADDED IN MY OWN (delete comment later?)
+    renderer.Render(snake, food, colorTranslation.snakeBodyColorHex, colorTranslation.snakeHeadColorHex, colorTranslation.foodHexColor);  // ADDED IN MY OWN (delete comment later?)
 
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 

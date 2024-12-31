@@ -35,22 +35,22 @@ color_translation::color_translation(const string &filename) : filename(filename
   foodHexColor[3] = 0xFF;
 
   // unique pointers for INDIVIDUAL Snake Body Hex Values
-  unique_ptr<unsigned char[]> snakeBodyHexPtr_1(new unsigned char[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> snakeBodyHexPtr_2(new unsigned char[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> snakeBodyHexPtr_3(new unsigned char[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> snakeBodyHexPtr_4(new unsigned char[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  /*unique_ptr<uint8_t[]> snakeBodyHexPtr_1(new uint8_t[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_1")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> snakeBodyHexPtr_2(new uint8_t[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_2")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> snakeBodyHexPtr_3(new uint8_t[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_3")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> snakeBodyHexPtr_4(new uint8_t[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_4")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
     
   // unique pointers for INDIVIDUAL Snake Head Hex Values
-  unique_ptr<unsigned char[]> snakeHeadHexPtr_1(new unsigned char[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> snakeHeadHexPtr_2(new unsigned char[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> snakeHeadHexPtr_3(new unsigned char[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> snakeHeadHexPtr_4(new unsigned char[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> snakeHeadHexPtr_1(new uint8_t[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_1")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> snakeHeadHexPtr_2(new uint8_t[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_2")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> snakeHeadHexPtr_3(new uint8_t[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_3")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> snakeHeadHexPtr_4(new uint8_t[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_4")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
 
   // unique pointers for INDIVIDUAL Food Hex Values
-  unique_ptr<unsigned char[]> foodHexPtr_1(new unsigned char[1]);  // allocates heap memory (initializes "foodHexPtr_1")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> foodHexPtr_2(new unsigned char[1]);  // allocates heap memory (initializes "foodHexPtr_2")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> foodHexPtr_3(new unsigned char[1]);  // allocates heap memory (initializes "foodHexPtr_3")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
-  unique_ptr<unsigned char[]> foodHexPtr_4(new unsigned char[1]);  // allocates heap memory (initializes "foodHexPtr_4")    MUST INCLUDE "unique_ptr<unsigned char[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> foodHexPtr_1(new uint8_t[1]);  // allocates heap memory (initializes "foodHexPtr_1")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> foodHexPtr_2(new uint8_t[1]);  // allocates heap memory (initializes "foodHexPtr_2")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> foodHexPtr_3(new uint8_t[1]);  // allocates heap memory (initializes "foodHexPtr_3")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
+  unique_ptr<uint8_t[]> foodHexPtr_4(new uint8_t[1]);*/  // allocates heap memory (initializes "foodHexPtr_4")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
 }
 
 color_translation::~color_translation() // 1 : destructor
@@ -103,7 +103,7 @@ color_translation &color_translation::operator=(color_translation &&source)  // 
   return *this;   // returns reference to current object
 }
 
-void color_translation::ColorWordToHex(string &ChoosenColor, unsigned char[] (&HexColorHolder)[4]) // translates Word color into Hex color    "HexColorHolder" MUST BE A PASS-BY-REFERENCE to CHANGE HEX VALUES ---> CANNOT USE MOVE SEMANTICS or ERROR WILL OCCUR    MUST CHANGE "HexColorHolder" VALUES INDIVIDUALITY
+void color_translation::ColorWordToHex(string &ChoosenColor, uint8_t (&HexColorHolder)[4]) // translates Word color into Hex color    "HexColorHolder" MUST BE A PASS-BY-REFERENCE to CHANGE HEX VALUES ---> CANNOT USE MOVE SEMANTICS or ERROR WILL OCCUR    MUST CHANGE "HexColorHolder" VALUES INDIVIDUALITY
 {
   if (ChoosenColor == "red")
   {
@@ -256,7 +256,7 @@ void color_translation::ColorChoice(string &colorPartChoice)   // allows user to
       cout << line;
       line.erase(11, 5);   // REMOVES "colorType" text
       getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
-		  transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
+		  transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](uint8_t c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
     }
 		
     while (wordColorHolder[j] != "red" && wordColorHolder[j] != "orange" && wordColorHolder[j] != "yellow" && wordColorHolder[j] != "green" && wordColorHolder[j] != "blue" && wordColorHolder[j] != "indigo" && wordColorHolder[j] != "violet" && wordColorHolder[j] != "dark red" && wordColorHolder[j] != "dark orange" && wordColorHolder[j] != "goldenrod" && wordColorHolder[j] != "light green" && wordColorHolder[j] != "light blue" && wordColorHolder[j] != "pink" && wordColorHolder[j] != "dark violet" && wordColorHolder[j] != "white" && wordColorHolder[j] != "default blue")
@@ -267,7 +267,7 @@ void color_translation::ColorChoice(string &colorPartChoice)   // allows user to
       }
       cout << line;
       getline(cin, wordColorHolder[j]); // includes MORE THAN 1 word
-      transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](unsigned char c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
+      transform(wordColorHolder[j].begin(), wordColorHolder[j].end(), wordColorHolder[j].begin(), [](uint8_t c) { return tolower(c); });  // sets "snakeBodyColorWord", "snakeHeadColorWord", or "foodColorWord" to lowercase, makes case insensitive
       stream.close(); // MUST CLOSE "stream" THEN
       stream.open(filename);  // REOPEN "stream" ---> "getline()" Will START At 1ST LINE to PREVENT program STOPPING Then Goinghrough INIFINITE WHILE LOOP
     }

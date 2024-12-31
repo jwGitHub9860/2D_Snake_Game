@@ -27,29 +27,29 @@ public:
     color_translation(color_translation &&source);    // 4. move constructor
     color_translation& operator=(color_translation &&source); // 5. move assignment operator
     
-    unsigned char snakeBodyColorHex[4]; // holds Snake Body Hex Color        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
-    unsigned char snakeHeadColorHex[4]; // holds Snake Head Hex Color        "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
-    unsigned char foodHexColor[4]; // holds Food Hex Color                   "unsigned char" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    uint8_t snakeBodyColorHex[4]; // holds Snake Body Hex Color        "uint8_t" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    uint8_t snakeHeadColorHex[4]; // holds Snake Head Hex Color        "uint8_t" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
+    uint8_t foodHexColor[4]; // holds Food Hex Color                   "uint8_t" ----> holds values from 0 to 255 & covers hexadecimal values ranging from 0x00 to 0xFF
     
     // unique pointers for INDIVIDUAL Snake Body Hex Values
-    unique_ptr<unsigned char[]> snakeBodyHexPtr_1;
-    unique_ptr<unsigned char[]> snakeBodyHexPtr_2;
-    unique_ptr<unsigned char[]> snakeBodyHexPtr_3;
-    unique_ptr<unsigned char[]> snakeBodyHexPtr_4;
+    /*unique_ptr<uint8_t[]> snakeBodyHexPtr_1;
+    unique_ptr<uint8_t[]> snakeBodyHexPtr_2;
+    unique_ptr<uint8_t[]> snakeBodyHexPtr_3;
+    unique_ptr<uint8_t[]> snakeBodyHexPtr_4;
     
     // unique pointers for INDIVIDUAL Snake Head Hex Values
-    unique_ptr<unsigned char[]> snakeHeadHexPtr_1;
-    unique_ptr<unsigned char[]> snakeHeadHexPtr_2;
-    unique_ptr<unsigned char[]> snakeHeadHexPtr_3;
-    unique_ptr<unsigned char[]> snakeHeadHexPtr_4;
+    unique_ptr<uint8_t[]> snakeHeadHexPtr_1;
+    unique_ptr<uint8_t[]> snakeHeadHexPtr_2;
+    unique_ptr<uint8_t[]> snakeHeadHexPtr_3;
+    unique_ptr<uint8_t[]> snakeHeadHexPtr_4;
 
     // unique pointers for INDIVIDUAL Food Hex Values
-    unique_ptr<unsigned char[]> foodHexPtr_1;
-    unique_ptr<unsigned char[]> foodHexPtr_2;
-    unique_ptr<unsigned char[]> foodHexPtr_3;
-    unique_ptr<unsigned char[]> foodHexPtr_4;
+    unique_ptr<uint8_t[]> foodHexPtr_1;
+    unique_ptr<uint8_t[]> foodHexPtr_2;
+    unique_ptr<uint8_t[]> foodHexPtr_3;
+    unique_ptr<uint8_t[]> foodHexPtr_4;*/
 
-    void ColorWordToHex(string &ChoosenColor, unsigned char[] (&HexColorHolder)[4]); // translates Word color into Hex color
+    void ColorWordToHex(string &ChoosenColor, uint8_t (&HexColorHolder)[4]); // translates Word color into Hex color
     void ColorChoice(string &colorPartChoice);  // allows user to change "Body", "Head", and/or "Food"       MUST USE "&colorPartChoice" NOT "colorPartChoice" TO CHANGE "snakeBodyColorHex", "snakeHeadColorHex", and "foodHexColor" HEX VALUES (even though "colorPartChoice" will NOT be Changed or Returned)
 
 private:
