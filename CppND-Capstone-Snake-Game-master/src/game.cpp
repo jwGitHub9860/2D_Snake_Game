@@ -1,6 +1,7 @@
 #include "game.h"
 #include <iostream>
 #include <memory> // defines "unique_ptr"
+#include <thread> // defines "thread"
 #include "SDL.h"
 
 using namespace std;
@@ -28,26 +29,14 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     
     if (colorPartChoice != "none")  // calls function 
     {
-      colorTranslation.ColorChoice(colorPartChoice);
+      //colorTranslation.ColorChoice(colorPartChoice);
+      thread choosingColorThread(&color_translation::ColorChoice, &colorTranslation, colorPartChoice); // 1st thread calling "ColorChoice" function
+      //thread choosingColorThread([&colorTranslation]() { colorTranslation.ColorChoice(colorPartChoice); }); // 1st thread using Lambda to call "ColorChoice" function
+      //thread choosingColorThread(colorTranslation.ColorChoice, colorTranslation, colorPartChoice); // 1st thread calling "ColorChoice" function
+      //thread choosingColorThread(&color_translation::ColorChoice, colorPartChoice, this); // 1st thread calling "ColorChoice" function
+      //thread choosingColorThread(&color_translation::ColorChoice, this, colorPartChoice); // 1st thread calling "ColorChoice" function
+      choosingColorThread.join();  // WAITS for "choosingColorThread" to Finish BEFORE program exits
     }
-    
-    // moves INDIVIDUAL Snake Body Hex Values into Snake Body unique pointers USING MOVE SEMANTICS      MUST INCLUDE "[0]" with "unique_ptr" ---> Error will occur
-    /*colorTranslation.snakeBodyHexPtr_1[0] = move(colorTranslation.snakeBodyColorHex[0]);
-    colorTranslation.snakeBodyHexPtr_2[0] = move(colorTranslation.snakeBodyColorHex[1]);
-    colorTranslation.snakeBodyHexPtr_3[0] = move(colorTranslation.snakeBodyColorHex[2]);
-    colorTranslation.snakeBodyHexPtr_4[0] = move(colorTranslation.snakeBodyColorHex[3]);
-      
-    // moves INDIVIDUAL Snake Head Hex Values into Snake Head unique pointers USING MOVE SEMANTICS      MUST INCLUDE "[0]" with "unique_ptr" ---> Error will occur
-    colorTranslation.snakeHeadHexPtr_1[0] = move(colorTranslation.snakeHeadColorHex[0]);
-    colorTranslation.snakeHeadHexPtr_2[0] = move(colorTranslation.snakeHeadColorHex[1]);
-    colorTranslation.snakeHeadHexPtr_3[0] = move(colorTranslation.snakeHeadColorHex[2]);
-    colorTranslation.snakeHeadHexPtr_4[0] = move(colorTranslation.snakeHeadColorHex[3]);
-
-    // moves INDIVIDUAL Food Hex Values into Food unique pointers USING MOVE SEMANTICS                  MUST INCLUDE "[0]" with "unique_ptr" ---> Error will occur
-    colorTranslation.foodHexPtr_1[0] = move(colorTranslation.foodHexColor[0]);
-    colorTranslation.foodHexPtr_2[0] = move(colorTranslation.foodHexColor[1]);
-    colorTranslation.foodHexPtr_3[0] = move(colorTranslation.foodHexColor[2]);
-    colorTranslation.foodHexPtr_4[0] = move(colorTranslation.foodHexColor[3]);*/
     
     
 
@@ -55,6 +44,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     controller.HandleInput(running, snake);
     Update();
     renderer.Render(snake, food, colorTranslation.snakeBodyColorHex, colorTranslation.snakeHeadColorHex, colorTranslation.foodHexColor);  // ADDED IN MY OWN (delete comment later?)
+
+    thread windowThread(renderer.createAndOpenWindow);  // opens game window AFTER user chooses snake body, head, and/or food colors      ADDED "createAndOpenWindow()" function NOT Function Content AS MY OWN CODE (delete comment later?)
 
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 
@@ -76,6 +67,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     if (frame_duration < target_frame_duration) {
       SDL_Delay(target_frame_duration - frame_duration);
     }
+
+    windowThread.join();  // WAITS for thread to Finish BEFORE program exits      ADDED LINE AS MY OWN CODE (delete comment later?)
   }
 }
 

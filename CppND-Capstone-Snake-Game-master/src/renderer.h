@@ -19,9 +19,7 @@ class Renderer {
   void UpdateWindowTitle(int score, int fps); // updates bar at top of game window with score & frames per second
 
 
-  //unique_ptr<uint8_t[]> rendererBodyHexPtr; //= move(snakeBodyColorHex[4]);  // Renderer "unique_ptr" (2nd) TEMPORARY
-  //unique_ptr<uint8_t[]> rendererHeadHexPtr; //= move(snakeHeadColorHex[4]);  // Renderer "unique_ptr" (2nd)  TEMPORARY
-  //unique_ptr<uint8_t[]> rendererFoodHexPtr; //= move(color_translationFoodHexPtr);       // Renderer "unique_ptr" (2nd)  TEMPORARY
+  //void createAndOpenWindow(); // opens game window AFTER user chooses snake body, head, and/or food colors
 	
 
  private:

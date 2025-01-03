@@ -13,12 +13,12 @@ Renderer::Renderer(const std::size_t screen_width,
       screen_height(screen_height),
       grid_width(grid_width),
       grid_height(grid_height) {
-  // Initialize SDL
-  if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+  // Initialize SDL     ORIGINAL FUNCTION CODE
+  /**/if (SDL_Init(SDL_INIT_VIDEO) < 0) {
     std::cerr << "SDL could not initialize.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
-
+  
   // Create Window
   sdl_window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_CENTERED,
                                 SDL_WINDOWPOS_CENTERED, screen_width,
@@ -34,7 +34,11 @@ Renderer::Renderer(const std::size_t screen_width,
   if (nullptr == sdl_renderer) {
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
-  }
+  }/**/  // ORIGINAL FUNCTION CODE
+
+  
+
+  
 }
 
 Renderer::~Renderer() {
@@ -84,3 +88,28 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }
 
+/*void createAndOpenWindow()  // opens game window AFTER user chooses snake body, head, and/or food colors      PUT IN SEPARATE FUNCTION OR NOT???      ADDED "createAndOpenWindow()" function NOT Function Content AS MY OWN CODE (delete comment later?)
+{
+  // Initialize SDL
+  if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+    std::cerr << "SDL could not initialize.\n";
+    std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+  }
+    
+  // Create Window
+  sdl_window = SDL_CreateWindow("Snake Game", SDL_WINDOWPOS_CENTERED,
+                                SDL_WINDOWPOS_CENTERED, screen_width,
+                                screen_height, SDL_WINDOW_SHOWN);
+
+  if (nullptr == sdl_window) {
+    std::cerr << "Window could not be created.\n";
+    std::cerr << " SDL_Error: " << SDL_GetError() << "\n";
+  }
+
+  // Create renderer
+  sdl_renderer = SDL_CreateRenderer(sdl_window, -1, SDL_RENDERER_ACCELERATED);  // returns pointer stored in SDL renderer
+  if (nullptr == sdl_renderer) {
+    std::cerr << "Renderer could not be created.\n";
+    std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
+  }
+}*/      
