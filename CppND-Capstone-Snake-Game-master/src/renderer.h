@@ -1,7 +1,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include <memory>   // defines "unique_ptr"
+//#include <memory>   // defines "unique_ptr"
 #include <vector>
 #include "color_translation.h"  // allows access to "unique_ptr" for INDIVIDUAL Snake Body, Snake Head, and Food Hex Values & "color_translation" move constructor
 #include "SDL.h"
