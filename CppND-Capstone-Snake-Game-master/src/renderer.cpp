@@ -46,13 +46,13 @@ Renderer::~Renderer() {   // 1. destructor
   SDL_Quit();
 }
 
-Renderer(const Renderer &source)   // 2. copy constructor
+Renderer::Renderer(const Renderer &source)   // 2. copy constructor
 {
   sdl_window = source.sdl_window; // creates copy of "sdl_window" from source
   sdl_renderer = source.sdl_renderer; // creates copy of "sdl_renderer" from source
 }
 
-Renderer& operator=(const Renderer &source)   // 3. copy assignment operator
+Renderer::Renderer& operator=(const Renderer &source)   // 3. copy assignment operator
 {
   if (this == &source)  // ensures copy from SOURCE is returned
   {
@@ -65,7 +65,7 @@ Renderer& operator=(const Renderer &source)   // 3. copy assignment operator
   return *this;   // returns reference to current object
 }
 
-Renderer(const Renderer &&source)   // 4. move constructor
+Renderer::Renderer(const Renderer &&source)   // 4. move constructor
 {
   sdl_window  = move(source.sdl_window);  // moves SOURCE "sdl_window" into "sdl_window"
   sdl_renderer = move(source.sdl_renderer);  // moves SOURCE "screen_width" into "screen_width"
@@ -74,7 +74,7 @@ Renderer(const Renderer &&source)   // 4. move constructor
   source.sdl_renderer = nullptr;  // moves SOURCE "screen_width" into "screen_width"
 }
 
-Renderer& operator=(const Renderer &&source)   // 5. move assignment operator
+Renderer::Renderer& operator=(const Renderer &&source)   // 5. move assignment operator
 {
   if (this == &source)  // ensures copy from SOURCE is returned
   {
