@@ -15,6 +15,11 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();    // 1 : destructor
 
+  Renderer(const Renderer &source);   // 2. copy constructor
+  Renderer& operator=(const Renderer &source);   // 3. copy assignment operator
+  Renderer(const Renderer &&source);   // 4. move constructor
+  Renderer& operator=(const Renderer &&source);   // 5. move assignment operator
+
   void Render(Snake const snake, SDL_Point const &food, const uint8_t snakeBodyColorHex[4], const uint8_t snakeHeadColorHex[4], const uint8_t foodHexColor[4]);  // used to render Snake object & food to screen
   void UpdateWindowTitle(int score, int fps); // updates bar at top of game window with score & frames per second
 

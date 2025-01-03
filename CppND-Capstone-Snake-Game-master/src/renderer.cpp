@@ -1,6 +1,6 @@
 #include "color_translation.h"  // allows access to "unique_ptr" for INDIVIDUAL Snake Body, Snake Head, and Food Hex Values & "color_translation" move constructor
 #include "renderer.h"
-#include <memory>   // defines "unique_ptr"
+//#include <memory>   // defines "unique_ptr"
 #include <iostream>
 #include <string>
 
@@ -41,9 +41,37 @@ Renderer::Renderer(const std::size_t screen_width,
   
 }
 
-Renderer::~Renderer() {
+Renderer::~Renderer() {   // 1. destructor
   SDL_DestroyWindow(sdl_window);
   SDL_Quit();
+}
+
+Renderer(const Renderer &source) : screen_width(source.screen_width), screen_height(source.screen_height), grid_width(source.grid_width), grid_height(source.grid_height) {}   // 2. copy constructor
+
+Renderer& operator=(const Renderer &source)   // 3. copy assignment operator
+{
+  if (this != &source)  // protects against self assignment
+  {
+    screen_width = source.screen_width; // creates copy of "screen_width" from source
+    screen_height = source.screen_height; // creates copy of "screen_height" from source
+    grid_width = source.grid_width; // creates copy of "grid_width" from source
+    grid_height = source.grid_height; // creates copy of "grid_height" from source
+  }
+  return *this;   // returns reference to current object
+}
+
+Renderer(const Renderer &&source) : screen_width(move(screen_width)), screen_height(move(screen_height)), grid_width(move(grid_width)), grid_height(move(grid_height)) {}   // 4. move constructor
+
+Renderer& operator=(const Renderer &&source)   // 5. move assignment operator
+{
+  if (this != &source)  // protects against self-assignment
+  {
+    screen_width = move(screen_width);  // moves SOURCE "screen_width" into "screen_width"
+    screen_height = move(screen_height);  // moves SOURCE "screen_height" into "screen_height"
+    grid_width = move(grid_width);  // moves SOURCE "grid_width" into "grid_width"
+    grid_height = move(grid_height);  // moves SOURCE "grid_height" into "grid_height"
+  }
+  return *this;   // returns reference to current object
 }
 
 void Renderer::Render(Snake const snake, SDL_Point const &food, const uint8_t snakeBodyColorHex[4], const uint8_t snakeHeadColorHex[4], const uint8_t foodHexColor[4]) {

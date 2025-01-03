@@ -5,7 +5,7 @@
 
 #include <fstream>
 #include <iostream>
-#include <memory>   // defines "unique_ptr"
+//#include <memory>   // defines "unique_ptr"
 #include <string>
 #include <vector>
 #include "SDL.h"

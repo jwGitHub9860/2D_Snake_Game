@@ -2,7 +2,7 @@
 #define SNAKE_H
 
 #include <vector>
-#include <string> // defines "string bodyColor" & "string headColor"
+//#include <string> // defines "string bodyColor" & "string headColor"
 #include <iostream>
 #include "SDL.h"
 

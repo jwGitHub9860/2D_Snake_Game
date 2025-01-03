@@ -1,6 +1,6 @@
 #include "game.h"
 #include <iostream>
-#include <memory> // defines "unique_ptr"
+//#include <memory> // defines "unique_ptr"
 #include <thread> // defines "thread"
 #include "SDL.h"
 
