@@ -35,6 +35,8 @@ Concurrency:
 - 
 
 ## New Features added:
+I added a feature that gives the user the choice to change the snake body, head, and/or food colors. The feature displays the question in the terminal asking the user if they want to change the body, head, and/or food colors. Next, the user types and enters their answer into the terminal. The answers are case insensitive. However, if the answer that the user entered is not one of the following color options listed in the displayed question or misspelled, the question will loop until the user enters a valid color. Next, the program either changes or leaves the colors depending on the user's answer.
+
 # Options [delete later]
 * Allow players to enter their names and save their high scores to a text file.
 * Add fixed and moving obstacles to the game.
