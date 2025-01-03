@@ -52,40 +52,32 @@ Renderer::Renderer(const Renderer &source)   // 2. copy constructor
   sdl_renderer = source.sdl_renderer; // creates copy of "sdl_renderer" from source
 }
 
-Renderer::Renderer& operator=(const Renderer &source)   // 3. copy assignment operator
+Renderer &Renderer::operator=(const Renderer &source)   // 3. copy assignment operator
 {
-  if (this == &source)  // ensures copy from SOURCE is returned
+  if (this != &source)  // protects against self assignment
   {
     return *this;   // returns reference to current object
   }
   
-  sdl_window = source.sdl_window; // creates copy of "sdl_window" from source
-  sdl_renderer = source.sdl_renderer; // creates copy of "sdl_renderer" from source
+  screen_width = source.screen_width; // creates copy of "screen_width" from source
+  screen_height = source.screen_height; // creates copy of "screen_height" from source
+  grid_width = source.grid_width; // creates copy of "grid_width" from source
+  grid_height = source.grid_height; // creates copy of "grid_height" from source
   
   return *this;   // returns reference to current object
 }
 
-Renderer::Renderer(const Renderer &&source)   // 4. move constructor
-{
-  sdl_window  = move(source.sdl_window);  // moves SOURCE "sdl_window" into "sdl_window"
-  sdl_renderer = move(source.sdl_renderer);  // moves SOURCE "screen_width" into "screen_width"
+Renderer::Renderer(const Renderer &&source) : screen_width(move(screen_width)), screen_height(move(screen_height)), grid_width(move(grid_width)), grid_height(move(grid_height)) {}   // 4. move constructor
 
-  source.sdl_window = nullptr;  // PREVENTS "sdl_window" from being used Again
-  source.sdl_renderer = nullptr;  // moves SOURCE "screen_width" into "screen_width"
-}
-
-Renderer::Renderer& operator=(const Renderer &&source)   // 5. move assignment operator
+Renderer &Renderer::operator=(const Renderer &&source)   // 5. move assignment operator
 {
-  if (this == &source)  // ensures copy from SOURCE is returned
+  if (this != &source)  // protects against self-assignment
   {
-    return *this;   // returns reference to current object
+    screen_width = move(screen_width);  // moves SOURCE "screen_width" into "screen_width"
+    screen_height = move(screen_height);  // moves SOURCE "screen_height" into "screen_height"
+    grid_width = move(grid_width);  // moves SOURCE "grid_width" into "grid_width"
+    grid_height = move(grid_height);  // moves SOURCE "grid_height" into "grid_height"
   }
-  sdl_window  = move(source.sdl_window);  // moves SOURCE "sdl_window" into "sdl_window"
-  sdl_renderer = move(source.sdl_renderer);  // moves SOURCE "screen_width" into "screen_width"
-
-  source.sdl_window = nullptr;  // PREVENTS "sdl_window" from being used again
-  source.sdl_renderer = nullptr;  // PREVENTS "sdl_renderer" from being used again
-
   return *this;   // returns reference to current object
 }
 
