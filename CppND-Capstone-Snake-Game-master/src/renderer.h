@@ -24,7 +24,7 @@ class Renderer {
   void UpdateWindowTitle(int score, int fps); // updates bar at top of game window with score & frames per second
 
 
-  //void createAndOpenWindow(); // opens game window AFTER user chooses snake body, head, and/or food colors
+  void createAndOpenWindow(); // opens game window AFTER user chooses snake body, head, and/or food colors
 	
 
  private:
