@@ -1,6 +1,6 @@
 #include "game.h"
 #include <iostream>
-//#include <memory> // defines "unique_ptr"
+#include <memory> // defines "unique_ptr"
 #include <thread> // defines "thread"
 #include "SDL.h"
 
@@ -30,11 +30,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     if (colorPartChoice != "none")  // calls function 
     {
       //colorTranslation.ColorChoice(colorPartChoice);
-      thread choosingColorThread(&color_translation::ColorChoice, &colorTranslation, colorPartChoice); // 1st thread calling "ColorChoice" function
-      //thread choosingColorThread([&colorTranslation]() { colorTranslation.ColorChoice(colorPartChoice); }); // 1st thread using Lambda to call "ColorChoice" function
-      //thread choosingColorThread(colorTranslation.ColorChoice, colorTranslation, colorPartChoice); // 1st thread calling "ColorChoice" function
-      //thread choosingColorThread(&color_translation::ColorChoice, colorPartChoice, this); // 1st thread calling "ColorChoice" function
-      //thread choosingColorThread(&color_translation::ColorChoice, this, colorPartChoice); // 1st thread calling "ColorChoice" function
+      thread choosingColorThread(&color_translation::ColorChoice, &colorTranslation, ref(colorPartChoice)); // 1st thread calling "ColorChoice" function
       choosingColorThread.join();  // WAITS for "choosingColorThread" to Finish BEFORE program exits
     }
     
