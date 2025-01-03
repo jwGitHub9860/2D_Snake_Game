@@ -11,8 +11,8 @@ using namespace std;
 
 class Renderer {
  public:
-  Renderer(const std::size_t screen_width, const std::size_t screen_height,
-           const std::size_t grid_width, const std::size_t grid_height);
+  Renderer(const std::size_t &screen_width, const std::size_t &screen_height,
+           const std::size_t &grid_width, const std::size_t &grid_height);
   ~Renderer();    // 1 : destructor
 
   Renderer(const Renderer &source);   // 2. copy constructor
@@ -31,13 +31,13 @@ class Renderer {
   SDL_Window *sdl_window;
   SDL_Renderer *sdl_renderer;
 
-  const std::size_t screen_width;
-  const std::size_t screen_height;
-  const std::size_t grid_width;
-  const std::size_t grid_height;
+  // MUST BE "size_t" NOT "const size_t" to USE CONSTRUCTOR
+  size_t screen_width;
+  size_t screen_height;
+  size_t grid_width;
+  size_t grid_height;
 
 
-  
 };
 
 #endif

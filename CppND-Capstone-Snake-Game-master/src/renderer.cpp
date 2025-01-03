@@ -6,9 +6,9 @@
 
 using namespace std;
 
-Renderer::Renderer(const std::size_t screen_width,
-                   const std::size_t screen_height,
-                   const std::size_t grid_width, const std::size_t grid_height)
+Renderer::Renderer(const std::size_t &screen_width,
+                   const std::size_t &screen_height,
+                   const std::size_t &grid_width, const std::size_t &grid_height)
     : screen_width(screen_width),
       screen_height(screen_height),
       grid_width(grid_width),
@@ -48,22 +48,21 @@ Renderer::~Renderer() {   // 1. destructor
 
 Renderer::Renderer(const Renderer &source)   // 2. copy constructor
 {
-  sdl_window = source.sdl_window; // creates copy of "sdl_window" from source
-  sdl_renderer = source.sdl_renderer; // creates copy of "sdl_renderer" from source
+  screen_width = source.screen_width; // creates copy of "screen_width" from source
+  screen_height = source.screen_height; // creates copy of "screen_height" from source
+  grid_width = source.grid_width; // creates copy of "grid_width" from source
+  grid_height = source.grid_height; // creates copy of "grid_height" from source
 }
 
 Renderer &Renderer::operator=(const Renderer &source)   // 3. copy assignment operator
 {
   if (this != &source)  // protects against self assignment
   {
-    return *this;   // returns reference to current object
+    screen_width = source.screen_width; // creates copy of "screen_width" from source
+    screen_height = source.screen_height; // creates copy of "screen_height" from source
+    grid_width = source.grid_width; // creates copy of "grid_width" from source
+    grid_height = source.grid_height; // creates copy of "grid_height" from source
   }
-  
-  screen_width = source.screen_width; // creates copy of "screen_width" from source
-  screen_height = source.screen_height; // creates copy of "screen_height" from source
-  grid_width = source.grid_width; // creates copy of "grid_width" from source
-  grid_height = source.grid_height; // creates copy of "grid_height" from source
-  
   return *this;   // returns reference to current object
 }
 
