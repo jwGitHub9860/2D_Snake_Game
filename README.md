@@ -21,13 +21,13 @@ Loops, Functions, I/O:
 
 Object Oriented Programming:
 - involved adding 1 new class to project called "color_translation"
-- 
+- all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
 - 
 
 Memory Management:
-- 
-- 
-- uses 3 unique pointers called "snakeBodyColorHex", "snakeHeadColorHex", and "foodHexColor"
+- In the "color_translation" class, the first function, "ColorWordToHex()", uses the pass-by-references, "&ChoosenColor" and "&HexColorHolder", and the second function, "ColorChoice()", uses the pass-by-reference, &colorPartChoice.
+- Resource Acquisition Is Initialization (RAII) is used when handling the "choosing_color_string.txt" file
+- Both the "color_translation" and "renderer" classes have their destructor, copy constructor, copy assignment operator, move constructor, and move assignment operator defined, making the project follow the Rule of 5.
 
 Concurrency:
 - 
