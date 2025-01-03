@@ -33,24 +33,6 @@ color_translation::color_translation(const string &filename) : filename(filename
   foodHexColor[1] = 0xCC;
   foodHexColor[2] = 0x00;
   foodHexColor[3] = 0xFF;
-
-  // unique pointers for INDIVIDUAL Snake Body Hex Values
-  /*unique_ptr<uint8_t[]> snakeBodyHexPtr_1(new uint8_t[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_1")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> snakeBodyHexPtr_2(new uint8_t[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_2")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> snakeBodyHexPtr_3(new uint8_t[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_3")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> snakeBodyHexPtr_4(new uint8_t[1]);  // allocates heap memory (initializes "snakeBodyHexPtr_4")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-    
-  // unique pointers for INDIVIDUAL Snake Head Hex Values
-  unique_ptr<uint8_t[]> snakeHeadHexPtr_1(new uint8_t[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_1")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> snakeHeadHexPtr_2(new uint8_t[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_2")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> snakeHeadHexPtr_3(new uint8_t[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_3")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> snakeHeadHexPtr_4(new uint8_t[1]);  // allocates heap memory (initializes "snakeHeadHexPtr_4")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-
-  // unique pointers for INDIVIDUAL Food Hex Values
-  unique_ptr<uint8_t[]> foodHexPtr_1(new uint8_t[1]);  // allocates heap memory (initializes "foodHexPtr_1")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> foodHexPtr_2(new uint8_t[1]);  // allocates heap memory (initializes "foodHexPtr_2")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> foodHexPtr_3(new uint8_t[1]);  // allocates heap memory (initializes "foodHexPtr_3")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
-  unique_ptr<uint8_t[]> foodHexPtr_4(new uint8_t[1]);*/  // allocates heap memory (initializes "foodHexPtr_4")    MUST INCLUDE "unique_ptr<uint8_t[]>" ---> Error will occur
 }
 
 color_translation::~color_translation() // 1 : destructor
