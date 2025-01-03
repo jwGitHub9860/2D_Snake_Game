@@ -5,7 +5,7 @@
 * Do NOT let the snake eat itself
 
 ## Code Structure Overview:
-
+The program allows the user to play the Snake Game with the option of choosing the snake body, head, and food colors before playing the game.
 
 ## New Features paragraph:
 * Gives player choice to change Snake and/or Food color(s)
@@ -35,7 +35,7 @@ Concurrency:
 - 
 
 ## New Features added:
-I added a feature that gives the user the choice to change the snake body, head, and/or food colors. The feature displays the question in the terminal asking the user if they want to change the body, head, and/or food colors. Next, the user types and enters their answer into the terminal. The answers are case insensitive. However, if the answer that the user entered is not one of the following color options listed in the displayed question or misspelled, the question will loop until the user enters a valid color. Next, the program either changes or leaves the colors depending on the user's answer.
+I added a feature that gives the user the choice to change the snake body, head, and/or food colors. The feature displays the question in the terminal asking the user if they want to change the body, head, and/or food colors. Next, the user types and enters their answer into the terminal. The answers are case insensitive. However, if the answer that the user entered is not one of the following color options listed in the displayed question or misspelled, the question will loop until the user enters a valid color. Next, the program either changes the colors or leaves the default colors depending on the user's answer.
 
 # Options [delete later]
 * Allow players to enter their names and save their high scores to a text file.
