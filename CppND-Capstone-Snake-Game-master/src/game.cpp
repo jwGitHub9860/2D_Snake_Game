@@ -30,7 +30,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     if (colorPartChoice != "none")  // calls function 
     {
       //colorTranslation.ColorChoice(colorPartChoice);
-      thread choosingColorThread(&color_translation::ColorChoice, &colorTranslation, ref(colorPartChoice)); // 1st thread calling "ColorChoice" function
+      thread choosingColorThread(&color_translation::ColorChoice, &colorTranslation, ref(colorPartChoice)); // 1st thread calling "ColorChoice" function      MUST CONFIRM "colorPartChoice" Is Reference USING "ref()"
       choosingColorThread.join();  // WAITS for "choosingColorThread" to Finish BEFORE program exits
     }
     
