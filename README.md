@@ -8,7 +8,7 @@
 
 
 ## New Features paragraph:
-* Give player choice to change Snake and/or Food color(s)
+* Gives player choice to change Snake and/or Food color(s)
 
 ## Rubric Submission Explanation:
 The player choice to change Snake and/or Food color(s)
