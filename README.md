@@ -28,7 +28,7 @@ The player choice to change Snake and/or Food color(s)
   
   - text file is accessed using a constant string variable
     
-      ** <ins>File</ins> **:
+      **<ins>File</ins>**:
     
       **Line Numbers**:
     
@@ -73,8 +73,22 @@ The player choice to change Snake and/or Food color(s)
 
 ### <ins>Memory Management:</ins>
 - In the "color_translation" class, the first function, "ColorWordToHex()", uses the pass-by-references, "&ChoosenColor" and "&HexColorHolder", and the second function, "ColorChoice()", uses the pass-by-reference, &colorPartChoice.
+
+  *<ins>File:</ins>*
+
+  <ins>Line Numbers:</ins>
+  
 - Resource Acquisition Is Initialization (RAII) is used when handling the "choosing_color_string.txt" file
+
+  *<ins>File:</ins>*
+
+  <ins>Line Numbers:</ins>
+  
 - Both the "color_translation" and "renderer" classes have their destructor, copy constructor, copy assignment operator, move constructor, and move assignment operator defined, making the project follow the Rule of 5.
+
+  *<ins>File:</ins>*
+
+  <ins>Line Numbers:</ins>
 
 ### <ins>Concurrency:</ins>
 - The project uses two threads to ensure that the user is able to choose whether they want to change the given game colors or not before the game window pops up for them to play.
