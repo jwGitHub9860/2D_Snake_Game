@@ -10,6 +10,14 @@
 
 using namespace std;
 
+template <typename T> T gettingChoice(T &answer, T request)
+{
+  cout << request;
+  getline(cin, answer); // includes MORE THAN 1 word
+  transform(answer.begin(), answer.end(), answer.begin(), [](unsigned char c){ return tolower(c); });  // sets "choice" to lowercase, makes "choice" case insensitive
+  return answer;
+}
+
 int main() {
   // Constant Expression definitions
   constexpr std::size_t kFramesPerSecond{60};
@@ -22,16 +30,12 @@ int main() {
 
   string choice = ""; // initializes Snake Color Change choice; limits to ONLY "main.cpp"
 
-  cout << "Please choose whether you want to specify the snake's body, head, and/or food colors? (Body, Head, Food, Whole Snake, All, or None)\n";
-  getline(cin, choice); // includes MORE THAN 1 word
-  transform(choice.begin(), choice.end(), choice.begin(), [](unsigned char c){ return tolower(c); });  // sets "choice" to lowercase, makes "choice" case insensitive
+  string request_1 = "Please choose whether you want to specify the snake's body, head, and/or food colors (Body, Head, Food, Whole Snake, All, or None): ";
+  string request_2 = "Please choose one of the following options (Body, Head, Food, Whole Snake, All, or None): ";
+
+  gettingChoice(choice, request_1);
   
-  while (choice != "body" && choice != "head" && choice != "food" && choice != "whole snake" && choice != "all" && choice != "none")
-  {
-    cout << "Please choose one of the following options (Body, Head, Food, Whole Snake, All, or None): ";
-    getline(cin, choice); // includes MORE THAN 1 word
-    transform(choice.begin(), choice.end(), choice.begin(), [](unsigned char c){ return tolower(c); });  // sets "choice" to lowercase, makes "choice" case insensitive
-  }
+  while (choice != "body" && choice != "head" && choice != "food" && choice != "whole snake" && choice != "all" && choice != "none") { gettingChoice(choice, request_2); }  // checks if "choice is valid"
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);  // creates Renderer object
   Controller controller;  // creates Controller object

@@ -9,10 +9,6 @@
 #include <string>
 #include <vector>
 #include "SDL.h"
-//#include "controller.h"   // (DO I NEED IT?)
-//#include "game.h"         // (DO I NEED IT?)
-//#include "renderer.h"     // (DO I NEED IT?)
-//#include "snake.h"        // (DO I NEED IT?)
 
 using namespace std;
 

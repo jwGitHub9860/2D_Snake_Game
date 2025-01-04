@@ -1,6 +1,4 @@
-//#include "color_translation.h"  // allows access to "mtx" for INDIVIDUAL Snake Body, Snake Head, and Food Hex Values & "color_translation" move constructor
 #include "renderer.h"
-//#include <memory>   // defines "unique_ptr"
 #include <mutex>  // defines "mutex"
 #include <iostream>
 #include <string>
