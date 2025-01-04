@@ -14,8 +14,15 @@ The feature first displays the request in the terminal telling the user to choos
 The player choice to change Snake and/or Food color(s)
 
 ### <ins>Loops, Functions, I/O:</ins>
+- project has a variety of control structures
+    FILE:
+    LINE NUMBERS:
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
-  - text file is accessed using a constant string variable 
+    FILE: "color_translation.cpp"
+    LINE NUMBERS: 236, 241, 249, 252
+  - text file is accessed using a constant string variable
+      FILE:
+      LINE NUMBER(S):
 - accepts user's answers as input uses it to answer the given questions
 - uses vector called "colorHolder" as data structure to hold the strings of the food, snake body and head colors
 
