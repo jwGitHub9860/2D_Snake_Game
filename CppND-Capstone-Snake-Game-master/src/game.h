@@ -18,10 +18,8 @@ class Game {
            std::size_t target_frame_duration, color_translation &colorTranslation, string colorPartChoice);  // ADDED "colorPartChoice" & "&colorTranslation" AS MY OWN CODE (delete comment later?)
   int GetScore() const;
   int GetSize() const;
-
-
+  
   string colorPartChoice = ""; // initializes Snake Color Change choice; "game.cpp" & "main.cpp" USE IT
-
 
  private:
   Snake snake;  // stores Snake object

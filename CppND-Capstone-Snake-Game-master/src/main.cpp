@@ -10,12 +10,11 @@
 
 using namespace std;
 
-template <typename T> T gettingChoice(T &answer, T request)
+template <typename T> void gettingChoice(T &answer, T request)
 {
   cout << request;
   getline(cin, answer); // includes MORE THAN 1 word
   transform(answer.begin(), answer.end(), answer.begin(), [](unsigned char c){ return tolower(c); });  // sets "choice" to lowercase, makes "choice" case insensitive
-  return answer;
 }
 
 int main() {
@@ -27,12 +26,10 @@ int main() {
   constexpr std::size_t kGridWidth{32};
   constexpr std::size_t kGridHeight{32};
   const string filename = "../src/choosing_color_string.txt"; // accesses "choosing_color_string.txt" file
-
+  const string request_1 = "Please choose whether you want to specify the snake's body, head, and/or food colors (Body, Head, Food, Whole Snake, All, or None): ";  // initial color choice string
+  const string request_2 = "Please choose one of the following options (Body, Head, Food, Whole Snake, All, or None): ";  // string for while loop
   string choice = ""; // initializes Snake Color Change choice; limits to ONLY "main.cpp"
-
-  string request_1 = "Please choose whether you want to specify the snake's body, head, and/or food colors (Body, Head, Food, Whole Snake, All, or None): ";
-  string request_2 = "Please choose one of the following options (Body, Head, Food, Whole Snake, All, or None): ";
-
+  
   gettingChoice(choice, request_1);
   
   while (choice != "body" && choice != "head" && choice != "food" && choice != "whole snake" && choice != "all" && choice != "none") { gettingChoice(choice, request_2); }  // checks if "choice is valid"

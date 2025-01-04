@@ -22,9 +22,7 @@ class Renderer {
   void Render(Snake const snake, SDL_Point const &food, const uint8_t snakeBodyColorHex[4], const uint8_t snakeHeadColorHex[4], const uint8_t foodHexColor[4]);  // used to render Snake object & food to screen
   void UpdateWindowTitle(int score, int fps); // updates bar at top of game window with score & frames per second
 
-
-  void createAndOpenWindow(); // opens game window AFTER user chooses snake body, head, and/or food colors
-	
+  void createAndOpenWindow(); // opens game window AFTER user chooses snake body, head, and/or food colors	
 
  private:
   SDL_Window *sdl_window;
@@ -35,7 +33,6 @@ class Renderer {
   size_t screen_height;
   size_t grid_width;
   size_t grid_height;
-
   
   mutex mtx;  // used for "lock_guard" to secure data
 };

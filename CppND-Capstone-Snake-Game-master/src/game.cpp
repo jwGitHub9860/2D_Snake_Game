@@ -25,14 +25,12 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
   while (running) {
     frame_start = SDL_GetTicks(); // records start of frame (timestamp)
-
     
     if (colorPartChoice != "none")  // checks if user chose not to change any colors 
     {
       thread choosingColorThread(&color_translation::ColorChoice, &colorTranslation, ref(colorPartChoice)); // 1st thread calling "ColorChoice" function      MUST CONFIRM "colorPartChoice" Is Reference USING "ref()"
       choosingColorThread.join();  // WAITS for "choosingColorThread" to Finish BEFORE program exits
     }
-    
     
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
@@ -46,7 +44,6 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       closedWindow = false;  // indicates that game window is OPEN
     }
     
-
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 
     // Keep track of how long each loop through the input/update/render cycle
