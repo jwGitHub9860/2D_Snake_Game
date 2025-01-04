@@ -19,7 +19,7 @@ The player choice to change Snake and/or Food color(s)
 - accepts user's answers as input uses it to answer the given questions
 - uses vector called "colorHolder" as data structure to hold the strings of the food, snake body and head colors
 
-<ins>Object Oriented Programming:</ins>
+### <ins>Object Oriented Programming:</ins>
 - involved adding 1 new class to project called "color_translation"
 - all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
 - uses template in "main.cpp" file to obtain user's choice of what color or colors to specify
