@@ -13,7 +13,7 @@ The feature first displays the request in the terminal telling the user to choos
 ## Rubric Points Addressed by Feature:
 The player choice to change Snake and/or Food color(s)
 
-#### <ins>Loops, Functions, I/O:</ins>
+### <ins>Loops, Functions, I/O:</ins>
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
   - text file is accessed using a constant string variable 
 - accepts user's answers as input uses it to answer the given questions
@@ -29,7 +29,7 @@ The player choice to change Snake and/or Food color(s)
 - Resource Acquisition Is Initialization (RAII) is used when handling the "choosing_color_string.txt" file
 - Both the "color_translation" and "renderer" classes have their destructor, copy constructor, copy assignment operator, move constructor, and move assignment operator defined, making the project follow the Rule of 5.
 
-###### <ins>Concurrency:</ins>
+### <ins>Concurrency:</ins>
 - The project uses two threads to ensure that the user is able to choose whether they want to change the given game colors or not before the game window pops up for them to play.
 - A lock guard is used to protect the hex values 
 
