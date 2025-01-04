@@ -46,7 +46,13 @@ The player choice to change Snake and/or Food color(s)
     **<ins>File:</ins>**
 
     <ins>Line Numbers:</ins>
+    
 - all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
+
+  *<ins>File:</ins>*
+
+  <ins>Line Numbers:</ins>
+  
 - uses template in "main.cpp" file to obtain user's choice of what color or colors to specify
 
     **File:** "main.cpp"
