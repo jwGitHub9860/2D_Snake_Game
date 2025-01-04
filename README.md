@@ -18,7 +18,15 @@ The player choice to change Snake and/or Food color(s)
   
     **<ins>File:</ins>** "main.cpp"
 
-    **<ins>Line Numbers:</ins>** 
+    **<ins>Line Numbers:</ins>** 35
+  
+    **<ins>File:</ins>** "game.cpp"
+
+    **<ins>Line Numbers:</ins>** 29-33, 40-45
+
+    **<ins>File:</ins>** "color_translation.cpp"
+
+    **<ins>Line Numbers:</ins>** 15-23, 40-43, 48-51, 56-68, 76-85, 90-201, 207-257
   
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
 
@@ -67,11 +75,19 @@ The player choice to change Snake and/or Food color(s)
 
     **<ins>Line Numbers:</ins>** 17
     
-- all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
+- all class functions in "color_translation" class and template other functions of my own in the original files have comments explaining their effects while their names generalize them
 
-    **<ins>File:</ins>**
+    **<ins>File:</ins>** color_translation.h
 
-    **<ins>Line Numbers:</ins>** 
+    **<ins>Line Numbers:</ins>** 30, 31
+
+    **<ins>File:</ins>** color_translation.cpp
+
+    **<ins>Line Numbers:</ins>** 88, 204
+
+    **<ins>File:</ins>** "main.cpp"
+
+    **<ins>Line Numbers:</ins>** 13-18
   
 - uses template in "main.cpp" file to obtain user's choice of what color or colors to specify
 
@@ -82,25 +98,37 @@ The player choice to change Snake and/or Food color(s)
 ### <ins>Memory Management:</ins>
 - In the "color_translation" class, the first function, "ColorWordToHex()", uses the pass-by-references, "&ChoosenColor" and "&HexColorHolder", and the second function, "ColorChoice()", uses the pass-by-reference, &colorPartChoice.
 
-  **<ins>File:</ins>**
+  **<ins>File:</ins>** "color_translation.h"
 
-  **<ins>Line Numbers:</ins>** 
+  **<ins>Line Numbers:</ins>** 30-31
+
+  **<ins>File:</ins>** "color_translation.cpp"
+
+  **<ins>Line Numbers:</ins>** 88, 204
   
 - Resource Acquisition Is Initialization (RAII) is used when handling the "choosing_color_string.txt" file
 
-  **<ins>File:</ins>**
+  **<ins>File:</ins>** "color_translation.cpp"
 
-  **<ins>Line Numbers:</ins>** 
+  **<ins>Line Numbers:</ins>** 12-44, 254,255
   
 - Both the "color_translation" and "renderer" classes have their destructor, copy constructor, copy assignment operator, move constructor, and move assignment operator defined, making the project follow the Rule of 5.
 
-  **<ins>File:</ins>**
+  **<ins>File:</ins>** "color_translation.h"
 
-  **<ins>Line Numbers:</ins>**
+  **<ins>Line Numbers:</ins>** 19-24
 
-  **<ins>File:</ins>**
+  **<ins>File:</ins>** "color_translation.cpp"
 
-  **<ins>Line Numbers:</ins>** 
+  **<ins>Line Numbers:</ins>** 12-86
+
+  **<ins>File:</ins>** "renderer.h"
+
+  **<ins>Line Numbers:</ins>** 15-20
+
+  **<ins>File:</ins>** "renderer.cpp"
+
+  **<ins>Line Numbers:</ins>** 16-53
 
 ### <ins>Concurrency:</ins>
 - The project uses two threads to ensure that the user is able to choose whether they want to change the given game colors or not before the game window pops up for them to play.
