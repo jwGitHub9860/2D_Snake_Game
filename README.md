@@ -43,9 +43,15 @@ The player choice to change Snake and/or Food color(s)
 ### <ins>Object Oriented Programming:</ins>
 - involved adding 1 new class to project called "color_translation"
   
-    **<ins>File:</ins>**
+    **<ins>File:</ins>** "color_translation.cpp"
 
-    <ins>Line Numbers:</ins>
+    <ins>Line Numbers:</ins> 1-262
+    **<ins>File:</ins>** "color_translation.h"
+
+    <ins>Line Numbers:</ins> 1-51
+    **<ins>File:</ins>** "main.cpp"
+
+    <ins>Line Numbers:</ins> 40
     
 - all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
 
