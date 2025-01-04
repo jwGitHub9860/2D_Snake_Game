@@ -18,11 +18,14 @@ The player choice to change Snake and/or Food color(s)
   
     FILE:
 
-    LINE NUMBERS:
+    *LINE NUMBERS*:
   
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
-    FILE: "color_translation.cpp"
-    LINE NUMBERS: 236, 241, 249, 252
+
+    File: "color_translation.cpp"
+
+    *Line Numbers*: 236, 241, 249, 252
+  
   - text file is accessed using a constant string variable
       FILE:
       LINE NUMBER(S):
