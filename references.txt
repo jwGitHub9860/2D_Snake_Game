@@ -1,0 +1,69 @@
+References:
+
+Bock, David P. “Class Files.” CSC 125 - Computer Science II (Programming in C++), remy.parkland.edu/~dbock/Class/csc125/Lecture/ClassFiles.html. Accessed 1 Jan. 2025.
+Brane, et al. “Casting Unique_ptr to Char** to Pass It as an Function Argument Func(Char** Arg).” Stack Overflow, 1 Dec. 1965, stackoverflow.com/questions/64476566/casting-unique-ptr-to-char-to-pass-it-as-an-function-argument-funcchar-arg. Accessed 2 Dec. 2024.
+
+"C++: a nonstatic member reference must be relative to a specific object." Stack Overflow, 1 Dec. 1962, stackoverflow.com/questions/46740130/c-a-nonstatic-member-reference-must-be-relative-to-a-specific-object. Accessed 18 Nov. 2024.
+“C++ Data Types.” GeeksforGeeks, 14 Oct. 2024, www.geeksforgeeks.org/cpp-data-types/. Accessed 30 Oct. 2024.
+Chris. "So should README be a markdown or pdf or is the README a separate document from the writeup." Knowledge, Udacity, knowledge.udacity.com/questions/880452. Accessed 27 Oct. 2024.
+“Cin Get() in C++ with Examples.” GeeksforGeeks, 17 Jan. 2020, www.geeksforgeeks.org/cin-get-in-c-with-examples/. Accessed 19 Oct 2024.
+
+FarmerLenny. "Laying Down the Law (a guide to rulebook writing)." iSlaytheDragon, 11 Apr. 2014, islaythedragon.com/featured/laying-down-the-law-a-guide-to-rulebook-writing/. Accessed 28 Oct. 2024.
+Felipe, et al. “How to Return/Copy Values of an Unique_ptr?” Stack Overflow, 1 Dec. 1963, stackoverflow.com/questions/52739477/how-to-return-copy-values-of-an-unique-ptrunsigned-char. Accessed 2 Dec. 2024.
+fredoverflow. “Const vs Constexpr on Variables.” Stack Overflow, 1 Dec. 1957, stackoverflow.com/questions/13346879/const-vs-constexpr-on-variables. Accessed 13 Dec. 2024.
+“Function Overloading in C++.” GeeksforGeeks, 11 Oct. 2024, www.geeksforgeeks.org/function-overloading-c/. Accessed 8 Dec. 2024.
+
+hatgirlhatgirl. “Initializing an Unsigned Char Array with Hex Values in C++.” Stack Overflow, 1 Jan. 1959, stackoverflow.com/questions/19946660/initializing-an-unsigned-char-array-with-hex-values-in-c. Accessed 11 Nov. 2024.
+hatgirlhatgirl. “Passing an Unsigned Char Array by Reference in C++.” Stack Overflow, 1 Dec. 1958, stackoverflow.com/questions/19610759/passing-an-unsigned-char-array-by-reference-in-c. Accessed 21 Dec. 2024.
+"How to convert an instance of std::string to lower case." Stack Overflow, 1 Jan. 1954, stackoverflow.com/questions/313970/how-to-convert-an-instance-of-stdstring-to-lower-case. Accessed 31 Oct. 2024.
+
+“Informit.” InformIT, www.informit.com/articles/article.aspx?p=1321841&seqNum=2#:~:text=C%2B%2B%20has%20only%20three%20kinds,while). Accessed 4 Jan. 2025.
+
+J, Chanhee. “To Use Thread in Snake Game.” Knowledge, Udacity, knowledge.udacity.com/questions/527993. Accessed 1 Jan. 2025. 
+
+
+
+lauw. “Proper Way to Create Unique_ptr That Holds an Allocated Array.” Stack Overflow, 1 Mar. 1959, stackoverflow.com/questions/21377360/proper-way-to-create-unique-ptr-that-holds-an-allocated-array. Accessed 2 Dec. 2024.
+
+"MLA Works Cited: Electronic Sources (Web Publications)." MLA Works Cited: Electronic Sources - Purdue OWL® - Purdue University, owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_electronic_sources.html. Accessed 28 Oct. 2024.
+“Multithreading in C++.” GeeksforGeeks, GeeksforGeeks, 5 Nov. 2024, www.geeksforgeeks.org/multithreading-in-cpp/. Accessed 31 Dec. 2024.
+
+nPnnPn. “Can I Simply Move the Data in a Std::Vector to a Unique_ptr?” Stack Overflow, 1 May 1963, stackoverflow.com/questions/49460594/can-i-simply-move-the-data-in-a-stdvector-to-a-unique-ptr. Accessed 2 Dec. 2024.
+
+“Online Compiler and Debugger for C/C++.” GDB Online Debugger, www.onlinegdb.com/. Accessed 7 Oct. 2024. 
+
+“Parameter Passing Techniques in C++.” GeeksforGeeks, GeeksforGeeks, 28 Nov. 2023, www.geeksforgeeks.org/parameter-passing-techniques-in-cpp/. Accessed 13 Dec. 2024.
+Park, Ellen. “Comprehensive Guide to Styling a Github README.” Medium, Medium, 3 Feb. 2021, ellen-park.medium.com/comprehensive-guide-to-styling-a-github-readme-2df7a6db1a00#:~:text=To%20make%20text%20bold%2C%20simply%20wrap%20in%20double%20asterisks. Accessed 4 Jan. 2025.
+"Problem with getline() after cin >>." GeeksforGeeks, 25 Feb. 2021, www.geeksforgeeks.org/problem-with-getline-after-cin/. Accessed 11 Nov. 2024.
+PST Admin. "E-BASIC: CColor, Color Object, RteColor provides expanded colors and HTML color listing [17814]." PSYCHOLOGY SOFTWARE TOOLS, 2021, support.pstnet.com/hc/en-us/articles/360021200914-E-BASIC-CColor-Color-Object-RteColor-provides-expanded-colors-and-HTML-color-listing-17814. Accessed 30 Oct. 2024.
+
+S, Ravikiran A. “All You Need to Know about C++ Memory Management: Simplilearn.” Simplilearn.Com, Simplilearn, 23 July 2024, www.simplilearn.com/tutorials/cpp-tutorial/cpp-memory-management#:~:text=In%20C%20language%2C%20we%20use,C%2B%2B%20also%20supports%20these%20functions. Accessed 13 Dec. 2024.
+ScienceAmateur. “Why Doesn’t C++ Accept Signed or Unsigned Char for Arrays of Characters.” Stack Overflow, 1 Apr. 1963, stackoverflow.com/questions/49145132/why-doesnt-c-accept-signed-or-unsigned-char-for-arrays-of-characters. Accessed 13 Dec. 2024.
+shreyasva. “What Is the Difference between Delete and Delete[]?” Stack Overflow, 1 Apr. 1955, stackoverflow.com/questions/2425728/what-is-the-difference-between-delete-and-delete. Accessed 5 Dec. 2024.
+"Smart Pointers in C++." GeeksforGeeks, 14 Oct. 2024, www.geeksforgeeks.org/smart-pointers-cpp/. Accessed 29 Nov. 2024.
+smilehamsmileham. “C++ Error: Undefined Reference to `main’.” Stack Overflow, 1 Mar. 1958, stackoverflow.com/questions/14620435/c-error-undefined-reference-to-main. Accessed 8 Dec. 2024.
+SOair, et al. “Using New to Allocate Memory for Unsigned Char Array Fails.” Stack Overflow, 1 Apr. 1961, stackoverflow.com/questions/35428076/using-new-to-allocate-memory-for-unsigned-char-array-fails. Accessed 5 Dec. 2024.
+"static_cast in C++." GeeksforGeeks, 11 Oct. 2024, www.geeksforgeeks.org/static_cast-in-cpp/. Accessed 2 Nov 2024.
+“Std::Make_unique in C++ 14.” GeeksforGeeks, 22 Sept. 2023, www.geeksforgeeks.org/cpp-14-make_unique/. Accessed 2 Dec. 2024.
+“Std::Move.” Cppreference.Com, en.cppreference.com/w/cpp/utility/move#:~:text=(since%20C%2B%2B14),from%20t%20to%20another%20object. Accessed 19 Oct. 2024. 
+"std::string::insert() in C++." GeeksforGeeks, 11 Oct. 2024, www.geeksforgeeks.org/stdstringinsert-in-c/. Accessed 25 Nov. 2024.
+"std::unique_ptr." cppreference.com, en.cppreference.com/w/cpp/memory/unique_ptr#:~:text=std%3A%3Aunique_ptr%20is%20commonly,exit%20and%20exit%20through%20exception. Accessed 1 Dec. 2024.
+sunshilong369. “Why the Compiler Complains That Std::Thread Arguments Must Be Invocable after Conversion to Rvalues?” Stack Overflow, 1 June 1965, stackoverflow.com/questions/61985888/why-the-compiler-complains-that-stdthread-arguments-must-be-invocable-after-co. Accessed 3 Jan. 2025.
+Suresh. "Unable to get reference to SDL_ttf header files." Knowledge, Udacity, knowledge.udacity.com/questions/300202. Accessed 29 Oct. 2024.
+
+"Templates in C++ with Examples." GeeksforGeeks, 11 Oct. 2024, www.geeksforgeeks.org/templates-cpp/. 2 Jan. 2025,
+“The Rule of Five in C++.” GeeksforGeeks, GeeksforGeeks, 17 Jan. 2024, www.geeksforgeeks.org/rule-of-five-in-cpp/. Accessed 19 Oct. 2024.
+
+"Unique_ptr in C++." GeeksforGeeks, 5 Oct. 2023, www.geeksforgeeks.org/unique_ptr-in-cpp/. Accessed 20 Oct. 2024.
+“Unsigned Char in C with Examples.” GeeksforGeeks, GeeksforGeeks, 6 Aug. 2020, www.geeksforgeeks.org/unsigned-char-in-c-with-examples/. Accessed 29 Nov 2024.
+
+Wael. "The rubric criteria for the project." Knowledge, Udacity, knowledge.udacity.com/questions/451572. Accessed 28 Oct. 2024.
+"what does "error : a nonstatic member reference must be relative to a specific object" mean?" Stack Overflow, 1 May 1957, stackoverflow.com/questions/9818515/what-does-error-a-nonstatic-member-reference-must-be-relative-to-a-specific-o. Accessed 18 Nov. 2024.
+
+
+
+Knowledge Udacity mentors who helped with Project: 
+
+1. Dohyeong
+2. Mostafa
+3. Ahmed Fathy
