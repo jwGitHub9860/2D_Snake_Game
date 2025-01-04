@@ -13,7 +13,7 @@ The feature first displays the request in the terminal telling the user to choos
 ## Rubric Points Addressed by Feature:
 The player choice to change Snake and/or Food color(s)
 
-<u>Loops, Functions, I/O:</u>
+<u>Loops, Functions, I/O:<u>
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
   - text file is accessed using a constant string variable 
 - accepts user's answers as input uses it to answer the given questions
