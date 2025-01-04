@@ -18,7 +18,7 @@ The player choice to change Snake and/or Food color(s)
   
     **<ins>File:</ins>** "main.cpp"
 
-    *Line Numbers*: 
+    **<ins>Line Numbers:</ins>** 
   
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
 
