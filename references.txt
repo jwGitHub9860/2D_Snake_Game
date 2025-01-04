@@ -21,8 +21,6 @@ hatgirlhatgirl. “Passing an Unsigned Char Array by Reference in C++.” Stack 
 
 J, Chanhee. “To Use Thread in Snake Game.” Knowledge, Udacity, knowledge.udacity.com/questions/527993. Accessed 1 Jan. 2025. 
 
-
-
 lauw. “Proper Way to Create Unique_ptr That Holds an Allocated Array.” Stack Overflow, 1 Mar. 1959, stackoverflow.com/questions/21377360/proper-way-to-create-unique-ptr-that-holds-an-allocated-array. Accessed 2 Dec. 2024.
 
 "MLA Works Cited: Electronic Sources (Web Publications)." MLA Works Cited: Electronic Sources - Purdue OWL® - Purdue University, owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_works_cited_electronic_sources.html. Accessed 28 Oct. 2024.
