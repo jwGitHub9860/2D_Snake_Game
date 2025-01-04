@@ -21,9 +21,6 @@ class Game {
 
 
   string colorPartChoice = ""; // initializes Snake Color Change choice; "game.cpp" & "main.cpp" USE IT
-  /*unique_ptr<uint8_t[]> gameBodyHexPtr = make_unique<uint8_t[]>(4);   // Game "unique_ptr" (1st)
-  unique_ptr<uint8_t[]> gameHeadHexPtr = make_unique<uint8_t[]>(4);   // Game "unique_ptr" (1st)
-  unique_ptr<uint8_t[]> gameFoodHexPtr = make_unique<uint8_t[]>(4);*/   // Game "unique_ptr" (1st)
 
 
  private:
@@ -37,6 +34,8 @@ class Game {
   std::uniform_int_distribution<int> random_h;  // limits random numbers for grid
 
   int score{0}; // initial game score
+
+  bool closedWindow = true;  // indicates if game window is open or closed & initialized to "true"
 
   void PlaceFood();
   void Update();

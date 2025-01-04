@@ -27,9 +27,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     frame_start = SDL_GetTicks(); // records start of frame (timestamp)
 
     
-    if (colorPartChoice != "none")  // calls function 
+    if (colorPartChoice != "none")  // checks if user chose not to change any colors 
     {
-      //colorTranslation.ColorChoice(colorPartChoice);
       thread choosingColorThread(&color_translation::ColorChoice, &colorTranslation, ref(colorPartChoice)); // 1st thread calling "ColorChoice" function      MUST CONFIRM "colorPartChoice" Is Reference USING "ref()"
       choosingColorThread.join();  // WAITS for "choosingColorThread" to Finish BEFORE program exits
     }
@@ -41,7 +40,13 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     Update();
     renderer.Render(snake, food, colorTranslation.snakeBodyColorHex, colorTranslation.snakeHeadColorHex, colorTranslation.foodHexColor);  // ADDED IN MY OWN (delete comment later?)
 
-    thread windowThread(&Renderer::createAndOpenWindow, &renderer);  // opens game window AFTER user chooses snake body, head, and/or food colors      ADDED "createAndOpenWindow()" function NOT Function Content AS MY OWN CODE (delete comment later?)
+    if (closedWindow) // checks if game window is already open
+    {
+      thread windowThread(&Renderer::createAndOpenWindow, &renderer);  // opens game window AFTER user chooses snake body, head, and/or food colors      ADDED "createAndOpenWindow()" function NOT Function Content AS MY OWN CODE (delete comment later?)
+      windowThread.join();  // WAITS for thread to Finish BEFORE program exits      ADDED LINE AS MY OWN CODE (delete comment later?)
+      closedWindow = false;  // indicates that game window is OPEN
+    }
+    
 
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 
@@ -63,8 +68,6 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     if (frame_duration < target_frame_duration) {
       SDL_Delay(target_frame_duration - frame_duration);
     }
-
-    windowThread.join();  // WAITS for thread to Finish BEFORE program exits      ADDED LINE AS MY OWN CODE (delete comment later?)
   }
 }
 
