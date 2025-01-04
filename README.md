@@ -16,7 +16,7 @@ The player choice to change Snake and/or Food color(s)
 ### <ins>Loops, Functions, I/O:</ins>
 - project has a variety of control structures
   
-    **<ins>File</ins>**: "main.cpp"
+    **<ins>File:</ins>** "main.cpp"
 
     *Line Numbers*: 
   
