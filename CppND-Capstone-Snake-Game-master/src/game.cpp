@@ -41,7 +41,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     Update();
     renderer.Render(snake, food, colorTranslation.snakeBodyColorHex, colorTranslation.snakeHeadColorHex, colorTranslation.foodHexColor);  // ADDED IN MY OWN (delete comment later?)
 
-    //thread windowThread(&Renderer::createAndOpenWindow, &renderer);  // opens game window AFTER user chooses snake body, head, and/or food colors      ADDED "createAndOpenWindow()" function NOT Function Content AS MY OWN CODE (delete comment later?)
+    thread windowThread(&Renderer::createAndOpenWindow, &renderer);  // opens game window AFTER user chooses snake body, head, and/or food colors      ADDED "createAndOpenWindow()" function NOT Function Content AS MY OWN CODE (delete comment later?)
 
     frame_end = SDL_GetTicks(); // records end of frame (timestamp)
 
@@ -64,7 +64,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       SDL_Delay(target_frame_duration - frame_duration);
     }
 
-    //windowThread.join();  // WAITS for thread to Finish BEFORE program exits      ADDED LINE AS MY OWN CODE (delete comment later?)
+    windowThread.join();  // WAITS for thread to Finish BEFORE program exits      ADDED LINE AS MY OWN CODE (delete comment later?)
   }
 }
 
