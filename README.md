@@ -19,17 +19,17 @@ The player choice to change Snake and/or Food color(s)
 - accepts user's answers as input uses it to answer the given questions
 - uses vector called "colorHolder" as data structure to hold the strings of the food, snake body and head colors
 
-### <ins>Object Oriented Programming:</ins>
+#### <ins>Object Oriented Programming:</ins>
 - involved adding 1 new class to project called "color_translation"
 - all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
 - uses template in "main.cpp" file to obtain user's choice of what color or colors to specify
 
-### <ins>Memory Management:</ins>
+##### <ins>Memory Management:</ins>
 - In the "color_translation" class, the first function, "ColorWordToHex()", uses the pass-by-references, "&ChoosenColor" and "&HexColorHolder", and the second function, "ColorChoice()", uses the pass-by-reference, &colorPartChoice.
 - Resource Acquisition Is Initialization (RAII) is used when handling the "choosing_color_string.txt" file
 - Both the "color_translation" and "renderer" classes have their destructor, copy constructor, copy assignment operator, move constructor, and move assignment operator defined, making the project follow the Rule of 5.
 
-### <ins>Concurrency:</ins>
+###### <ins>Concurrency:</ins>
 - The project uses two threads to ensure that the user is able to choose whether they want to change the given game colors or not before the game window pops up for them to play.
 - A lock guard is used to protect the hex values 
 
