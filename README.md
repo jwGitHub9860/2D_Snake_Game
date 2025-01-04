@@ -27,8 +27,11 @@ The player choice to change Snake and/or Food color(s)
     *Line Numbers*: 236, 241, 249, 252
   
   - text file is accessed using a constant string variable
-      FILE:
-      LINE NUMBER(S):
+    
+      ** *File* **:
+    
+      **Line Numbers**:
+    
 - accepts user's answers as input uses it to answer the given questions
 - uses vector called "colorHolder" as data structure to hold the strings of the food, snake body and head colors
 
