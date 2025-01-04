@@ -46,9 +46,11 @@ The player choice to change Snake and/or Food color(s)
     **<ins>File:</ins>** "color_translation.cpp"
 
     <ins>Line Numbers:</ins> 1-262
+  
     **<ins>File:</ins>** "color_translation.h"
 
     <ins>Line Numbers:</ins> 1-51
+  
     **<ins>File:</ins>** "main.cpp"
 
     <ins>Line Numbers:</ins> 40
