@@ -16,9 +16,9 @@ The player choice to change Snake and/or Food color(s)
 ### <ins>Loops, Functions, I/O:</ins>
 - project has a variety of control structures
   
-    FILE:
+    FILE: "main.cpp"
 
-    *LINE NUMBERS*:
+    *LINE NUMBERS*: 
   
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
 
@@ -33,12 +33,21 @@ The player choice to change Snake and/or Food color(s)
       **Line Numbers**:
     
 - accepts user's answers as input uses it to answer the given questions
+  
+    **File**:
+  
+    **Line Numbers**:
+  
 - uses vector called "colorHolder" as data structure to hold the strings of the food, snake body and head colors
 
 ### <ins>Object Oriented Programming:</ins>
 - involved adding 1 new class to project called "color_translation"
 - all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
 - uses template in "main.cpp" file to obtain user's choice of what color or colors to specify
+
+    **File:** "main.cpp"
+
+    **Line Numbers:** 13-18
 
 ### <ins>Memory Management:</ins>
 - In the "color_translation" class, the first function, "ColorWordToHex()", uses the pass-by-references, "&ChoosenColor" and "&HexColorHolder", and the second function, "ColorChoice()", uses the pass-by-reference, &colorPartChoice.
