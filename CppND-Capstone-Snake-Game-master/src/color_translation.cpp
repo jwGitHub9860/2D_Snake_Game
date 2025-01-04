@@ -3,7 +3,7 @@
 #include <algorithm>    // defines "transform"
 #include <fstream>
 #include <iostream>
-//#include <memory>   // defines "unique_ptr"
+#include <mutex>  // defines "mutex"
 #include <string>
 #include <vector>
 
@@ -202,7 +202,8 @@ void color_translation::ColorWordToHex(string &ChoosenColor, uint8_t (&HexColorH
 }
 
 void color_translation::ColorChoice(string &colorPartChoice)   // allows user to change "Body", "Head", and/or "Food"       MUST USE "&colorPartChoice" NOT "colorPartChoice" TO CHANGE "snakeBodyColorHex", "snakeHeadColorHex", and "foodHexColor" HEX VALUES (even though "colorPartChoice" will NOT be Changed or Returned)
-{	
+{
+  lock_guard<mutex> lock(mtx);  // protects hex values as they're passed
 	if (colorPartChoice == "body" || colorPartChoice == "head" || colorPartChoice == "food")
 	{
 		num_loops = 1;

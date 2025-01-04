@@ -2,8 +2,9 @@
 #define RENDERER_H
 
 //#include <memory>   // defines "unique_ptr"
+#include <mutex>  // defines "mutex"
 #include <vector>
-#include "color_translation.h"  // allows access to "unique_ptr" for INDIVIDUAL Snake Body, Snake Head, and Food Hex Values & "color_translation" move constructor
+//#include "color_translation.h"  // allows access to "unique_ptr" for INDIVIDUAL Snake Body, Snake Head, and Food Hex Values & "color_translation" move constructor
 #include "SDL.h"
 #include "snake.h"
 
@@ -37,7 +38,8 @@ class Renderer {
   size_t grid_width;
   size_t grid_height;
 
-
+  
+  mutex mtx;  // used for "lock_guard" to secure data
 };
 
 #endif

@@ -5,7 +5,7 @@
 
 #include <fstream>
 #include <iostream>
-//#include <memory>   // defines "unique_ptr"
+#include <mutex>
 #include <string>
 #include <vector>
 #include "SDL.h"
@@ -48,6 +48,8 @@ private:
     int num_loops = 1;
 
     ifstream stream;    // used to access "choosing_color_string.txt" FILE
+
+    mutex mtx;  // used for "lock_guard" to secure data
 };
 
 #endif

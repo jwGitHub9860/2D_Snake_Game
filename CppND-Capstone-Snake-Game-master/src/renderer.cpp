@@ -1,6 +1,7 @@
-#include "color_translation.h"  // allows access to "unique_ptr" for INDIVIDUAL Snake Body, Snake Head, and Food Hex Values & "color_translation" move constructor
+//#include "color_translation.h"  // allows access to "mtx" for INDIVIDUAL Snake Body, Snake Head, and Food Hex Values & "color_translation" move constructor
 #include "renderer.h"
 //#include <memory>   // defines "unique_ptr"
+#include <mutex>  // defines "mutex"
 #include <iostream>
 #include <string>
 
@@ -54,6 +55,7 @@ Renderer &Renderer::operator=(const Renderer &&source)   // 5. move assignment o
 }
 
 void Renderer::Render(Snake const snake, SDL_Point const &food, const uint8_t snakeBodyColorHex[4], const uint8_t snakeHeadColorHex[4], const uint8_t foodHexColor[4]) {
+  lock_guard<mutex> lock(mtx);  // protects hex values as they're passed
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
