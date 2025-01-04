@@ -1,16 +1,16 @@
 # Snake Game Instructions: How to Play
-
-* Move the snake to eat the food & grow
 * Move the snake using the arrow keys
+* Move the snake to eat the food & grow
 * Do NOT let the snake eat itself
 
 ## Code Structure Overview:
 The program allows the user to play the Snake Game with the option of choosing the snake body, head, and food colors before playing the game.
 
-## New Features paragraph:
-I added a feature that gives the user the choice to change the snake body, head, and/or food colors. The feature displays the question in the terminal asking the user if they want to change the body, head, and/or food colors. Next, the user types and enters their answer into the terminal. The answers are case insensitive. However, if the answer that the user entered is not one of the following color options listed in the displayed question or misspelled, the question will loop until the user enters a valid color. Next, the program either changes the colors or leaves the default colors depending on the user's answer. Then the game window will pop up and the user can play the game.
+## New Features Added with Output Explanation:
+I added a new feature that gives the player the choice to change the snake body, head, and/or food colors.
+The feature first displays the request in the terminal telling the user to choose if they want to change the body, head, and/or food colors. Next, the user types and enters their answer into the terminal. The answers are case insensitive. However, if the answer that the user entered is misspelled or not one of the following color options listed in the displayed request, the question will loop until the user enters a valid color. Next, the program either changes the colors or leaves the default colors depending on the user's answer. The game window will then pop up and the user can play the game.
 
-## Rubric Submission Explanation:
+## Rubric Points Addressed by Feature:
 The player choice to change Snake and/or Food color(s)
 
 Loops, Functions, I/O:
@@ -32,17 +32,6 @@ Memory Management:
 Concurrency:
 - The project uses two threads to ensure that the user is able to choose whether they want to change the given game colors or not before the game window pops up for them to play.
 - A lock guard is used to protect the hex values 
-
-## New Features added:
-* Gives player choice to change Snake and/or Food color(s)
-
-# Options [delete later]
-* Allow players to enter their names and save their high scores to a text file.
-* Add fixed and moving obstacles to the game.
-* Add different types of food to the game.
-* Allow players to select the initial speed of the game.
-* Add another snake to the game that is controlled by the computer using the A* search algorithm.
-
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
