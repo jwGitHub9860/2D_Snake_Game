@@ -24,23 +24,23 @@ The player choice to change Snake and/or Food color(s)
 
     **<ins>File:</ins>** "color_translation.cpp"
 
-    *Line Numbers*: 236, 241, 249, 252
+    **<ins>Line Numbers:</ins>** 236, 241, 249, 252
   
   - name of text file and user requests are held in constant string variables
     
       **<ins>File:</ins>** "main.cpp"
     
-      **Line Numbers**: 28-30
+      **<ins>Line Numbers:</ins>** 28-30
     
 - accepts user's answers as input uses it to answer the given questions
   
     **<ins>File:</ins>** "main.cpp"
   
-    **Line Numbers**: 16
+    **<ins>Line Numbers:</ins>** 16
 
     **<ins>File:</ins>** "color_translation.cpp"
   
-    **Line Numbers**: 236, 241, 249, 252
+    **<ins>Line Numbers:</ins>** 236, 241, 249, 252
   
 - uses vectors called "wordColorHolder" and "colorHolder" to hold the strings of the food, snake body and head colors and the following text: "Body ", "Head ", and "Food "
 
@@ -53,60 +53,71 @@ The player choice to change Snake and/or Food color(s)
   
     **<ins>File:</ins>** "color_translation.cpp"
 
-    <ins>Line Numbers:</ins> 1-262
+    **<ins>Line Numbers:</ins>** 1-262
   
     **<ins>File:</ins>** "color_translation.h"
 
-    <ins>Line Numbers:</ins> 1-51
+    **<ins>Line Numbers:</ins>** 1-51
   
     **<ins>File:</ins>** "main.cpp"
 
-    <ins>Line Numbers:</ins> 40
+    **<ins>Line Numbers:</ins>** 40
 
     **<ins>File:</ins>** "CMakeLists.txt"
 
-    <ins>Line Numbers:</ins> 17
+    **<ins>Line Numbers:</ins>** 17
     
 - all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
 
     **<ins>File:</ins>**
 
-    <ins>Line Numbers:</ins>
+    **<ins>Line Numbers:</ins>** 
   
 - uses template in "main.cpp" file to obtain user's choice of what color or colors to specify
 
     **<ins>File:</ins>** "main.cpp"
 
-    **Line Numbers:** 13-18
+    **<ins>Line Numbers:</ins>** 13-18
 
 ### <ins>Memory Management:</ins>
 - In the "color_translation" class, the first function, "ColorWordToHex()", uses the pass-by-references, "&ChoosenColor" and "&HexColorHolder", and the second function, "ColorChoice()", uses the pass-by-reference, &colorPartChoice.
 
   **<ins>File:</ins>**
 
-  <ins>Line Numbers:</ins>
+  **<ins>Line Numbers:</ins>** 
   
 - Resource Acquisition Is Initialization (RAII) is used when handling the "choosing_color_string.txt" file
 
   **<ins>File:</ins>**
 
-  <ins>Line Numbers:</ins>
+  **<ins>Line Numbers:</ins>** 
   
 - Both the "color_translation" and "renderer" classes have their destructor, copy constructor, copy assignment operator, move constructor, and move assignment operator defined, making the project follow the Rule of 5.
 
   **<ins>File:</ins>**
 
-  <ins>Line Numbers:</ins>
+  **<ins>Line Numbers:</ins>**
+
+  **<ins>File:</ins>**
+
+  **<ins>Line Numbers:</ins>** 
 
 ### <ins>Concurrency:</ins>
 - The project uses two threads to ensure that the user is able to choose whether they want to change the given game colors or not before the game window pops up for them to play.
 
-    **<ins>File:</ins>**
+    **<ins>File:</ins>** "game.cpp"
 
+    **<ins>Line Numbers:</ins>** 31, 42
   
 - A lock guard is used to protect the hex values
 
-    **<ins>File:</ins>**
+    **<ins>File:</ins>** "color_translation.cpp"
+
+    **<ins>Line Numbers:</ins>** 206
+  
+    **<ins>File:</ins>** "renderer.cpp"
+
+    **<ins>Line Numbers:</ins>** 56
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
