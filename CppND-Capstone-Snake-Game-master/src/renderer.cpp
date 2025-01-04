@@ -122,7 +122,7 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
   SDL_SetWindowTitle(sdl_window, title.c_str());
 }
 
-/**/void createAndOpenWindow()  // opens game window AFTER user chooses snake body, head, and/or food colors      PUT IN SEPARATE FUNCTION OR NOT???      ADDED "createAndOpenWindow()" function NOT Function Content AS MY OWN CODE (delete comment later?)
+void Renderer::createAndOpenWindow()  // opens game window AFTER user chooses snake body, head, and/or food colors      PUT IN SEPARATE FUNCTION OR NOT???      ADDED "createAndOpenWindow()" function NOT Function Content AS MY OWN CODE (delete comment later?)
 {
   // Initialize SDL
   if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -146,4 +146,4 @@ void Renderer::UpdateWindowTitle(int score, int fps) {
     std::cerr << "Renderer could not be created.\n";
     std::cerr << "SDL_Error: " << SDL_GetError() << "\n";
   }
-}/**/      
+}
