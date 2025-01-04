@@ -15,8 +15,11 @@ The player choice to change Snake and/or Food color(s)
 
 ### <ins>Loops, Functions, I/O:</ins>
 - project has a variety of control structures
+  
     FILE:
+
     LINE NUMBERS:
+  
 - reads data from "choosing_color_string.txt" text file telling the user to choose a color and outputs text to terminal
     FILE: "color_translation.cpp"
     LINE NUMBERS: 236, 241, 249, 252
