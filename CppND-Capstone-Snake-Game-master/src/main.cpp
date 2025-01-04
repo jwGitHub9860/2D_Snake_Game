@@ -10,7 +10,7 @@
 
 using namespace std;
 
-template <typename T> void gettingChoice(T &answer, T request)
+template <typename T> void gettingChoice(T &answer, T request)  // obtains user's choice
 {
   cout << request;
   getline(cin, answer); // includes MORE THAN 1 word
@@ -30,9 +30,9 @@ int main() {
   const string request_2 = "Please choose one of the following options (Body, Head, Food, Whole Snake, All, or None): ";  // string for while loop
   string choice = ""; // initializes Snake Color Change choice; limits to ONLY "main.cpp"
   
-  gettingChoice(choice, request_1);
+  gettingChoice(choice, request_1); // obtains user's choice
   
-  while (choice != "body" && choice != "head" && choice != "food" && choice != "whole snake" && choice != "all" && choice != "none") { gettingChoice(choice, request_2); }  // checks if "choice is valid"
+  while (choice != "body" && choice != "head" && choice != "food" && choice != "whole snake" && choice != "all" && choice != "none") { gettingChoice(choice, request_2); }  // checks if "choice is valid" & obtains user's again if it's not valid
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);  // creates Renderer object
   Controller controller;  // creates Controller object
