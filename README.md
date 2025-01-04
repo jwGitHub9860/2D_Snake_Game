@@ -54,6 +54,10 @@ The player choice to change Snake and/or Food color(s)
     **<ins>File:</ins>** "main.cpp"
 
     <ins>Line Numbers:</ins> 40
+
+    **<ins>File:</ins>** "CMakeLists.txt"
+
+    <ins>Line Numbers:</ins> 17
     
 - all class functions in "color_translation" class and other functions of my own in the original files have comments explaining their effects while their names generalize them
 
