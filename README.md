@@ -26,21 +26,27 @@ The player choice to change Snake and/or Food color(s)
 
     *Line Numbers*: 236, 241, 249, 252
   
-  - text file is accessed using a constant string variable
+  - name of text file and user requests are held in constant string variables
     
-      **<ins>File:</ins>**
+      **<ins>File:</ins>** "main.cpp"
     
-      **Line Numbers**:
+      **Line Numbers**: 28-30
     
 - accepts user's answers as input uses it to answer the given questions
   
-    **<ins>File:</ins>**
+    **<ins>File:</ins>** "main.cpp"
   
-    **Line Numbers**:
-  
-- uses vector called "colorHolder" as data structure to hold the strings of the food, snake body and head colors
+    **Line Numbers**: 16
 
-    **<ins>File:</ins>**
+    **<ins>File:</ins>** "color_translation.cpp"
+  
+    **Line Numbers**: 236, 241, 249, 252
+  
+- uses vectors called "wordColorHolder" and "colorHolder" to hold the strings of the food, snake body and head colors and the following text: "Body ", "Head ", and "Food "
+
+    **<ins>File:</ins>** "color_translation.h"
+
+    **<ins>Line Numbers:</ins>** 41, 43
 
 ### <ins>Object Oriented Programming:</ins>
 - involved adding 1 new class to project called "color_translation"
